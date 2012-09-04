@@ -154,6 +154,19 @@ set guioptions-=b
 "------------------------------------------------
 " Plugins
 "------------------------------------------------
+" NeoBundleİ’è
+set nocompatible
+filetype off
+
+if has('vim_starting')
+  set runtimepath+='~/.dotfiles/neobundle.vim'
+  call neobundle#rc(expand('~/.dotfiles/bundle/'))
+endif
+
+" NeoBundle 'git://github.com/Shougo/clang_complete.git'
+
+filetype plugin on
+filetype indent on
 
 " javascript-vim
 " js‚ÌƒCƒ“ƒfƒ“ƒg•â³
