@@ -154,26 +154,6 @@ set guioptions-=b
 " Plugins
 "------------------------------------------------
 " NeoBundleê›íË
-set nocompatible
-filetype off
-
-if has('vim_starting')
-  if &runtimepath !~ '/neobundle.vim'
-    execute 'set runtimepath+=' . expand('~/dotfiles/.vim/bundle/neobundle.vim')
-  endif
-endif
-call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
-
-NeoBundle 'Shougo/vimshell'
-
-filetype plugin indent on
-
-if neobundle#exists_not_installed_bundles()
-   echomsg 'Not installed bundles : ' .
-         \ string(neobundle#get_not_installed_bundle_names())
-   echomsg 'Please execute ":NeoBundleInstall" command.'
-   "finish
- endif
 
 
 " javascript-vim
