@@ -76,7 +76,6 @@ set shiftwidth=4
 if has("syntax")
 	syntax on
 endif
-filetype on
 " ウィンドウの幅より長い行は折り返して、次の行に続けて表示する
 set wrap
 " 見えない文字の表示
@@ -159,14 +158,23 @@ set nocompatible
 filetype off
 
 if has('vim_starting')
-  set runtimepath+='~/.dotfiles/neobundle.vim'
-  call neobundle#rc(expand('~/.dotfiles/bundle/'))
+  if &runtimepath !~ '/neobundle.vim'
+    execute 'set runtimepath+=' . expand('~/dotfiles/.vim/bundle/neobundle.vim')
+  endif
 endif
+call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
 
-" NeoBundle 'git://github.com/Shougo/clang_complete.git'
+NeoBundle 'Shougo/vimshell'
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
+
+if neobundle#exists_not_installed_bundles()
+   echomsg 'Not installed bundles : ' .
+         \ string(neobundle#get_not_installed_bundle_names())
+   echomsg 'Please execute ":NeoBundleInstall" command.'
+   "finish
+ endif
+
 
 " javascript-vim
 " jsのインデント補正
@@ -190,8 +198,5 @@ if has('vim_starting') &&  file_name == ""
 endif
 " 横幅
 let NERDTreeWinSize = 40
-
-
-
 
 
