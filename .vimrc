@@ -177,9 +177,9 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'minibufexpl.vim'
+"NeoBundle 'minibufexpl.vim'
 NeoBundle 'Shougo/neocomplcache'
-
+NeoBundle 'Shougo/unite.vim'
 
 filetype plugin indent on
 
@@ -203,17 +203,20 @@ endif
 "autocmd FileType javascript
 "\ :setl omnifunc=jscomplete#CompleteJS
 
-"minibufexpl
-"let g:miniBufExplMapWindowNavVim=1   "hjklで移動
-"let g:miniBufExplSplitBelow=0        " Put new window above
-"let g:miniBufExplMapWindowNavArrows=1
-"let g:miniBufExplMapCTabSwitchBufs=1
-"let g:miniBufExplModSelTarget=1
-"let g:miniBufExplSplitToEdge=1
-"nnoremap <C-d>    : bd<CR>      " バッファを閉じる
-"nmap <Space>      : MBEbn<CR>   " 次のバッファ
-"nmap <C-n>        : MBEbn<CR>   " 次のバッファ
-"nmap <C-p>        : MBEbp<CR>   " 前のバッファ
+""" unite.vim
+" 入力モードで開始する
+" let g:unite_enable_start_insert=1
+" バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+" レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+" 最近使用したファイル一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+" 常用セット
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+" 全部乗せ
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+
 
 " neocomplcache
 " code補完を表示する
