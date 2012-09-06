@@ -149,11 +149,16 @@ set guioptions-=L
 set guioptions-=b
 
 
+" htmlファイル作成時、templateを読み込む
+" autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
+augroup SkeletonAu
+    autocmd!
+    autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
+augroup END
 
 "------------------------------------------------
-" Plugins
+" NeoBundle
 "------------------------------------------------
-" NeoBundle設定
 set nocompatible
 filetype off
 
@@ -164,7 +169,13 @@ if has('vim_starting')
 endif
 call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
 
+" plugins
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/vimproc'
+
+
+
+
 
 filetype plugin indent on
 
@@ -174,6 +185,13 @@ if neobundle#exists_not_installed_bundles()
    echomsg 'Please execute ":NeoBundleInstall" command.'
    "finish
 endif
+
+
+
+
+"------------------------------------------------
+" Plugin 設定
+"------------------------------------------------
 
 " javascript-vim
 " jsのインデント補正
@@ -191,11 +209,11 @@ endif
 " NERD-Tree
 " 引数なし起動時はTree表示
 " http://kokukuma.blogspot.jp/2011/12/vim-essential-plugin-nerdtree.html
-"let file_name = expand("%")
-"if has('vim_starting') &&  file_name == ""
-"    autocmd VimEnter * NERDTree ./
-"endif
+let file_name = expand("%")
+if has('vim_starting') &&  file_name == ""
+    autocmd VimEnter * NERDTree ./
+endif
 " 横幅
-"let NERDTreeWinSize = 40
+let NERDTreeWinSize = 40
 
 
