@@ -31,5 +31,6 @@ endif
 set cmdheight=2
 
 
-
-
+"半透過
+gui
+set transparency=230

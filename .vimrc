@@ -148,6 +148,9 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=b
 
+" スムーズスクロール
+:map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+:map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 
 " htmlファイル作成時、templateを読み込む
 " autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
@@ -171,10 +174,11 @@ call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
 
 " plugins
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/vimproc'
-
-
-
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'minibufexpl.vim'
+NeoBundle 'Shougo/neocomplcache'
 
 
 filetype plugin indent on
@@ -199,19 +203,38 @@ endif
 "autocmd FileType javascript
 "\ :setl omnifunc=jscomplete#CompleteJS
 
+"minibufexpl
+"let g:miniBufExplMapWindowNavVim=1   "hjklで移動
+"let g:miniBufExplSplitBelow=0        " Put new window above
+"let g:miniBufExplMapWindowNavArrows=1
+"let g:miniBufExplMapCTabSwitchBufs=1
+"let g:miniBufExplModSelTarget=1
+"let g:miniBufExplSplitToEdge=1
+"nnoremap <C-d>    : bd<CR>      " バッファを閉じる
+"nmap <Space>      : MBEbn<CR>   " 次のバッファ
+"nmap <C-n>        : MBEbn<CR>   " 次のバッファ
+"nmap <C-p>        : MBEbp<CR>   " 前のバッファ
+
 " neocomplcache
-" code保管を表示する
+" code補完を表示する
 " https://github.com/Shougo/neocomplcache
-" let g:neocomplcache_enable_at_startup = 1
-" 重いので一時停止
+let g:neocomplcache_enable_at_startup = 1
+
+
+" taglist.vim
+let Tlist_Show_One_File = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Exit_OnlyWindow = 1
+" F8にtaglistのtoggleを割り当て
+nnoremap <silent> <F8> :TlistToggle<CR>
 
 
 " NERD-Tree
-" 引数なし起動時はTree表示
+" 引数なし起動時はTree表示 (BookmarkのUserを初回に表示
 " http://kokukuma.blogspot.jp/2011/12/vim-essential-plugin-nerdtree.html
 let file_name = expand("%")
 if has('vim_starting') &&  file_name == ""
-    autocmd VimEnter * NERDTree ./
+    autocmd VimEnter * NERDTree User
 endif
 " 横幅
 let NERDTreeWinSize = 40
