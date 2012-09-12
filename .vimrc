@@ -1,5 +1,5 @@
 "---------------------------------------------------
-" •¶šƒR[ƒhŠÖ˜A
+" æ–‡å­—ã‚³ãƒ¼ãƒ‰é–¢é€£
 " via@https://github.com/cosmo0920/vim-emacs_Setting/tree/master/vimrc
 "---------------------------------------------------
 if &encoding !=# 'utf-8'
@@ -9,16 +9,16 @@ endif
 if has('iconv')
 	let s:enc_euc = 'euc-jp'
 	let s:enc_jis = 'iso-2022-jp'
-	" iconv‚ªeucJP-ms‚É‘Î‰‚µ‚Ä‚¢‚é‚©‚ğƒ`ƒFƒbƒN
+	" iconvãŒeucJP-msã«å¯¾å¿œã—ã¦ã„ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯
 	if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
 		let s:enc_euc = 'eucjp-ms'
 		let s:enc_jis = 'iso-2022-jp-3'
-	" iconv‚ªJISX0213‚É‘Î‰‚µ‚Ä‚¢‚é‚©‚ğƒ`ƒFƒbƒN
+	" iconvãŒJISX0213ã«å¯¾å¿œã—ã¦ã„ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯
 	elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
 		let s:enc_euc = 'euc-jisx0213'
 		let s:enc_jis = 'iso-2022-jp-3'
 	endif
-	" fileencodings‚ğ\’z
+	" fileencodingsã‚’æ§‹ç¯‰
 	if &encoding ==# 'utf-8'
 		let s:fileencodings_default = &fileencodings
 		let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
@@ -38,11 +38,11 @@ if has('iconv')
 			let &fileencodings = &fileencodings .','. s:enc_euc
 		endif
 	endif
-	" ’è”‚ğˆ•ª
+	" å®šæ•°ã‚’å‡¦åˆ†
 	unlet s:enc_euc
 	unlet s:enc_jis
 endif
-" “ú–{Œê‚ğŠÜ‚Ü‚È‚¢ê‡‚Í fileencoding ‚É encoding ‚ğg‚¤‚æ‚¤‚É‚·‚é
+" æ—¥æœ¬èªã‚’å«ã¾ãªã„å ´åˆã¯ fileencoding ã« encoding ã‚’ä½¿ã†ã‚ˆã†ã«ã™ã‚‹
 if has('autocmd')
 	function! AU_ReCheck_FENC()
 		if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
@@ -57,66 +57,66 @@ if has('autocmd')
 endif
 
 "----------------------------------------------------
-" ƒCƒ“ƒfƒ“ƒgEƒ^ƒu
+" ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆãƒ»ã‚¿ãƒ–
 " via@https://github.com/cosmo0920/vim-emacs_Setting/tree/master/vimrc
 "----------------------------------------------------
-" ƒI[ƒgƒCƒ“ƒfƒ“ƒg‚ğ—LŒø‚É‚·‚é
+" ã‚ªãƒ¼ãƒˆã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’æœ‰åŠ¹ã«ã™ã‚‹
 " via@http://nanasi.jp/articles/howto/note/top10-viuser-need-to-know-about-vim.html#cindent
 set cindent
-" ƒ^ƒu‚Ì‹ó”’‚Ì”
+" ã‚¿ãƒ–ã®ç©ºç™½ã®æ•°
 " via@http://ogawa.s18.xrea.com/fswiki/wiki.cgi?page=Vim%A4%CE%A5%E1%A5%E2
 set tabstop=4
-" tab‰Ÿ‰º‚ÌƒJ[ƒ\ƒ‹ˆÚ“®•
+" tabæŠ¼ä¸‹æ™‚ã®ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•å¹…
 set softtabstop=4
-" ©“®ƒCƒ“ƒfƒ“ƒg•
+" è‡ªå‹•ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆå¹…
 set shiftwidth=4
 
 
-"‹­’²•\¦(F•t‚¯)‚ÌON/OFFİ’è
+"å¼·èª¿è¡¨ç¤º(è‰²ä»˜ã‘)ã®ON/OFFè¨­å®š
 if has("syntax")
 	syntax on
 endif
-" ƒEƒBƒ“ƒhƒE‚Ì•‚æ‚è’·‚¢s‚ÍÜ‚è•Ô‚µ‚ÄAŸ‚Ìs‚É‘±‚¯‚Ä•\¦‚·‚é
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å¹…ã‚ˆã‚Šé•·ã„è¡Œã¯æŠ˜ã‚Šè¿”ã—ã¦ã€æ¬¡ã®è¡Œã«ç¶šã‘ã¦è¡¨ç¤ºã™ã‚‹
 set wrap
-" Œ©‚¦‚È‚¢•¶š‚Ì•\¦
+" è¦‹ãˆãªã„æ–‡å­—ã®è¡¨ç¤º
 " via@http://d.hatena.ne.jp/potappo2/20061107/1162862536
 set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 
 
 "------------------------------------------------
-"ƒGƒfƒBƒ^‚Ì“®ì
+"ã‚¨ãƒ‡ã‚£ã‚¿ã®å‹•ä½œ
 " via@https://github.com/cosmo0920/vim-emacs_Setting/tree/master/vimrc
 "------------------------------------------------
-" s”Ô†‚ğ•\¦‚·‚é
+" è¡Œç•ªå·ã‚’è¡¨ç¤ºã™ã‚‹
 set number
-" Š‡ŒÊ“ü—Í‚Ì‘Î‰‚·‚éŠ‡ŒÊ‚ğ•\¦
+" æ‹¬å¼§å…¥åŠ›æ™‚ã®å¯¾å¿œã™ã‚‹æ‹¬å¼§ã‚’è¡¨ç¤º
 set showmatch
-"V‚µ‚¢s‚ğì‚Á‚½‚Æ‚«‚É‚“x‚È©“®ƒCƒ“ƒfƒ“ƒg‚ğs‚¤
+"æ–°ã—ã„è¡Œã‚’ä½œã£ãŸã¨ãã«é«˜åº¦ãªè‡ªå‹•ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’è¡Œã†
 set smartindent
-"ŒŸõ‚É‘å•¶š‚ğŠÜ‚ñ‚Å‚¢‚½‚ç‘å/¬‚ğ‹æ•Ê
+"æ¤œç´¢æ™‚ã«å¤§æ–‡å­—ã‚’å«ã‚“ã§ã„ãŸã‚‰å¤§/å°ã‚’åŒºåˆ¥
 set smartcase
-" ŒŸõ‚ªƒtƒ@ƒCƒ‹––”ö‚Ü‚Åi‚ñ‚¾‚çAƒtƒ@ƒCƒ‹æ“ª‚©‚çÄ‚ÑŒŸõ‚·‚éBi—LŒø:wrapscan/–³Œø:nowrapscanj
+" æ¤œç´¢ãŒãƒ•ã‚¡ã‚¤ãƒ«æœ«å°¾ã¾ã§é€²ã‚“ã ã‚‰ã€ãƒ•ã‚¡ã‚¤ãƒ«å…ˆé ­ã‹ã‚‰å†ã³æ¤œç´¢ã™ã‚‹ã€‚ï¼ˆæœ‰åŠ¹:wrapscan/ç„¡åŠ¹:nowrapscanï¼‰
 set wrapscan
-" ƒJ[ƒ\ƒ‹‚ª‰½s–Ú‚Ì‰½—ñ–Ú‚É’u‚©‚ê‚Ä‚¢‚é‚©‚ğ•\¦‚·‚éBi—LŒø:ruler/–³Œø:norulerj
+" ã‚«ãƒ¼ã‚½ãƒ«ãŒä½•è¡Œç›®ã®ä½•åˆ—ç›®ã«ç½®ã‹ã‚Œã¦ã„ã‚‹ã‹ã‚’è¡¨ç¤ºã™ã‚‹ã€‚ï¼ˆæœ‰åŠ¹:ruler/ç„¡åŠ¹:norulerï¼‰
 set ruler
-" IME‚ªon‚Ìê‡‚ÍƒJ[ƒ\ƒ‹‚ğÔ‚­‚·‚é
+" IMEãŒonã®å ´åˆã¯ã‚«ãƒ¼ã‚½ãƒ«ã‚’èµ¤ãã™ã‚‹
 " http://www.e2esound.com/wp/2010/11/07/add_vimrc_settings/
 hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cterm=reverse
-" ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ğì‚ç‚È‚¢
+" ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‰ãªã„
 set nobackup
-" ƒXƒƒbƒvƒtƒ@ƒCƒ‹‚ğì¬‚µ‚È‚¢
+" ã‚¹ãƒ¯ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ãªã„
 set noswapfile
-" ŒŸõ‚É‘å•¶šE¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢
+" æ¤œç´¢æ™‚ã«å¤§æ–‡å­—ãƒ»å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 set ignorecase
 " via@http://vimwiki.net/?'guioptions'
-" ƒNƒŠƒbƒvƒ{[ƒh‹¤—L
+" ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰å…±æœ‰
 "set guioptions=a
 " via@http://www.nk2.org/vim.html
 set clipboard=unnamed
-" ƒoƒbƒNƒXƒy[ƒX‚Åindent–³‹ & ‰üs’´‚¦‚ÄƒoƒbƒNƒXƒy[ƒX‹–‰Â
+" ãƒãƒƒã‚¯ã‚¹ãƒšãƒ¼ã‚¹ã§indentç„¡è¦– & æ”¹è¡Œè¶…ãˆã¦ãƒãƒƒã‚¯ã‚¹ãƒšãƒ¼ã‚¹è¨±å¯
 set guioptions=indent,eol
-" ƒJ[ƒ\ƒ‹s‚ğ‰æ–Ê’†‰›‚É‚·‚é
+" ã‚«ãƒ¼ã‚½ãƒ«è¡Œã‚’ç”»é¢ä¸­å¤®ã«ã™ã‚‹
 set scrolloff=999
 " fullscreen
 " via@http://nanabit.net/blog/2007/11/01/vim-fullscreen/
@@ -150,11 +150,11 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=b
 
-" ƒXƒ€[ƒYƒXƒNƒ[ƒ‹
+" ã‚¹ãƒ ãƒ¼ã‚ºã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
 :map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
 :map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 
-" htmlƒtƒ@ƒCƒ‹ì¬Atemplate‚ğ“Ç‚İ‚Ş
+" htmlãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆæ™‚ã€templateã‚’èª­ã¿è¾¼ã‚€
 " autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
 augroup SkeletonAu
     autocmd!
@@ -195,26 +195,26 @@ endif
 
 
 "------------------------------------------------
-" Plugin İ’è
+" Plugin è¨­å®š
 "------------------------------------------------
 
 """ unite.vim
-" “ü—Íƒ‚[ƒh‚ÅŠJn‚·‚é
+" å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰ã§é–‹å§‹ã™ã‚‹
 " let g:unite_enable_start_insert=1
-" ƒoƒbƒtƒ@ˆê——
+" ãƒãƒƒãƒ•ã‚¡ä¸€è¦§
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-" ƒŒƒWƒXƒ^ˆê——
+" ãƒ¬ã‚¸ã‚¹ã‚¿ä¸€è¦§
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-" Å‹ßg—p‚µ‚½ƒtƒ@ƒCƒ‹ˆê——
+" æœ€è¿‘ä½¿ç”¨ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§
 nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
-" í—pƒZƒbƒg
+" å¸¸ç”¨ã‚»ãƒƒãƒˆ
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-" ‘S•”æ‚¹
+" å…¨éƒ¨ä¹—ã›
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
 
 " neocomplcache
-" code•âŠ®‚ğ•\¦‚·‚é
+" codeè£œå®Œã‚’è¡¨ç¤ºã™ã‚‹
 " https://github.com/Shougo/neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 
@@ -223,18 +223,18 @@ let g:neocomplcache_enable_at_startup = 1
 let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
-" F8‚Étaglist‚Ìtoggle‚ğŠ„‚è“–‚Ä
+" F8ã«taglistã®toggleã‚’å‰²ã‚Šå½“ã¦
 nnoremap <silent> <F8> :TlistToggle<CR>
 
 
 " NERD-Tree
-" ˆø”‚È‚µ‹N“®‚ÍTree•\¦ (Bookmark‚ÌUser‚ğ‰‰ñ‚É•\¦
+" å¼•æ•°ãªã—èµ·å‹•æ™‚ã¯Treeè¡¨ç¤º (Bookmarkã®Userã‚’åˆå›ã«è¡¨ç¤º
 " http://kokukuma.blogspot.jp/2011/12/vim-essential-plugin-nerdtree.html
 let file_name = expand("%")
 if has('vim_starting') &&  file_name == ""
     autocmd VimEnter * NERDTree User
 endif
-" ‰¡•
+" æ¨ªå¹…
 let NERDTreeWinSize = 40
 
 
