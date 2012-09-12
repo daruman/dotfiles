@@ -111,7 +111,9 @@ set noswapfile
 set ignorecase
 " via@http://vimwiki.net/?'guioptions'
 " クリップボード共有
-set guioptions=a
+"set guioptions=a
+" via@http://www.nk2.org/vim.html
+set clipboard=unnamed
 " バックスペースでindent無視 & 改行超えてバックスペース許可
 set guioptions=indent,eol
 " カーソル行を画面中央にする
@@ -177,7 +179,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'mattn/zencoding-vim'
-"NeoBundle 'minibufexpl.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 
@@ -196,12 +197,6 @@ endif
 "------------------------------------------------
 " Plugin 設定
 "------------------------------------------------
-
-" javascript-vim
-" jsのインデント補正
-" http://github.com/pangloss/vim-javascript
-"autocmd FileType javascript
-"\ :setl omnifunc=jscomplete#CompleteJS
 
 """ unite.vim
 " 入力モードで開始する
