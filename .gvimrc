@@ -15,6 +15,10 @@ if has('win32')
   " Windows用
   set guifont=Consolas:h9:cSHIFTJIS
 endif
+if has('mac')
+  " mac用
+  set guifont=Menlo:h12
+endif
 
 
 
