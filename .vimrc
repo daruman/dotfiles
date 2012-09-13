@@ -1,10 +1,16 @@
+" vimのバージョンが7以下は.vimrcを読み込まない
+" MacOSデフォvim対応
+:if version < 701
+    :finish
+:endif
+
 "----------------------------------------------------
 " インデント・タブ
 " via@https://github.com/cosmo0920/vim-emacs_Setting/tree/master/vimrc
 "----------------------------------------------------
 " オートインデントを有効にする
 " via@http://nanasi.jp/articles/howto/note/top10-viuser-need-to-know-about-vim.html#cindent
-set cindent
+	set cindent
 " タブの空白の数
 " via@http://ogawa.s18.xrea.com/fswiki/wiki.cgi?page=Vim%A4%CE%A5%E1%A5%E2
 set tabstop=4
