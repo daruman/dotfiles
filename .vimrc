@@ -8,6 +8,7 @@
 " インデント・タブ
 " via@https://github.com/cosmo0920/vim-emacs_Setting/tree/master/vimrc
 "----------------------------------------------------
+if has('win32')
 " オートインデントを有効にする
 " via@http://nanasi.jp/articles/howto/note/top10-viuser-need-to-know-about-vim.html#cindent
 	set cindent
@@ -30,7 +31,7 @@ set wrap
 " via@http://d.hatena.ne.jp/potappo2/20061107/1162862536
 set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
-
+endif
 
 "------------------------------------------------
 "エディタの動作
@@ -38,6 +39,8 @@ set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 "------------------------------------------------
 " 行番号を表示する
 set number
+
+if has('win32')
 " 括弧入力時の対応する括弧を表示
 set showmatch
 "新しい行を作ったときに高度な自動インデントを行う
@@ -108,6 +111,7 @@ augroup SkeletonAu
     autocmd!
     autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
 augroup END
+endif
 
 "------------------------------------------------
 " NeoBundle

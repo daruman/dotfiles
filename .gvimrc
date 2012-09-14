@@ -8,6 +8,7 @@ hi LineNr guibg=#111111
 " カレント行ハイライト
 set cursorline
 
+
 "---------------------------------------------------
 " Font Size
 "---------------------------------------------------
@@ -27,14 +28,10 @@ endif
 " Default GUI Size
 " via@https://github.com/cosmo0920/vim-emacs_Setting/tree/master/vimrc
 "---------------------------------------------------
-if has("gui_running")
-"  set lines=45 columns=125
-"    au GUIEnter * simalt ~x
-endif
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=2
-
-
-"半透過
-gui
-set transparency=230
+if has('win32')
+	"半透過
+	gui
+	set transparency=230
+endif
