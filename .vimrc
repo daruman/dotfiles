@@ -8,7 +8,6 @@
 " インデント・タブ
 " via@https://github.com/cosmo0920/vim-emacs_Setting/tree/master/vimrc
 "----------------------------------------------------
-if has('win32')
 " オートインデントを有効にする
 " via@http://nanasi.jp/articles/howto/note/top10-viuser-need-to-know-about-vim.html#cindent
 	set cindent
@@ -19,12 +18,11 @@ set tabstop=4
 set softtabstop=4
 " 自動インデント幅
 set shiftwidth=4
-
-
 "強調表示(色付け)のON/OFF設定
 if has("syntax")
 	syntax on
 endif
+if has('win32')
 " ウィンドウの幅より長い行は折り返して、次の行に続けて表示する
 set wrap
 " 見えない文字の表示
