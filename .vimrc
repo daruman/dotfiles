@@ -72,6 +72,8 @@ NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimproc'
 
 filetype plugin indent on
 
