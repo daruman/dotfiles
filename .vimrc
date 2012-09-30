@@ -269,8 +269,16 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 noremap ; :
 
 
+" htmlファイル作成時、templateを読み込む
+" autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
+augroup SkeletonAu
+    autocmd!
+    autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
+augroup END
 
-" 以下macで動くかチェック
+
+
+
 if has('win32')
 
 " スムーズスクロール
@@ -284,12 +292,6 @@ hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cte
 " バックスペースでindent無視 & 改行超えてバックスペース許可
 set guioptions=indent,eol
 
-" htmlファイル作成時、templateを読み込む
-" autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
-augroup SkeletonAu
-    autocmd!
-    autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
-augroup END
 endif
 
 
