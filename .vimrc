@@ -79,6 +79,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'joestelmach/lint.vim'
 
 filetype plugin indent on
 
@@ -283,11 +284,6 @@ augroup END
 
 
 
-
-if has('win32')
-
-
-
 " php lint
 " via@http://d.hatena.ne.jp/kanno_kanno/20120716/1342428418
 augroup PHP
@@ -297,9 +293,15 @@ augroup PHP
   autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
 augroup END
 
+if has('win32')
+
+"js lint
+" autocmd FileType javascript :compiler javascriptlint
+
+
 " html lint
-"autocmd FileType html :compiler tidy
-"autocmd FileType html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+autocmd FileType html :compiler tidy
+autocmd FileType html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
 
 
 " スムーズスクロール
