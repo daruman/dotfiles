@@ -74,6 +74,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
+NeoBundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 
