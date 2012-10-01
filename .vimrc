@@ -8,8 +8,13 @@
 
 
 " Ev/Rvでvimrcの編集と反映
-command! Ev edit $MYVIMRC
-command! Rv source $MYVIMRC
+if has("gui_macvim")
+    command! Ev edit $MYVIMRC
+    command! Rv source $MYVIMRC
+else
+    command! Ev edit ~/dotfiles/.vimrc
+    command! Rv source ~/dotfiles/.vimrc
+endif
 
 " fullscreen
 " via@http://nanabit.net/blog/2007/11/01/vim-fullscreen/
@@ -74,7 +79,6 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 
@@ -281,6 +285,22 @@ augroup END
 
 
 if has('win32')
+
+
+
+" php lint
+" via@http://d.hatena.ne.jp/kanno_kanno/20120716/1342428418
+augroup PHP
+  autocmd!
+  autocmd FileType php set makeprg=php\ -l\ %
+  " php -lの構文チェックでエラーがなければ「No syntax errors」の一行だけ出力される
+  autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+augroup END
+
+" html lint
+"autocmd FileType html :compiler tidy
+"autocmd FileType html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+
 
 " スムーズスクロール
 :map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
