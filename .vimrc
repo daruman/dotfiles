@@ -80,6 +80,8 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'joestelmach/lint.vim'
+"NeoBundle 'hail2u/vim-css-syntax'
+"NeoBundle 'hail2u/vim-css3-syntax'
 
 filetype plugin indent on
 
@@ -285,64 +287,25 @@ augroup END
 
 
 " php lint
-" via@http://d.hatena.ne.jp/kanno_kanno/20120716/1342428418
-"augroup PHP
-"  autocmd!
-"  autocmd FileType php setlocal makeprg=php\ -l\ %
-  " php -lの構文チェックでエラーがなければ「No syntax errors」の一行だけ出力される
-"  autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
-"augroup END
-
-
-" "
-"  PHPLint
-"
-"  @author halt feits <halt.feits at gmail.com>
-"
-"nmap ,l :call PHPLint()<CR>
-"function PHPLint()
-"    let result = system( &ft . ' -l ' . bufname(""))
-"    echo result
-"endfunction
-
-" http://d.hatena.ne.jp/tell-k/20081224/1230185066
-"autocmd filetype php setlocal makeprg=php\ -l\ %
-"autocmd filetype php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-
-
-
-
-"au BufRead,BufNewFile *.php set makeprg=php\ -l\ %
-"au BufRead,BufNewFile *.php set errorformat=%m\ in\ %f\ on\ line\ %l
-"autocmd FileType php map <c-c><c-c> :make<cr> :cw<cr><cr>
-
-
-
 autocmd fileType php compiler php
 autocmd filetype php setlocal makeprg=php\ -l\ %
 autocmd filetype php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-" autocmd QuickfixCmdPost make copen
-
-
-
-
-
-
 
 
 
 " html lint
 autocmd fileType html compiler tidy
-"autocmd fileType html setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
 autocmd fileType html setlocal makeprg=tidy\ -config\ ~\\.tidyrc\ %
-"autocmd fileType html setlocal errorformat=%f:%l:%c:\ Error:%m,%f:%l:%c:\ Warning:%m,%-G%.%#
-
-
 
 
 
 "js lint
-" autocmd FileType javascript :compiler javascriptlint
+autocmd fileType javascript compiler javascriptlint
+
+
+
+
+
 
 
 if has('win32')
