@@ -318,7 +318,7 @@ augroup END
 
 
 
-autocmd fileType php :compiler php
+autocmd fileType php compiler php
 autocmd filetype php setlocal makeprg=php\ -l\ %
 autocmd filetype php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 " autocmd QuickfixCmdPost make copen
@@ -331,27 +331,21 @@ autocmd filetype php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
 
 
-
-
-
-
-
 " html lint
-"autocmd FileType html :compiler tidy
-"autocmd FileType html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ \"%\"
-"autocmd FileType html :setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+autocmd fileType html compiler tidy
+"autocmd fileType html setlocal makeprg=tidy\ -raw\ -quiet\ -errors\ --gnu-emacs\ yes\ \"%\"
+autocmd fileType html setlocal makeprg=tidy\ -config\ ~\\.tidyrc\ %
+"autocmd fileType html setlocal errorformat=%f:%l:%c:\ Error:%m,%f:%l:%c:\ Warning:%m,%-G%.%#
 
 
 
 
-
-if has('win32')
 
 "js lint
 " autocmd FileType javascript :compiler javascriptlint
 
 
-
+if has('win32')
 
 " スムーズスクロール
 :map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
