@@ -79,9 +79,16 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'joestelmach/lint.vim'
-"NeoBundle 'hail2u/vim-css-syntax'
-"NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'hail2u/vim-css-syntax'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'hail2u/html5.vim'
+
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'basyura/twibill.vim'
+NeoBundle 'basyura/TweetVim'
+
+
 
 filetype plugin indent on
 
@@ -292,18 +299,17 @@ autocmd filetype php setlocal makeprg=php\ -l\ %
 autocmd filetype php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
 
-
 " html lint
 autocmd fileType html compiler tidy
 autocmd fileType html setlocal makeprg=tidy\ -config\ ~\\.tidyrc\ %
-
 
 
 "js lint
 autocmd fileType javascript compiler javascriptlint
 
 
-
+" css lint
+autocmd fileType css compiler csslint
 
 
 
@@ -332,6 +338,7 @@ endif
 " Plugin 設定
 "------------------------------------------------
 
+
 """ unite.vim
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
@@ -357,6 +364,12 @@ let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 " F8にtaglistのtoggleを割り当て
 nnoremap <silent> <F8> :TlistToggle<CR>
+
+
+" open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 
 " NERD-Tree
