@@ -304,11 +304,11 @@ autocmd fileType html compiler tidy
 autocmd fileType html setlocal makeprg=tidy\ -config\ ~\\.tidyrc\ %
 
 
-"js lint
+" js lint
 autocmd fileType javascript compiler javascriptlint
 
-
-
+" css lint
+autocmd FileType css compiler csslint
 
 
 
