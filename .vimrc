@@ -84,10 +84,12 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'hail2u/html5.vim'
 
 NeoBundle 'mattn/webapi-vim'
+
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'basyura/twibill.vim'
 NeoBundle 'basyura/TweetVim'
 
+NeoBundle 'scrooloose/syntastic'
 
 
 filetype plugin indent on
@@ -291,24 +293,26 @@ augroup SkeletonAu
     autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
 augroup END
 
-
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_balloons=0
+let g:syntastic_auto_loc_list=1
+let g:syntastic_phpcs_disable=1
 
 " php lint
-autocmd fileType php compiler php
-autocmd filetype php setlocal makeprg=php\ -l\ %
-autocmd filetype php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-
+"autocmd fileType php compiler php
+"autocmd filetype php setlocal makeprg=php\ -l\ %
+"autocmd filetype php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 
 " html lint
-autocmd fileType html compiler tidy
-autocmd fileType html setlocal makeprg=tidy\ -config\ ~\\.tidyrc\ %
+"autocmd fileType html compiler tidy
+"autocmd fileType html setlocal makeprg=tidy\ -config\ ~\\.tidyrc\ %
 
 
 " js lint
-autocmd fileType javascript compiler javascriptlint
+"autocmd fileType javascript compiler javascriptlint
 
 " css lint
-autocmd FileType css compiler csslint
+"autocmd FileType css compiler csslint
 
 
 
