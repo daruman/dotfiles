@@ -91,7 +91,6 @@ NeoBundle 'basyura/TweetVim'
 
 NeoBundle 'scrooloose/syntastic'
 
-
 filetype plugin indent on
 
 if neobundle#exists_not_installed_bundles()
@@ -293,34 +292,9 @@ augroup SkeletonAu
     autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
 augroup END
 
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_balloons=0
-let g:syntastic_auto_loc_list=1
-let g:syntastic_phpcs_disable=1
-
-" php lint
-"autocmd fileType php compiler php
-"autocmd filetype php setlocal makeprg=php\ -l\ %
-"autocmd filetype php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-
-" html lint
-"autocmd fileType html compiler tidy
-"autocmd fileType html setlocal makeprg=tidy\ -config\ ~\\.tidyrc\ %
-
-
-" js lint
-"autocmd fileType javascript compiler javascriptlint
-
-" css lint
-"autocmd FileType css compiler csslint
-
 
 
 if has('win32')
-
-" スムーズスクロール
-:map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
-:map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 
 " IMEがonの場合はカーソルを赤くする
 " http://www.e2esound.com/wp/2010/11/07/add_vimrc_settings/
@@ -339,6 +313,19 @@ endif
 "------------------------------------------------
 " Plugin 設定
 "------------------------------------------------
+" syntastic
+" Shift+Mで構文チェック
+nmap M :SyntasticCheck
+" file open時にチェック
+let g:syntastic_check_on_open=1
+" error行表示部分にマウスオーバーでポップアップするのを非表示
+let g:syntastic_enable_balloons=0
+" errorを検知した際に自動でQuickfixを開く
+let g:syntastic_auto_loc_list=1
+" phpのチェックにphpcsを使わないようにする
+let g:syntastic_phpcs_disable=1
+
+
 " tweetvim
 " via@http://d.hatena.ne.jp/basyura/20111230/p1
 " タイムライン選択用の Unite を起動する
