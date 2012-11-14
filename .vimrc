@@ -316,6 +316,10 @@ endif
 " syntastic
 " Shift+Mで構文チェック
 nmap M :SyntasticCheck
+" javascriptは保存時構文チェックしない
+let g:syntastic_mode_map = { 'mode': 'active',
+  \ 'active_filetypes': [],
+  \ 'passive_filetypes': ['javascript'] }
 " file open時にチェック
 let g:syntastic_check_on_open=1
 " error行表示部分にマウスオーバーでポップアップするのを非表示
@@ -324,6 +328,9 @@ let g:syntastic_enable_balloons=0
 let g:syntastic_auto_loc_list=1
 " phpのチェックにphpcsを使わないようにする
 let g:syntastic_phpcs_disable=1
+" javascriptの構文チェックをclosure compilerに変更
+let g:syntastic_javascript_checker = "closurecompiler"
+let g:syntastic_javascript_closure_compiler_path = '~/bin/compiler.jar'
 
 
 " tweetvim
