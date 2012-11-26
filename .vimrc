@@ -288,7 +288,6 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " ;でコマンド入力( ;と:を入れ替)
 noremap ; :
 
-
 " htmlファイル作成時、templateを読み込む
 " autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
 augroup SkeletonAu
@@ -296,10 +295,7 @@ augroup SkeletonAu
 	autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
 augroup END
 
-
-
 if has('win32')
-
 	" IMEがonの場合はカーソルを赤くする
 	" http://www.e2esound.com/wp/2010/11/07/add_vimrc_settings/
 	hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cterm=reverse
@@ -309,9 +305,19 @@ if has('win32')
 
 endif
 
+" scssファイルを:makeでcssにコンパイル
+augroup SassAutoCommands
+	autocmd!
+	autocmd FileType sass,scss compiler scss
+	autocmd FileType sass,scss autocmd BufWritePost <buffer> :silent make
+augroup END
 
-
-
+" jsファイルを圧縮
+augroup JavascriptAutoCommands
+	autocmd!
+	autocmd FileType javascript compiler closurecompiler
+	autocmd FileType javascript autocmd BufWritePost <buffer> :silent make
+augroup END
 
 
 "------------------------------------------------
@@ -321,9 +327,10 @@ endif
 " Shift+Mで構文チェック
 nmap M :SyntasticCheck
 " javascriptは保存時構文チェックしない、htmlはvim-html5validatorで行う
+" scssは保存時にscss->css変換をするのでここではしない
 let g:syntastic_mode_map = { 'mode': 'active',
 			\ 'active_filetypes': [],
-			\ 'passive_filetypes': ['javascript', 'html'] }
+			\ 'passive_filetypes': ['javascript', 'html', 'scss'] }
 " file open時にチェック
 let g:syntastic_check_on_open=1
 " error行表示部分にマウスオーバーでポップアップするのを非表示
@@ -335,6 +342,7 @@ let g:syntastic_phpcs_disable=1
 " javascriptの構文チェックをclosure compilerに変更
 let g:syntastic_javascript_checker = "closurecompiler"
 let g:syntastic_javascript_closure_compiler_path = $HOME . "/bin/compiler.jar"
+
 
 " tweetvim
 " via@http://d.hatena.ne.jp/basyura/20111230/p1
@@ -393,13 +401,22 @@ endif
 " 横幅
 let NERDTreeWinSize = 40
 
+
 " vim-html5validator
-au BufWritePost *.html :HTML5Validate
+" open/close時にsyntax check
+" 能動的にやるには:HTML5Validate
+augroup HtmlAutoCommands
+	autocmd!
+	autocmd FileType html :HTML5Validate
+	autocmd FileType html autocmd BufWritePost <buffer> :silent make
+augroup END
+
 
 " zendcoding-vim
 let g:user_zen_settings = {
-\  'lang' : 'ja',
-\}
+			\  'lang' : 'ja',
+			\}
+
 
 " nerdcommenter
 let g:NERDCreateDefaultMappings = 0
@@ -407,3 +424,6 @@ let NERDSpaceDelims = 1
 nmap <Leader>/ <Plug>NERDCommenterToggle
 vmap <Leader>/ <Plug>NERDCommenterToggle
 vmap <Leader>/s <Plug>NERDCommenterSexy
+
+
+
