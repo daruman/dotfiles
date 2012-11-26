@@ -1,7 +1,7 @@
 " vimのバージョンが7以下は.vimrcを読み込まない
 " MacOSデフォvim対応
 :if version < 701
-    :finish
+:finish
 :endif
 
 
@@ -9,43 +9,43 @@
 
 " Ev/Rvでvimrcの編集と反映
 if has("gui_macvim")
-    command! Ev edit $MYVIMRC
-    command! Rv source $MYVIMRC
+	command! Ev edit $MYVIMRC
+	command! Rv source $MYVIMRC
 else
-    command! Ev edit ~/dotfiles/.vimrc
-    command! Rv source ~/dotfiles/.vimrc
+	command! Ev edit ~/dotfiles/.vimrc
+	command! Rv source ~/dotfiles/.vimrc
 endif
 
 " fullscreen
 " via@http://nanabit.net/blog/2007/11/01/vim-fullscreen/
 "-----------------------------------------------------------
 if has("gui_macvim")
-" Lion以前のフルスクリーンに戻す場合は以下のコマンドを実行
-" defaUlts write org.vim.MacVim MMNativeFullScreen 0
-  set fuoptions=maxvert,maxhorz
-  au GUIEnter * set fullscreen
+	" Lion以前のフルスクリーンに戻す場合は以下のコマンドを実行
+	" defaUlts write org.vim.MacVim MMNativeFullScreen 0
+	set fuoptions=maxvert,maxhorz
+	au GUIEnter * set fullscreen
 elseif has("win32")
 	" windows用
 	nnoremap <F11> :call ToggleFullScreen()<CR>
 	function! ToggleFullScreen()
-	  if &guioptions =~# 'C'
-	    set guioptions-=C
-	    if exists('s:go_temp')
-	      if s:go_temp =~# 'm'
-	        set guioptions+=m
-	      endif
-	      if s:go_temp =~# 'T'
-	        set guioptions+=T
-	      endif
-	    endif
-	    simalt ~r
-	  else
-	    let s:go_temp = &guioptions
-	    set guioptions+=C
-	    set guioptions-=m
-	    set guioptions-=T
-	    simalt ~x
-	  endif
+		if &guioptions =~# 'C'
+			set guioptions-=C
+			if exists('s:go_temp')
+				if s:go_temp =~# 'm'
+					set guioptions+=m
+				endif
+				if s:go_temp =~# 'T'
+					set guioptions+=T
+				endif
+			endif
+			simalt ~r
+		else
+			let s:go_temp = &guioptions
+			set guioptions+=C
+			set guioptions-=m
+			set guioptions-=T
+			simalt ~x
+		endif
 	endfunction
 	set guioptions-=T
 	set guioptions-=m
@@ -64,9 +64,9 @@ set nocompatible
 filetype off
 
 if has('vim_starting')
-  if &runtimepath !~ '/neobundle.vim'
-    execute 'set runtimepath+=' . expand('~/dotfiles/.vim/bundle/neobundle.vim')
-  endif
+	if &runtimepath !~ '/neobundle.vim'
+		execute 'set runtimepath+=' . expand('~/dotfiles/.vim/bundle/neobundle.vim')
+	endif
 endif
 call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
 
@@ -91,13 +91,17 @@ NeoBundle 'basyura/TweetVim'
 
 NeoBundle 'scrooloose/syntastic'
 
+NeoBundle 'hokaccha/vim-html5validator'
+NeoBundle 'scrooloose/nerdcommenter'
+
+
 filetype plugin indent on
 
 if neobundle#exists_not_installed_bundles()
-   echomsg 'Not installed bundles : ' .
-         \ string(neobundle#get_not_installed_bundle_names())
-   echomsg 'Please execute ":NeoBundleInstall" command.'
-   "finish
+	echomsg 'Not installed bundles : ' .
+				\ string(neobundle#get_not_installed_bundle_names())
+	echomsg 'Please execute ":NeoBundleInstall" command.'
+	"finish
 endif
 
 
@@ -288,20 +292,20 @@ noremap ; :
 " htmlファイル作成時、templateを読み込む
 " autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
 augroup SkeletonAu
-    autocmd!
-    autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
+	autocmd!
+	autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
 augroup END
 
 
 
 if has('win32')
 
-" IMEがonの場合はカーソルを赤くする
-" http://www.e2esound.com/wp/2010/11/07/add_vimrc_settings/
-hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cterm=reverse
+	" IMEがonの場合はカーソルを赤くする
+	" http://www.e2esound.com/wp/2010/11/07/add_vimrc_settings/
+	hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cterm=reverse
 
-" バックスペースでindent無視 & 改行超えてバックスペース許可
-set guioptions=indent,eol
+	" バックスペースでindent無視 & 改行超えてバックスペース許可
+	set guioptions=indent,eol
 
 endif
 
@@ -316,10 +320,10 @@ endif
 " syntastic
 " Shift+Mで構文チェック
 nmap M :SyntasticCheck
-" javascriptは保存時構文チェックしない
+" javascriptは保存時構文チェックしない、htmlはvim-html5validatorで行う
 let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['javascript'] }
+			\ 'active_filetypes': [],
+			\ 'passive_filetypes': ['javascript', 'html'] }
 " file open時にチェック
 let g:syntastic_check_on_open=1
 " error行表示部分にマウスオーバーでポップアップするのを非表示
@@ -330,8 +334,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_phpcs_disable=1
 " javascriptの構文チェックをclosure compilerに変更
 let g:syntastic_javascript_checker = "closurecompiler"
-let g:syntastic_javascript_closure_compiler_path = '~/bin/compiler.jar'
-
+let g:syntastic_javascript_closure_compiler_path = $HOME . "/bin/compiler.jar"
 
 " tweetvim
 " via@http://d.hatena.ne.jp/basyura/20111230/p1
@@ -341,7 +344,7 @@ nnoremap <silent> t :Unite tweetvim<CR>
 nnoremap <silent> s :TweetVimSay<CR>
 " スクリーン名のキャッシュを利用して、neocomplcache で補完する
 if !exists('g:neocomplcache_dictionary_filetype_lists')
-  let g:neocomplcache_dictionary_filetype_lists = {}
+	let g:neocomplcache_dictionary_filetype_lists = {}
 endif
 let neco_dic = g:neocomplcache_dictionary_filetype_lists
 let neco_dic.tweetvim_say = $HOME . '/.tweetvim/screen_name'
@@ -384,10 +387,23 @@ vmap gx <Plug>(openbrowser-smart-search)
 " 引数なし起動時はTree表示 (BookmarkのUserを初回に表示
 " http://kokukuma.blogspot.jp/2011/12/vim-essential-plugin-nerdtree.html
 let file_name = expand("%")
-if has('vim_starting') &&  file_name == ""
-    autocmd VimEnter * NERDTree User
+if has('vim_starting') && file_name == ""
+	autocmd VimEnter * NERDTree User
 endif
 " 横幅
 let NERDTreeWinSize = 40
 
+" vim-html5validator
+au BufWritePost *.html :HTML5Validate
 
+" zendcoding-vim
+let g:user_zen_settings = {
+\  'lang' : 'ja',
+\}
+
+" nerdcommenter
+let g:NERDCreateDefaultMappings = 0
+let NERDSpaceDelims = 1
+nmap <Leader>/ <Plug>NERDCommenterToggle
+vmap <Leader>/ <Plug>NERDCommenterToggle
+vmap <Leader>/s <Plug>NERDCommenterSexy
