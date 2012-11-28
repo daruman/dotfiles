@@ -342,6 +342,11 @@ let g:syntastic_phpcs_disable=1
 " javascriptの構文チェックをclosure compilerに変更
 let g:syntastic_javascript_checker = "closurecompiler"
 let g:syntastic_javascript_closure_compiler_path = $HOME . "/bin/compiler.jar"
+" csslintで連続class指定、装飾無し属性指定のwarn出力を抑止
+let g:syntastic_csslint_options = "--ignore=adjoining-classes,unqualified-attributes"
+
+
+
 
 
 " tweetvim
