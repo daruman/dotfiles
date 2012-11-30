@@ -305,18 +305,17 @@ if has('win32')
 
 endif
 
-" scssファイルを:makeでcssにコンパイル
+" scssファイルを:makeでcssにコンパイル、保存時に自動でコンパイル
 augroup SassAutoCommands
 	autocmd!
 	autocmd FileType sass,scss compiler scss
 	autocmd FileType sass,scss autocmd BufWritePost <buffer> :silent make
 augroup END
 
-" jsファイルを圧縮
+" jsファイルを:makeで圧縮
 augroup JavascriptAutoCommands
 	autocmd!
 	autocmd FileType javascript compiler closurecompiler
-	autocmd FileType javascript autocmd BufWritePost <buffer> :silent make
 augroup END
 
 
@@ -343,10 +342,7 @@ let g:syntastic_phpcs_disable=1
 let g:syntastic_javascript_checker = "closurecompiler"
 let g:syntastic_javascript_closure_compiler_path = $HOME . "/bin/compiler.jar"
 " csslintで連続class指定、装飾無し属性指定のwarn出力を抑止
-let g:syntastic_csslint_options = "--ignore=adjoining-classes,unqualified-attributes"
-
-
-
+let g:syntastic_csslint_options = "--ignore=adjoining-classes,unqualified-attributes,box-model"
 
 
 " tweetvim
