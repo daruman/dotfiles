@@ -415,9 +415,11 @@ augroup END
 
 " zendcoding-vim
 let g:user_zen_settings = {
-			\  'lang' : 'ja',
-			\}
-
+\  'lang' : 'ja',
+\  'html' : {
+\    'empty_element_suffix' : '>',
+\  }
+\}
 
 " nerdcommenter
 let g:NERDCreateDefaultMappings = 0
