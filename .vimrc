@@ -348,9 +348,9 @@ let g:syntastic_csslint_options = "--ignore=adjoining-classes,unqualified-attrib
 " tweetvim
 " via@http://d.hatena.ne.jp/basyura/20111230/p1
 " タイムライン選択用の Unite を起動する
-nnoremap <silent> t :Unite tweetvim<CR>
+nnoremap <silent> tt :Unite tweetvim<CR>
 " 発言用バッファを表示する
-nnoremap <silent> s :TweetVimSay<CR>
+nnoremap <silent> ss :TweetVimSay<CR>
 " スクリーン名のキャッシュを利用して、neocomplcache で補完する
 if !exists('g:neocomplcache_dictionary_filetype_lists')
 	let g:neocomplcache_dictionary_filetype_lists = {}
