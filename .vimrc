@@ -305,11 +305,10 @@ if has('win32')
 
 endif
 
-" scssファイルを:makeでcssにコンパイル、保存時に自動でコンパイル
+" scssファイルを:makeでcssにコンパイル
 augroup SassAutoCommands
 	autocmd!
 	autocmd FileType sass,scss compiler scss
-	autocmd FileType sass,scss autocmd BufWritePost <buffer> :silent make
 augroup END
 
 " jsファイルを:makeで圧縮
@@ -326,10 +325,9 @@ augroup END
 " Shift+Mで構文チェック
 nmap M :SyntasticCheck
 " javascriptは保存時構文チェックしない、htmlはvim-html5validatorで行う
-" scssは保存時にscss->css変換をするのでここではしない
 let g:syntastic_mode_map = { 'mode': 'active',
 			\ 'active_filetypes': [],
-			\ 'passive_filetypes': ['javascript', 'html', 'scss'] }
+			\ 'passive_filetypes': ['javascript', 'html'] }
 " file open時にチェック
 let g:syntastic_check_on_open=1
 " error行表示部分にマウスオーバーでポップアップするのを非表示
