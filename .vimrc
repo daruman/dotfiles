@@ -82,18 +82,14 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'hail2u/vim-css-syntax'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'hail2u/html5.vim'
-
 NeoBundle 'mattn/webapi-vim'
-
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'basyura/twibill.vim'
 NeoBundle 'basyura/TweetVim'
-
 NeoBundle 'scrooloose/syntastic'
-
 NeoBundle 'hokaccha/vim-html5validator'
 NeoBundle 'scrooloose/nerdcommenter'
-
+NeoBundle 'glidenote/memolist.vim'
 
 filetype plugin indent on
 
@@ -428,5 +424,8 @@ nmap <Leader>/ <Plug>NERDCommenterToggle
 vmap <Leader>/ <Plug>NERDCommenterToggle
 vmap <Leader>/s <Plug>NERDCommenterSexy
 
-
+" memolist
+map <Leader>mn  :MemoNew<CR>
+map <Leader>ml  :MemoList<CR>
+map <Leader>mg  :MemoGrep<CR>
 
