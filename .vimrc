@@ -323,9 +323,10 @@ augroup END
 " Shift+Mで構文チェック
 nmap M :SyntasticCheck
 " javascriptは保存時構文チェックしない、htmlはvim-html5validatorで行う
+" cssはエラーでたまままのファイルを保存するとvimが落ちる場合があるので除外
 let g:syntastic_mode_map = { 'mode': 'active',
 			\ 'active_filetypes': [],
-			\ 'passive_filetypes': ['javascript', 'html'] }
+			\ 'passive_filetypes': ['javascript', 'html', 'css'] }
 " file open時にチェック
 let g:syntastic_check_on_open=1
 " error行表示部分にマウスオーバーでポップアップするのを非表示
