@@ -1,6 +1,7 @@
 {
 	"folder_history":
 	[
+		"/C/Users/E0179/dotfiles",
 		"/Users/daruman/Dropbox/htdocs/web/nos/PTorganize"
 	],
 	"last_window_id": 6,
@@ -190,25 +191,21 @@
 			"buffers":
 			[
 				{
+					"contents": "{\n	\n	\"auto_complete_commit_on_tab\": true,\n	\"auto_complete_delay\": 50,\n	\"bold_folder_labels\": true,\n	\"caret_style\": \"phase\",\n	\"color_scheme\": \"Packages/Theme - Phoenix/Color Scheme/Phoenix Dark Yellow.tmTheme\",\n	\"default_encoding\": \"UTF-8\",\n	\"draw_minimap_border\": true,\n	\"draw_white_space\": \"all\",\n	\"highlight_line\": true,\n	\"ignored_packages\":\n	[\n	],\n	\"indent_to_bracket\": true,\n	\"line_numbers\": true,\n	\"line_padding_bottom\": 0,\n	\"line_padding_top\": 0,\n	\"margin\": 0,\n	\"match_brackets_angle\": true,\n	\"overlay_scroll_bars\": \"enabled\",\n	\"phoenix_color_expanded_folder\": true,\n	\"phoenix_color_green\": true,\n	\"phoenix_dirty_bottom_bar_red\": true,\n	\"phoenix_highlight_current_tab\": true,\n	\"phoenix_sidebar_tree_large\": true,\n	\"phoenix_tabs_auto_width\": true,\n	\"phoenix_tabs_small\": true,\n	\"scroll_speed\": 1.0,\n	\"tab_size\": 4,\n	\"theme\": \"Phoenix Dark.sublime-theme\",\n	\"translate_tabs_to_spaces\": false,\n	\"trim_trailing_white_space_on_save\": true,\n	\"vintage_ctrl_keys\": true,\n	\"vintage_start_in_command_mode\": true,\n	\"word_wrap\": true\n}\n",
 					"file": "/C/Users/E0179/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+					"file_size": 1027,
+					"file_write_time": 130010721839450970,
 					"settings":
 					{
-						"buffer_size": 1027,
+						"buffer_size": 1029,
 						"line_ending": "Unix"
-					}
-				},
-				{
-					"settings":
-					{
-						"buffer_size": 0,
-						"line_ending": "Windows"
 					}
 				}
 			],
 			"build_system": "",
 			"command_palette":
 			{
-				"height": 291.0,
+				"height": 375.0,
 				"selected_items":
 				[
 					[
@@ -240,7 +237,7 @@
 						"Package Control: Add Repository"
 					]
 				],
-				"width": 435.0
+				"width": 386.0
 			},
 			"console":
 			{
@@ -257,6 +254,8 @@
 			},
 			"file_history":
 			[
+				"/C/Users/E0179/dotfiles/Sublime Text 2/Packages/Default/Preferences (Windows).sublime-settings",
+				"/C/Users/E0179/dotfiles/Sublime Text 2/Packages/Default/Preferences (OSX).sublime-settings",
 				"/Users/daruman/Library/Application Support/Sublime Text 2/Packages/Default/Preferences (OSX).sublime-settings",
 				"/Users/daruman/Library/Application Support/Sublime Text 2/Packages/User/Preferences (OSX).sublime-settings",
 				"/Users/daruman/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
@@ -308,10 +307,16 @@
 				"whole_word": false,
 				"wrap": true
 			},
+			"folders":
+			[
+				{
+					"path": "/C/Users/E0179/dotfiles"
+				}
+			],
 			"groups":
 			[
 				{
-					"selected": 1,
+					"selected": 0,
 					"sheets":
 					[
 						{
@@ -319,46 +324,21 @@
 							"file": "/C/Users/E0179/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 							"settings":
 							{
-								"buffer_size": 1027,
+								"buffer_size": 1029,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										2,
+										2
 									]
 								],
 								"settings":
 								{
 									"syntax": "Packages/JavaScript/JSON.tmLanguage",
 									"translate_tabs_to_spaces": false
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"settings":
-							{
-								"buffer_size": 0,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										0,
-										0
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
@@ -426,7 +406,7 @@
 			"show_open_files": true,
 			"show_tabs": true,
 			"side_bar_visible": true,
-			"side_bar_width": 150.0,
+			"side_bar_width": 180.0,
 			"status_bar_visible": true,
 			"window_id": 6,
 			"workspace_name": ""
