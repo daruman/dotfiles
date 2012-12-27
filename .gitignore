@@ -1,4 +1,4 @@
 .vim/bundle/*
 !.vim/bundle/neobundle.vim
 Sublime\ Text\ 2/Settings/Session.sublime_session
-!Sublime\ Text\ 2/Packages/IMESupport
+Sublime\ Text\ 2/Packages/IMESupport/*
