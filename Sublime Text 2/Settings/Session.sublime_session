@@ -191,10 +191,19 @@
 			"buffers":
 			[
 				{
+					"contents": "",
 					"settings":
 					{
 						"buffer_size": 0,
 						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/E0179/dotfiles/.gvimrc",
+					"settings":
+					{
+						"buffer_size": 772,
+						"line_ending": "Unix"
 					}
 				}
 			],
@@ -313,7 +322,7 @@
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 1,
 					"sheets":
 					[
 						{
@@ -321,6 +330,33 @@
 							"settings":
 							{
 								"buffer_size": 0,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"auto_name": "",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/C/Users/E0179/dotfiles/.gvimrc",
+							"settings":
+							{
+								"buffer_size": 772,
 								"regions":
 								{
 								},
