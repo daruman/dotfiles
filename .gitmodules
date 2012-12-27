@@ -1,6 +1,3 @@
 [submodule ".vim/bundle/neobundle.vim"]
 	path = .vim/bundle/neobundle.vim
 	url = git://github.com/Shougo/neobundle.vim.git
-[submodule "Sublime Text 2/Packages/IMESupport"]
-	path = Sublime Text 2/Packages/IMESupport
-	url = git://github.com/chikatoike/IMESupport.git
