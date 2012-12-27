@@ -4,3 +4,4 @@
 [submodule "Sublime Text 2/Packages/IMESupport"]
 	path = Sublime Text 2/Packages/IMESupport
 	url = git://github.com/mizchi/sublimetext2-user.git
+	ignore = untracked
