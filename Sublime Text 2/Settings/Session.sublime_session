@@ -191,10 +191,10 @@
 			"buffers":
 			[
 				{
-					"file": "/C/Users/E0179/dotfiles/.gvimrc",
+					"file": "/C/Users/E0179/dotfiles/.vimrc",
 					"settings":
 					{
-						"buffer_size": 772,
+						"buffer_size": 12218,
 						"line_ending": "Unix"
 					}
 				}
@@ -251,6 +251,7 @@
 			},
 			"file_history":
 			[
+				"/C/Users/E0179/dotfiles/.gvimrc",
 				"/C/Users/E0179/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 				"/C/Users/E0179/dotfiles/Sublime Text 2/Packages/Default/Preferences (Windows).sublime-settings",
 				"/C/Users/E0179/dotfiles/Sublime Text 2/Packages/Default/Preferences (OSX).sublime-settings",
@@ -319,23 +320,24 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Users/E0179/dotfiles/.gvimrc",
+							"file": "/C/Users/E0179/dotfiles/.vimrc",
 							"settings":
 							{
-								"buffer_size": 772,
+								"buffer_size": 12218,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										372,
-										372
+										80,
+										80
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/Text/Plain text.tmLanguage"
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"translate_tabs_to_spaces": false
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
