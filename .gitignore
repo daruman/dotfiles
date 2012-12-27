@@ -1,3 +1,4 @@
 .vim/bundle/*
 !.vim/bundle/neobundle.vim
-
+Sublime Text 2/*
+!Sublime Text 2/Packages/IMESupport
