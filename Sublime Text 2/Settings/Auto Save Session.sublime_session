@@ -198,10 +198,11 @@
 					}
 				},
 				{
+					"file": "/C/Users/E0179/dotfiles/Sublime Text 2/Packages/Default/Preferences (Windows).sublime-settings",
 					"settings":
 					{
-						"buffer_size": 0,
-						"line_ending": "Windows"
+						"buffer_size": 46,
+						"line_ending": "Unix"
 					}
 				}
 			],
@@ -257,6 +258,7 @@
 			},
 			"file_history":
 			[
+				"/C/Users/E0179/dotfiles/Sublime Text 2/Packages/Default/Preferences (OSX).sublime-settings",
 				"/Users/daruman/Library/Application Support/Sublime Text 2/Packages/Default/Preferences (OSX).sublime-settings",
 				"/Users/daruman/Library/Application Support/Sublime Text 2/Packages/User/Preferences (OSX).sublime-settings",
 				"/Users/daruman/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
@@ -343,22 +345,23 @@
 						},
 						{
 							"buffer": 1,
+							"file": "/C/Users/E0179/dotfiles/Sublime Text 2/Packages/Default/Preferences (Windows).sublime-settings",
 							"settings":
 							{
-								"buffer_size": 0,
+								"buffer_size": 46,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										42,
+										42
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/Text/Plain text.tmLanguage"
+									"syntax": "Packages/JavaScript/JSON.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
