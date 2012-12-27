@@ -191,14 +191,10 @@
 			"buffers":
 			[
 				{
-					"contents": "{\n	\n	\"auto_complete_commit_on_tab\": true,\n	\"auto_complete_delay\": 50,\n	\"bold_folder_labels\": true,\n	\"caret_style\": \"phase\",\n	\"color_scheme\": \"Packages/Theme - Phoenix/Color Scheme/Phoenix Dark Yellow.tmTheme\",\n	\"default_encoding\": \"UTF-8\",\n	\"draw_minimap_border\": true,\n	\"draw_white_space\": \"all\",\n	\"highlight_line\": true,\n	\"ignored_packages\":\n	[\n	],\n	\"indent_to_bracket\": true,\n	\"line_numbers\": true,\n	\"line_padding_bottom\": 0,\n	\"line_padding_top\": 0,\n	\"margin\": 0,\n	\"match_brackets_angle\": true,\n	\"overlay_scroll_bars\": \"enabled\",\n	\"phoenix_color_expanded_folder\": true,\n	\"phoenix_color_green\": true,\n	\"phoenix_dirty_bottom_bar_red\": true,\n	\"phoenix_highlight_current_tab\": true,\n	\"phoenix_sidebar_tree_large\": true,\n	\"phoenix_tabs_auto_width\": true,\n	\"phoenix_tabs_small\": true,\n	\"scroll_speed\": 1.0,\n	\"tab_size\": 4,\n	\"theme\": \"Phoenix Dark.sublime-theme\",\n	\"translate_tabs_to_spaces\": false,\n	\"trim_trailing_white_space_on_save\": true,\n	\"vintage_ctrl_keys\": true,\n	\"vintage_start_in_command_mode\": true,\n	\"word_wrap\": true\n}\n",
-					"file": "/C/Users/E0179/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-					"file_size": 1027,
-					"file_write_time": 130010721839450970,
 					"settings":
 					{
-						"buffer_size": 1029,
-						"line_ending": "Unix"
+						"buffer_size": 0,
+						"line_ending": "Windows"
 					}
 				}
 			],
@@ -254,6 +250,7 @@
 			},
 			"file_history":
 			[
+				"/C/Users/E0179/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 				"/C/Users/E0179/dotfiles/Sublime Text 2/Packages/Default/Preferences (Windows).sublime-settings",
 				"/C/Users/E0179/dotfiles/Sublime Text 2/Packages/Default/Preferences (OSX).sublime-settings",
 				"/Users/daruman/Library/Application Support/Sublime Text 2/Packages/Default/Preferences (OSX).sublime-settings",
@@ -321,24 +318,22 @@
 					[
 						{
 							"buffer": 0,
-							"file": "/C/Users/E0179/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 							"settings":
 							{
-								"buffer_size": 1029,
+								"buffer_size": 0,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										2,
-										2
+										0,
+										0
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/JavaScript/JSON.tmLanguage",
-									"translate_tabs_to_spaces": false
+									"syntax": "Packages/Text/Plain text.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
