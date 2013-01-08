@@ -1,0 +1,26 @@
+{
+	"caret_style": "phase",
+	"close_windows_when_empty": false,
+	"color_scheme": "Packages/Theme - Phoenix/Color Scheme/Clouds Midnight.tmTheme",
+	"default_line_ending": "unix",
+	"disable_formatted_linebreak": true,
+	"disable_tab_abbreviations": true,
+	"draw_white_space": "all",
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+	],
+	"indent_to_braket": false,
+	"margin": 0,
+	"match_brackets_angle": true,
+	"open_files_in_new_window": false,
+	"show_full_path": true,
+	"show_tab_close_buttons": false,
+	"tab_completion": false,
+	"theme": "Phoenix Dark.sublime-theme",
+	"trim_trailing_white_space_on_save": true,
+	"use_simple_full_screen": true,
+	"vintage_ctrl_keys": true,
+	"vintage_start_in_command_mode": true
+}
