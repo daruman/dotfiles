@@ -1,15 +1,27 @@
 {
+	// windowsで日本語fontを綺麗に表示する
 	"font_options": ["directwrite"],
-	"caret_style": "phase",
+	// カーソルの下にうっすら見えるカーソルの表示方法（点滅速度）
+	"caret_style": "smooth",
+	// 最後のファイルをとじた際、ウィンドウも閉じるかどうか
 	"close_windows_when_empty": false,
+	// カラースキーム
 	"color_scheme": "Packages/Theme - Phoenix/Color Scheme/Clouds Midnight.tmTheme",
+	// デフォルトの改行コード
 	"default_line_ending": "unix",
+	// Emmet: 日本語変換確定後に文字が消えるのを防ぐ
 	"disable_formatted_linebreak": true,
+	// Emmet: tab展開を防ぐ
 	"disable_tab_abbreviations": true,
+	// white space表示
 	"draw_white_space": "all",
-	"font_size": 10.0,
+	// fontsize OSごとに変更したい場合Packages/Default/Preference(OS).sublime-settingを編集
+	//"font_size": 10.0,
+	// キャレット行を強調する
 	"highlight_line": true,
+	// 変更のあったファイルのタブをマークする
 	"highlight_modified_tabs": true,
+	// パッケージの除外リスト、Vintageを含まない事でvimモードに
 	"ignored_packages":
 	[
 	],
