@@ -262,8 +262,8 @@ hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg
 " コンマの後に自動的にスペースを挿入
 inoremap , ,<Space>
 
-" 保存時に行末の空白を除去する
-autocmd BufWritePre * :%s/\s\+$//ge
+" 保存時に行末の空白を除去する(spaceが2個の時はmarkdown記法の改行なので削除しない)
+autocmd BufWritePre * :%s/[^[:blank:]]\zs\s\{1\}$\|\s\{3,\}$//ge
 
 " Ctrl+Pで0レジスターペースト
 vnoremap <silent> <C-p> "0p<CR>
@@ -326,7 +326,7 @@ nmap M :SyntasticCheck
 " cssはエラーでたまままのファイルを保存するとvimが落ちる場合があるので除外
 let g:syntastic_mode_map = { 'mode': 'active',
 			\ 'active_filetypes': [],
-			\ 'passive_filetypes': ['javascript', 'html', 'css'] }
+			\ 'passive_filetypes': ['javascript', 'html', 'css', 'php'] }
 " file open時にチェック
 let g:syntastic_check_on_open=1
 " error行表示部分にマウスオーバーでポップアップするのを非表示
