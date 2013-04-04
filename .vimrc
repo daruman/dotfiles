@@ -78,7 +78,7 @@ NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', '84f85eca9803ebb04cb1589ba93d7ff7881a81dc'
 NeoBundle 'hail2u/vim-css-syntax'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'hail2u/html5.vim'
@@ -131,8 +131,9 @@ set clipboard=unnamed
 
 set helpfile=$VIMRUNTIME/doc/help.txt
 
-
-
+if has("autocmd")
+    autocmd FileType php     setlocal colorcolumn=80,120
+endif
 
 "-------------------------------------------------------------------------------
 " ステータスライン StatusLine
@@ -151,15 +152,20 @@ set ruler
 "-------------------------------------------------------------------------------
 " インデント Indent
 "-------------------------------------------------------------------------------
-set autoindent   " 自動でインデント
+set autoindent   " 改行時に前の行のインデントを継続する
 set smartindent  " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
+set expandtab    " タブ入力を複数の空白入力に置き換える (既存のタブには影響しない)
 set cindent      " Cプログラムファイルの自動インデントを始める
 
 " ウィンドウの幅より長い行は折り返して、次の行に続けて表示する
 set wrap
 
 " softtabstopはTabキー押し下げ時の挿入される空白の量，0の場合はtabstopと同じ，BSにも影響する
+" tabstop:     画面上でタブ文字が占める幅
+" shiftwidth:  自動インデントでずれる幅
+" softtabstop: 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set tabstop=4 shiftwidth=4 softtabstop=4
+
 
 "if has("autocmd")
 "  "ファイルタイプの検索を有効にする

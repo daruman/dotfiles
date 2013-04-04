@@ -6,7 +6,8 @@
 hi LineNr guibg=#111111
 " 検索ハイライト
 hi Search guifg=#ffffff  guibg=#fe57a1  gui=NONE
-
+" カラムライン(横幅ガイドライン)の色
+hi ColorColumn guibg=#444444
 "---------------------------------------------------
 " Font Size
 "---------------------------------------------------
@@ -16,7 +17,7 @@ if has('win32')
 endif
 if has('mac')
   " mac用
-  set guifont=Menlo:h10
+  set guifont=Menlo:h11
 endif
 
 

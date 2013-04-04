@@ -6,4 +6,12 @@
 
 	,{ "keys": ["super+ctrl+t"], "command": "tweet_line"}
 	,{ "keys": ["f1"], "command": "goto_documentation"}
+    ,{
+        "keys": ["ctrl+shift+r"], "command": "browser_refresh", "args": {
+            "auto_save": true,
+            "delay": 0.0,
+            "activate_browser": true,
+            "browser_name" : "all"
+        }
+    }
 ]

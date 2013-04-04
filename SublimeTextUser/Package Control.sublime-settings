@@ -1,7 +1,10 @@
 {
+	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
 		"BracketHighlighter",
+		"Browser Refresh",
+		"Compass",
 		"ConvertToUTF8",
 		"CTags",
 		"Emmet",
@@ -10,6 +13,7 @@
 		"HTML5",
 		"jQuery",
 		"Package Control",
+		"Sass",
 		"SCSS",
 		"Shell Turtlestein",
 		"SideBarEnhancements",

@@ -1,4 +1,9 @@
 {
+    "sublimelinter_popup_errors_on_save": true,
+    "sublimelinter_notes": true,
+    "sublimelinter_delay": 5,
+    "sublimelinter_gutter_marks": true,
+    "sublimelinter_mark_style": "none",
     "javascript_linter": "jshint",
     "jshint_options":
     {
