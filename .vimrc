@@ -268,8 +268,12 @@ hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg
 " コンマの後に自動的にスペースを挿入
 inoremap , ,<Space>
 
-" 保存時に行末の空白を除去する(spaceが2個の時はmarkdown記法の改行なので削除しない)
-autocmd BufWritePre * :%s/[^[:blank:]]\zs\s\{1\}$\|\s\{3,\}$//ge
+" 保存時に行末の空白を除去する("文字列の後にspaceが2個"時はmarkdown記法の改行なので削除しない)
+" 1.連続していない行末のspace 1つを削除
+" 2.行頭から行末までwhitespaceしかない場合は削除
+" 3.行末のspace 3つ以上を削除
+" 4.行末のtabを削除
+autocmd BufWritePre * :%s/[^[:blank:]]\zs\s\{1\}$\|^\s\+$\|[ ]\{3,\}$\|\t\+$//ge
 
 " Ctrl+Pで0レジスターペースト
 vnoremap <silent> <C-p> "0p<CR>
@@ -298,6 +302,8 @@ augroup SkeletonAu
 	autocmd!
 	autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
 augroup END
+
+
 
 if has('win32')
 	" IMEがonの場合はカーソルを赤くする
@@ -330,6 +336,7 @@ augroup END
 nmap M :SyntasticCheck
 " javascriptは保存時構文チェックしない、htmlはvim-html5validatorで行う
 " cssはエラーでたまままのファイルを保存するとvimが落ちる場合があるので除外
+" phpはphp5.2用コードをphp5.3以上の環境でチェックするとnamespace未使用エラーが出るので手動で行う
 let g:syntastic_mode_map = { 'mode': 'active',
 			\ 'active_filetypes': [],
 			\ 'passive_filetypes': ['javascript', 'html', 'css', 'php'] }
@@ -339,14 +346,13 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_balloons=0
 " errorを検知した際に自動でQuickfixを開く
 let g:syntastic_auto_loc_list=1
-" phpのチェックにphpcsを使わないようにする
-let g:syntastic_phpcs_disable=1
 " javascriptの構文チェックをclosure compilerに変更
 let g:syntastic_javascript_checker = "closurecompiler"
 let g:syntastic_javascript_closure_compiler_path = $HOME . "/bin/compiler.jar"
 " csslintで連続class指定、装飾無し属性指定のwarn出力を抑止
 let g:syntastic_csslint_options = "--ignore=adjoining-classes,unqualified-attributes,box-model"
-
+" phpcsでチェックするコーディング規約をdefaultのPEARからPSRに変更(PSR2を指定する事でPSR0、1も対応)、-nで警告表示無し
+let g:syntastic_php_phpcs_args = '--report=csv -n --standard=PSR2'
 
 " tweetvim
 " via@http://d.hatena.ne.jp/basyura/20111230/p1
@@ -409,11 +415,14 @@ let NERDTreeWinSize = 40
 " vim-html5validator
 " open/close時にsyntax check
 " 能動的にやるには:HTML5Validate
-augroup HtmlAutoCommands
-	autocmd!
-	autocmd FileType html :HTML5Validate
-	autocmd FileType html autocmd BufWritePost <buffer> :silent make
-augroup END
+"
+" loadする前提でパーツ単位でhtmlが記述されているファイルを開くと
+" 大量にエラー出すので手動に
+" augroup HtmlAutoCommands
+	" autocmd!
+	" autocmd FileType html :HTML5Validate
+	" autocmd FileType html autocmd BufWritePost <buffer> :silent make
+" augroup END
 
 
 " zendcoding-vim
