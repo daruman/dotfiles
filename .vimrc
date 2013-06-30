@@ -6,7 +6,6 @@
 
 
 
-
 " Ev/Rvでvimrcの編集と反映
 if has("gui_macvim")
 	command! Ev edit $MYVIMRC
