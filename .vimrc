@@ -5,54 +5,53 @@
 :endif
 
 
-
 " Ev/Rvでvimrcの編集と反映
 if has("gui_macvim")
-	command! Ev edit $MYVIMRC
-	command! Rv source $MYVIMRC
+    command! Ev edit $MYVIMRC
+    command! Rv source $MYVIMRC
 else
-	command! Ev edit ~/dotfiles/.vimrc
-	command! Rv source ~/dotfiles/.vimrc
+    command! Ev edit ~/dotfiles/.vimrc
+    command! Rv source ~/dotfiles/.vimrc
 endif
 
 " fullscreen
 " via@http://nanabit.net/blog/2007/11/01/vim-fullscreen/
 "-----------------------------------------------------------
 if has("gui_macvim")
-	" Lion以前のフルスクリーンに戻す場合は以下のコマンドを実行
-	" defaUlts write org.vim.MacVim MMNativeFullScreen 0
-	set fuoptions=maxvert,maxhorz
-	au GUIEnter * set fullscreen
+    " Lion以前のフルスクリーンに戻す場合は以下のコマンドを実行
+    " defaUlts write org.vim.MacVim MMNativeFullScreen 0
+    set fuoptions=maxvert,maxhorz
+    au GUIEnter * set fullscreen
 elseif has("win32")
-	" windows用
-	nnoremap <F11> :call ToggleFullScreen()<CR>
-	function! ToggleFullScreen()
-		if &guioptions =~# 'C'
-			set guioptions-=C
-			if exists('s:go_temp')
-				if s:go_temp =~# 'm'
-					set guioptions+=m
-				endif
-				if s:go_temp =~# 'T'
-					set guioptions+=T
-				endif
-			endif
-			simalt ~r
-		else
-			let s:go_temp = &guioptions
-			set guioptions+=C
-			set guioptions-=m
-			set guioptions-=T
-			simalt ~x
-		endif
-	endfunction
-	set guioptions-=T
-	set guioptions-=m
-	set guioptions-=r
-	set guioptions-=R
-	set guioptions-=l
-	set guioptions-=L
-	set guioptions-=b
+    " windows用
+    nnoremap <F11> :call ToggleFullScreen()<CR>
+    function! ToggleFullScreen()
+        if &guioptions =~# 'C'
+            set guioptions-=C
+            if exists('s:go_temp')
+                if s:go_temp =~# 'm'
+                    set guioptions+=m
+                endif
+                if s:go_temp =~# 'T'
+                    set guioptions+=T
+                endif
+            endif
+            simalt ~r
+        else
+            let s:go_temp = &guioptions
+            set guioptions+=C
+            set guioptions-=m
+            set guioptions-=T
+            simalt ~x
+        endif
+    endfunction
+    set guioptions-=T
+    set guioptions-=m
+    set guioptions-=r
+    set guioptions-=R
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=b
 endif
 
 
@@ -63,40 +62,54 @@ set nocompatible
 filetype off
 
 if has('vim_starting')
-	if &runtimepath !~ '/neobundle.vim'
-		execute 'set runtimepath+=' . expand('~/dotfiles/.vim/bundle/neobundle.vim')
-	endif
+    if &runtimepath !~ '/neobundle.vim'
+        execute 'set runtimepath+=' . expand('~/dotfiles/.vim/bundle/neobundle.vim')
+    endif
 endif
 call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
 
+autocmd BufNewFile,BufRead *.twig set filetype=twig
+autocmd BufNewFile,BufRead *.js set filetype=javascript
+
 " plugins
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc', '84f85eca9803ebb04cb1589ba93d7ff7881a81dc'
+NeoBundle 'Shougo/neocomplcache'
+" neocompleteの後
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'kana/vim-smartinput'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
+NeoBundle 'basyura/twibill.vim'
+NeoBundle 'basyura/TweetVim'
+" NeoBundle 'gregsexton/gitv'
+NeoBundle 'Shougo/vimproc'
 NeoBundle 'hail2u/vim-css-syntax'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'hail2u/html5.vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'basyura/twibill.vim'
-NeoBundle 'basyura/TweetVim'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'hokaccha/vim-html5validator'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'uggedal/jinja-vim'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'nono/jquery.vim'
+NeoBundle 'jiangmiao/simple-javascript-indenter'
 
 filetype plugin indent on
 
 if neobundle#exists_not_installed_bundles()
-	echomsg 'Not installed bundles : ' .
-				\ string(neobundle#get_not_installed_bundle_names())
-	echomsg 'Please execute ":NeoBundleInstall" command.'
-	"finish
+    echomsg 'Not installed bundles : ' .
+                \ string(neobundle#get_not_installed_bundle_names())
+    echomsg 'Please execute ":NeoBundleInstall" command.'
+    "finish
 endif
 
 
@@ -130,6 +143,7 @@ set clipboard=unnamed
 
 set helpfile=$VIMRUNTIME/doc/help.txt
 
+" 80、120文字目で縦罫線を出す
 if has("autocmd")
     autocmd FileType php     setlocal colorcolumn=80,120
 endif
@@ -142,9 +156,17 @@ set laststatus=2 " 常にステータスラインを表示
 " カーソルが何行目の何列目に置かれているかを表示する。（有効:ruler/無効:noruler）
 set ruler
 
-" vim-powerlineでフォントにパッチを当てないなら以下をコメントアウト
-" let g:Powerline_symbols = 'fancy'
-
+let g:airline_theme='simple'
+let g:airline_powerline_fonts=1
+let g:airline_mode_map = {
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'v'  : 'V',
+      \ 'V'  : 'VL',
+      \ 'c'  : 'CMD',
+      \ '' : 'VB',
+      \ }
 
 
 
@@ -295,35 +317,43 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " ;でコマンド入力( ;と:を入れ替)
 noremap ; :
 
+" exモード無効化
+nnoremap Q <Nop>
+
 " htmlファイル作成時、templateを読み込む
 " autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
 augroup SkeletonAu
-	autocmd!
-	autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
+    autocmd!
+    autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
 augroup END
 
 
 
 if has('win32')
-	" IMEがonの場合はカーソルを赤くする
-	" http://www.e2esound.com/wp/2010/11/07/add_vimrc_settings/
-	hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cterm=reverse
+    " IMEがonの場合はカーソルを赤くする
+    " http://www.e2esound.com/wp/2010/11/07/add_vimrc_settings/
+    hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cterm=reverse
 
-	" バックスペースでindent無視 & 改行超えてバックスペース許可
-	set guioptions=indent,eol
+    " バックスペースでindent無視 & 改行超えてバックスペース許可
+    set guioptions=indent,eol
 
 endif
 
+
+" phpを保存する際にphp -l
+autocmd FileType php set makeprg=php\ -l\ %
+autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+
 " scssファイルを:makeでcssにコンパイル
 augroup SassAutoCommands
-	autocmd!
-	autocmd FileType sass,scss compiler scss
+    autocmd!
+    autocmd FileType sass,scss compiler scss
 augroup END
 
 " jsファイルを:makeで圧縮
 augroup JavascriptAutoCommands
-	autocmd!
-	autocmd FileType javascript compiler closurecompiler
+    autocmd!
+    autocmd FileType javascript compiler closurecompiler
 augroup END
 
 
@@ -337,8 +367,8 @@ nmap M :SyntasticCheck
 " cssはエラーでたまままのファイルを保存するとvimが落ちる場合があるので除外
 " phpはphp5.2用コードをphp5.3以上の環境でチェックするとnamespace未使用エラーが出るので手動で行う
 let g:syntastic_mode_map = { 'mode': 'active',
-			\ 'active_filetypes': [],
-			\ 'passive_filetypes': ['javascript', 'html', 'css', 'php'] }
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['javascript', 'html', 'css', 'php'] }
 " file open時にチェック
 let g:syntastic_check_on_open=1
 " error行表示部分にマウスオーバーでポップアップするのを非表示
@@ -361,7 +391,7 @@ nnoremap <silent> tt :Unite tweetvim<CR>
 nnoremap <silent> ss :TweetVimSay<CR>
 " スクリーン名のキャッシュを利用して、neocomplcache で補完する
 if !exists('g:neocomplcache_dictionary_filetype_lists')
-	let g:neocomplcache_dictionary_filetype_lists = {}
+    let g:neocomplcache_dictionary_filetype_lists = {}
 endif
 let neco_dic = g:neocomplcache_dictionary_filetype_lists
 let neco_dic.tweetvim_say = $HOME . '/.tweetvim/screen_name'
@@ -405,11 +435,12 @@ vmap gx <Plug>(openbrowser-smart-search)
 " http://kokukuma.blogspot.jp/2011/12/vim-essential-plugin-nerdtree.html
 let file_name = expand("%")
 if has('vim_starting') && file_name == ""
-	autocmd VimEnter * NERDTree User
+    autocmd VimEnter * NERDTree User
 endif
 " 横幅
 let NERDTreeWinSize = 40
-
+" ntでトグル
+noremap nt :NERDTreeToggle<CR>
 
 " vim-html5validator
 " open/close時にsyntax check
@@ -418,9 +449,9 @@ let NERDTreeWinSize = 40
 " loadする前提でパーツ単位でhtmlが記述されているファイルを開くと
 " 大量にエラー出すので手動に
 " augroup HtmlAutoCommands
-	" autocmd!
-	" autocmd FileType html :HTML5Validate
-	" autocmd FileType html autocmd BufWritePost <buffer> :silent make
+" autocmd!
+" autocmd FileType html :HTML5Validate
+" autocmd FileType html autocmd BufWritePost <buffer> :silent make
 " augroup END
 
 
@@ -444,3 +475,61 @@ map <Leader>mn  :MemoNew<CR>
 map <Leader>ml  :MemoList<CR>
 map <Leader>mg  :MemoGrep<CR>
 
+" jinja
+autocmd BufNewFile,BufRead *.twig set filetype=jinja
+
+
+" neosnippet
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+" openbrowser
+" enter押下でカーソル下urlをbrowserでopen
+nmap <CR> <Plug>(openbrowser-open)
+
+" taglist
+" 以下コマンドでプロジェクト毎のtagsファイルを生成、使用するものをコピーし対象とする
+" $ ctags -R --languages=php --langmap=PHP:.php.inc --php-types=c+f+d -f ~/.tags/{プロジェクト名}.tags `pwd` {プロジェクトファイルroot} `pwd`
+" $ cd ~/.tags/
+" $ cp -vi {プロジェクト名}.tags tags
+" 後はCtrl+]等でtag jump、Ctrl+tで元の位置に戻る、:tsで他の候補表示
+au BufNewFile,BufRead *.php set tags+=$HOME/.tags/tags
+
+" vim-indent-guides
+" vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
+let g:indent_guides_enable_on_vim_startup=1
+" ガイドをスタートするインデントの量
+let g:indent_guides_start_level=3
+" 自動カラーを無効にする
+let g:indent_guides_auto_colors=0
+" 奇数インデントのカラー
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#363636 ctermbg=gray
+" 偶数インデントのカラー
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray
+" ハイライト色の変化の幅
+let g:indent_guides_color_change_percent = 30
+" ガイドの幅
+let g:indent_guides_guide_size = 1
+
+
+
+" local設定(gitにpushしない)
+"  font設定や他アプリケーション連携等
+"   (browser別挙動は分岐かけるのでここには記載しない)
+" if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
+  " source $HOME/.localsetting/vimrc_local
+" endif
