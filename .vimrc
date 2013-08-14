@@ -187,6 +187,14 @@ set wrap
 " softtabstop: 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set tabstop=4 shiftwidth=4 softtabstop=4
 
+autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType twig       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+
+
 
 "if has("autocmd")
 "  "ファイルタイプの検索を有効にする
