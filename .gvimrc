@@ -1,13 +1,15 @@
-:colorscheme h2u_dark
+" :colorscheme h2u_dark
+:colorscheme molokai
+
 "---------------------------------------------------
 " color override
 "---------------------------------------------------
 " 行番号背景色
-hi LineNr guibg=#111111
+" hi LineNr guibg=#111111
 " 検索ハイライト
-hi Search guifg=#ffffff  guibg=#fe57a1  gui=NONE
+" hi Search guifg=#ffffff  guibg=#fe57a1  gui=NONE
 " カラムライン(横幅ガイドライン)の色
-hi ColorColumn guibg=#444444
+" hi ColorColumn guibg=#444444
 "---------------------------------------------------
 " Font Size
 "---------------------------------------------------

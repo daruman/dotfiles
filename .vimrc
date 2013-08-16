@@ -1,9 +1,12 @@
 " vimのバージョンが7以下は.vimrcを読み込まない
 " MacOSデフォvim対応
-:if version < 701
-:finish
-:endif
+" :if version < 701
+" :finish
+" :endif
+" :colorscheme molokai
 
+if has('gui_running')
+endif
 
 " Ev/Rvでvimrcの編集と反映
 if has("gui_macvim")
@@ -102,6 +105,7 @@ NeoBundle 'uggedal/jinja-vim'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundle 'tomasr/molokai'
 
 filetype plugin indent on
 
@@ -111,8 +115,6 @@ if neobundle#exists_not_installed_bundles()
     echomsg 'Please execute ":NeoBundleInstall" command.'
     "finish
 endif
-
-
 
 
 "-------------------------------------------------------------------------------
@@ -282,7 +284,7 @@ set hlsearch   " 検索文字をハイライト
 " カラー関連 Colors
 "-------------------------------------------------------------------------------
 "  gvimrcで指定しないとmacで効かない
-:colorscheme h2u_dark
+" :colorscheme h2u_dark
 
 " ハイライト on
 syntax enable
@@ -439,16 +441,17 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 
 " NERD-Tree
-" 引数なし起動時はTree表示 (BookmarkのUserを初回に表示
-" http://kokukuma.blogspot.jp/2011/12/vim-essential-plugin-nerdtree.html
-let file_name = expand("%")
-if has('vim_starting') && file_name == ""
-    autocmd VimEnter * NERDTree User
-endif
 " 横幅
 let NERDTreeWinSize = 40
 " ntでトグル
 noremap nt :NERDTreeToggle<CR>
+" 引数無し起動時、自動的にNERDTreeを開く
+autocmd vimenter * if !argc() | NERDTree | endif
+" 最後のバッファを閉じた際、NERDTreeだけ残さずに終了させる
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
+
 
 " vim-html5validator
 " open/close時にsyntax check
