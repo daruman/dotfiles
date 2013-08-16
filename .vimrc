@@ -3,9 +3,15 @@
 " :if version < 701
 " :finish
 " :endif
-" :colorscheme molokai
 
 if has('gui_running')
+else
+    " minttyでのvimで256色を使えるようにする設定
+    set term=xterm
+    set t_Co=256
+    let &t_AF="\e[38;5;%dm"
+    let &t_AB="\e[48;5;%dm"
+    colorscheme molokai
 endif
 
 " Ev/Rvでvimrcの編集と反映
@@ -105,7 +111,7 @@ NeoBundle 'uggedal/jinja-vim'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundle 'tomasr/molokai'
+" NeoBundle 'tomasr/molokai'
 
 filetype plugin indent on
 
@@ -287,7 +293,7 @@ set hlsearch   " 検索文字をハイライト
 " :colorscheme h2u_dark
 
 " ハイライト on
-syntax enable
+syntax on
 " 補完候補の色づけ for vim7
 hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
 
