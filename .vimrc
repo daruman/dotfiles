@@ -95,7 +95,8 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'kana/vim-smartinput'
-NeoBundle 'mattn/zencoding-vim'
+" NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
@@ -472,8 +473,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " augroup END
 
 
-" zendcoding-vim
-let g:user_zen_settings = {
+" emmet-vim
+let g:user_emmet_settings  = {
 \  'lang' : 'ja',
 \  'html' : {
 \    'empty_element_suffix' : '>',
