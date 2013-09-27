@@ -1,11 +1,19 @@
 " <Leader>はバックスラッシュ
 
-" vimのバージョンが7以下は.vimrcを読み込まない
+if has("mac")
+" mac用の設定
+elseif has("unix")
+" unix固有の設定
+elseif has("win64")
+" 64bit_windows固有の設定
+elseif has("win32unix")
+" minGW/Cygwin固有の設定
+elseif has("win32")
+" 32bit_windows固有の設定
+endif
 
-" MacOSデフォvim対応
-" :if version < 701
-" :finish
-" :endif
+
+
 
 if has('gui_running')
 else
@@ -589,13 +597,14 @@ let g:indent_guides_guide_size = 1
 
 
 " vim-ref
-let s:cfg  = $HOME . "/tools/Lynx for Win32/lynx.cfg"
-let g:ref_phpmanual_path = $HOME . '/Documents/phpmanual'
-let g:ref_phpmanual_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
+"   localsettingに移動
+" let g:ref_phpmanual_path = $HOME . '/Documents/phpmanual'
 
 " local設定(gitにpushしない)
 "  font設定や他アプリケーション連携等
 "   (browser別挙動は分岐かけるのでここには記載しない)
-" if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
-  " source $HOME/.localsetting/vimrc_local
-" endif
+" via@http://auewe.hatenablog.com/entry/2013/05/14/003610
+if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
+  source $HOME/.localsetting/vimrc_local
+endif
+
