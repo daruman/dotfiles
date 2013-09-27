@@ -1,4 +1,7 @@
+" <Leader>はバックスラッシュ
+
 " vimのバージョンが7以下は.vimrcを読み込まない
+
 " MacOSデフォvim対応
 " :if version < 701
 " :finish
@@ -113,6 +116,9 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 " NeoBundle 'tomasr/molokai'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'thinca/vim-ref'
+
 
 filetype plugin indent on
 
@@ -127,6 +133,9 @@ endif
 "-------------------------------------------------------------------------------
 " 基本設定 Basics
 "-------------------------------------------------------------------------------
+" 初期ディレクトリ
+"   NERDTreeの初期表示ディレクトリにも影響する、mac/winで問題なく動く位置に
+cd ~
 " カーソル行を画面中央にする
 set scrolloff=999
 " バックアップファイルを作らない
@@ -252,9 +261,25 @@ set list              " 不可視文字表示
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 set display=uhex      " 印字不可能文字を16進数で表示
 
-" 全角スペースの表示
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-match ZenkakuSpace /　/
+" 全角スペースの表示　
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
+endfunction
+
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    " ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
+    autocmd ColorScheme       * call ZenkakuSpace()
+    " 全角スペースのハイライト指定
+    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+  augroup END
+  call ZenkakuSpace()
+endif
+
+
+
+
 
 " カーソル行をハイライト
 set cursorline
@@ -320,8 +345,13 @@ vnoremap <silent> <C-p> "0p<CR>
 "-------------------------------------------------------------------------------
 " エンコーディング関連 Encoding
 "-------------------------------------------------------------------------------
+if has("win32")
+  "set encoding より上に書くこと
+  let &termencoding = &encoding
+endif
 set ffs=unix,dos,mac  " 改行文字
 set encoding=utf-8    " デフォルトエンコーディング
+set fileencodings=utf-8,cp932,euc-jp
 
 " ワイルドカードで表示するときに優先度を低くする拡張子
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -442,6 +472,9 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 
 
 " open-browser.vim
+" カーソル下のURLをブラウザで開く
+nmap <Leader>o <Plug>(openbrowser-open)
+vmap <Leader>o <Plug>(openbrowser-open)
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
@@ -456,7 +489,17 @@ noremap nt :NERDTreeToggle<CR>
 autocmd vimenter * if !argc() | NERDTree | endif
 " 最後のバッファを閉じた際、NERDTreeだけ残さずに終了させる
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
+" 起動時にブックマークを表示
+let NERDTreeShowBookmarks=1
+" vimでの位置を開いているrootと同期させる(:pwd)
+let NERDTreeChDirMode = 2
+" ブックマークファイルのパス(minttyの時のみブックマークファイルのパスを殺す)
+"  通常のブックマークファイルのパスはC:\hogeだが、minttyでは/c/hogeなのでエラーになる
+if has('win32unix')
+    let NERDTreeBookmarksFile = expand('$HOME')
+endif
+" 最小表示
+let NERDTreeMinimalUI = 1
 
 
 
@@ -487,6 +530,7 @@ let NERDSpaceDelims = 1
 nmap <Leader>/ <Plug>NERDCommenterToggle
 vmap <Leader>/ <Plug>NERDCommenterToggle
 vmap <Leader>/s <Plug>NERDCommenterSexy
+
 
 " memolist
 map <Leader>mn  :MemoNew<CR>
@@ -544,6 +588,10 @@ let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 
 
+" vim-ref
+let s:cfg  = $HOME . "/tools/Lynx for Win32/lynx.cfg"
+let g:ref_phpmanual_path = $HOME . '/Documents/phpmanual'
+let g:ref_phpmanual_cmd = 'lynx -cfg='.s:cfg.' -dump %s'
 
 " local設定(gitにpushしない)
 "  font設定や他アプリケーション連携等
