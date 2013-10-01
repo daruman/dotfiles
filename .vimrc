@@ -17,7 +17,7 @@ endif
 
 if has('gui_running')
 else
-    " minttyでのvimで256色を使えるようにする設定
+    " terminalでのvimで256色を使えるようにする設定
     set term=xterm
     set t_Co=256
     let &t_AF="\e[38;5;%dm"
