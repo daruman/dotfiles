@@ -88,12 +88,12 @@ if has('vim_starting')
 endif
 call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
 
-autocmd BufNewFile,BufRead *.twig set filetype=twig
+" autocmd BufNewFile,BufRead *.twig set filetype=twig
 autocmd BufNewFile,BufRead *.js set filetype=javascript
 
 " plugins
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimshell'
+" NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/neocomplcache'
 " neocompleteの後
 NeoBundle 'Shougo/neosnippet'
@@ -126,6 +126,7 @@ NeoBundle 'jiangmiao/simple-javascript-indenter'
 " NeoBundle 'tomasr/molokai'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-quickrun'
 
 
 filetype plugin indent on
@@ -166,6 +167,8 @@ set clipboard+=unnamed
 "ヤンクした文字は、システムのクリップボードに入れる"
 set clipboard=unnamed
 
+"新しいウィンドウを下に開く
+set splitbelow
 
 set helpfile=$VIMRUNTIME/doc/help.txt
 
@@ -372,7 +375,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " その他 Misc
 "-------------------------------------------------------------------------------
 
-" ;でコマンド入力( ;と:を入れ替)
+" ;でコマンド入力( ;を:とする)
 noremap ; :
 
 " exモード無効化
@@ -491,6 +494,7 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
 
+
 " NERD-Tree
 " 横幅
 let NERDTreeWinSize = 40
@@ -570,10 +574,6 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-" openbrowser
-" enter押下でカーソル下urlをbrowserでopen
-nmap <CR> <Plug>(openbrowser-open)
-
 " taglist
 " 以下コマンドでプロジェクト毎のtagsファイルを生成、使用するものをコピーし対象とする
 " $ ctags -R --languages=php --langmap=PHP:.php.inc --php-types=c+f+d -f ~/.tags/{プロジェクト名}.tags `pwd` {プロジェクトファイルroot} `pwd`
@@ -597,6 +597,30 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgr
 let g:indent_guides_color_change_percent = 30
 " ガイドの幅
 let g:indent_guides_guide_size = 1
+
+
+" quickrun
+" <Leader>rでテスト実行
+" see also http://www.karakaram.com/quickrun-phpunit
+"
+" 実行時は:cd で設定ファイルがあるdirへ移動し
+" :Quickrun -cmdopt '-c "phpunit.xml.dist"'とかするといいぽい
+augroup QuickRunPHPUnit
+    " *Test.phpをphpunitファイルとして定義する
+    autocmd!
+    autocmd BufWinEnter,BufNewFile *Test.php set filetype=php.phpunit
+augroup END
+
+" init
+let g:quickrun_config = {}
+let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split':'below'}
+" runnerにvimprocを設定、非同期処理させてvim自体の動作に影響を出さない
+let g:quickrun_config['_'] = {'runner': 'vimproc', 'runner/vimproc/updatetime': 100}
+
+let g:quickrun_config['php.phpunit'] = {}
+let g:quickrun_config['php.phpunit']['outputter/buffer/split'] = '10'
+let g:quickrun_config['php.phpunit']['command'] = 'phpunit'
+let g:quickrun_config['php.phpunit']['exec'] = '%c %o %s'
 
 
 " vim-ref
