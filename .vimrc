@@ -174,6 +174,9 @@ if has("autocmd")
     autocmd FileType php     setlocal colorcolumn=80,120
 endif
 
+" 検索時、正規表現をmagicからvery magicに
+" via@http://deris.hatenablog.jp/entry/2013/05/15/024932
+nnoremap /  /\v
 "-------------------------------------------------------------------------------
 " ステータスライン StatusLine
 "-------------------------------------------------------------------------------
