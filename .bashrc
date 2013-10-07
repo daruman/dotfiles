@@ -13,7 +13,7 @@ export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
 export LESS=-q
 
 # コマンドエイリアス
-alias ls='ls -CF --color=auto --show-control-chars'
+alias ls='ls -CFG'
 alias ll='ls -lF'
 alias la='ls -CalF'
 alias l='ls -AlFh'
@@ -41,10 +41,12 @@ export PS1="\t [\u@\h \W] \$(parse_git_branch)$ "
 # via http://www.glamenv-septzen.net/view/1107
 function settitle ()
 {
-  t="mintty [$@]@`hostname`"
+  if $OSTYPE != darwin12 ; then
+      t="mintty [$@]@`hostname`"
   # "\e]2;"までがウインドウタイトル変更開始の制御コード
   # "\007"が変更終了・・・らしい、です。
-  echo -ne "\e]2;$t\007"
+      echo -ne "\e]2;$t\007"
+  fi
 }
 function cd()
 {
