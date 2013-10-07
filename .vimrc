@@ -360,7 +360,8 @@ vnoremap <silent> <C-p> "0p<CR>
 " エンコーディング関連 Encoding
 "-------------------------------------------------------------------------------
 if has("win32")
-  "set encoding より上に書くこと
+  " via http://www.karakaram.com/20120726-vim-ref
+  " set encoding より上に書くこと
   let &termencoding = &encoding
 endif
 set ffs=unix,dos,mac  " 改行文字
@@ -605,6 +606,7 @@ let g:indent_guides_guide_size = 1
 "
 " 実行時は:cd で設定ファイルがあるdirへ移動し
 " :Quickrun -cmdopt '-c "phpunit.xml.dist"'とかするといいぽい
+" 場合によっては:Quickrunだけで行けるぽい(<Leader>rでいける)
 augroup QuickRunPHPUnit
     " *Test.phpをphpunitファイルとして定義する
     autocmd!
