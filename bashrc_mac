@@ -2,8 +2,8 @@ export PATH=$PATH:/Users/daruman/bin
 export PATH=$PATH:/usr/local/share/npm/bin
 
 # コマンドエイリアス
-alias ll='ls -Flh'
-alias la='ls -Fla'
+alias ll='ls -FlhG'
+alias la='ls -FlaG'
 
 # ctrl+rでhistory検索した際、行き過ぎた時戻るのにctrl+s出来るようにする
 # via@http://d.hatena.ne.jp/poch-7003/20090927/1254034581
