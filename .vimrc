@@ -132,7 +132,7 @@ NeoBundleLazy 'glidenote/memolist.vim', {
     \ 'autoload' : { 'commands' : ['MemoNew', 'MemoGrep', 'MemoList'] }
     \}
 NeoBundleLazy 'kannokanno/previm', {
-    \ 'autoload' : { 'filetypes' : ['md', 'mdwn', 'mkd', 'mkdn', 'markdorn'] }
+    \ 'autoload' : { 'filetypes' : ['md', 'mdwn', 'mkd', 'mkdn', 'markdown'] }
     \}
 
 "   twitter
