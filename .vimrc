@@ -15,15 +15,7 @@ endif
 
 
 
-if has('gui_running')
-else
-    " terminalでのvimで256色を使えるようにする設定
-    set term=xterm
-    set t_Co=256
-    let &t_AF="\e[38;5;%dm"
-    let &t_AB="\e[48;5;%dm"
-    colorscheme molokai
-endif
+
 
 " Ev/Rvでvimrcの編集と反映
 if has("gui_macvim")
@@ -78,65 +70,132 @@ endif
 "------------------------------------------------
 " NeoBundle
 "------------------------------------------------
-set nocompatible
 filetype off
-
 if has('vim_starting')
+    set nocompatible               " Be iMproved
+    " set runtimepath+=~/.vim/bundle/neobundle.vim/
     if &runtimepath !~ '/neobundle.vim'
         execute 'set runtimepath+=' . expand('~/dotfiles/.vim/bundle/neobundle.vim')
     endif
 endif
+
+" call neobundle#rc(expand('~/.vim/bundle/'))
 call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
 
-" autocmd BufNewFile,BufRead *.twig set filetype=twig
-autocmd BufNewFile,BufRead *.js set filetype=javascript
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-" plugins
-NeoBundle 'Shougo/unite.vim'
-" NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/neocomplcache'
-" neocompleteの後
-NeoBundle 'Shougo/neosnippet'
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc', {
+            \    'build' : {
+            \        'windows' : 'make -f make_mingw32.mak',
+            \        'cygwin'  : 'make -f make_cygwin.mak',
+            \        'mac'     : 'make -f make_mac.mak',
+            \        'unix'    : 'make -f make_unix.mak',
+            \    },
+            \}
+
+
+" My Bundles here:
+"   util
 NeoBundle 'scrooloose/nerdtree'
-" NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'kana/vim-smartinput'
-" NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tyru/open-browser.vim'
+
+"   plugins
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'kana/vim-smartinput'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-
-NeoBundle 'basyura/twibill.vim'
-NeoBundle 'basyura/TweetVim'
-" NeoBundle 'gregsexton/gitv'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'hail2u/vim-css-syntax'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'hail2u/html5.vim'
-NeoBundle 'hokaccha/vim-html5validator'
-NeoBundle 'uggedal/jinja-vim'
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'nono/jquery.vim'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
-" NeoBundle 'tomasr/molokai'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundleLazy 'hokaccha/vim-html5validator', {
+    \ 'autoload' : { 'filetypes' : ['html'] }
+    \}
+NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
+    \ 'autoload' : { 'filetypes' : ['js'] }
+    \}
+NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
+    \ 'autoload' : { 'filetypes' : ['js'] }
+    \}
+NeoBundleLazy 'vim-scripts/taglist.vim', {
+    \ 'autoload' : { 'commands' : 'TlistToggle' }
+    \}
+NeoBundleLazy 'scrooloose/syntastic', {
+    \ 'autoload' : { 'commands' : 'SyntasticCheck' }
+    \}
+NeoBundleLazy 'glidenote/memolist.vim', {
+    \ 'autoload' : { 'commands' : ['MemoNew', 'MemoGrep', 'MemoList'] }
+    \}
+NeoBundleLazy 'kannokanno/previm', {
+    \ 'autoload' : { 'filetypes' : ['md', 'mdwn', 'mkd', 'mkdn', 'markdorn'] }
+    \}
+
+"   twitter
+"     Lazyすると :Unite tweetvim が効かなくなるので通常load
+NeoBundle 'basyura/TweetVim'
+NeoBundle 'basyura/twibill.vim'
+
+"   syntax
+NeoBundleLazy 'hail2u/vim-css-syntax', {
+    \ 'autoload' : { 'filetypes' : ['css'] }
+    \}
+NeoBundleLazy 'hail2u/vim-css3-syntax', {
+    \ 'autoload' : { 'filetypes' : ['css'] }
+    \}
+NeoBundleLazy 'hail2u/html5.vim', {
+    \ 'autoload' : { 'filetypes' : ['html', 'htm'] }
+    \}
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
+    \ 'autoload' : { 'filetypes' : ['js'] }
+    \}
+NeoBundleLazy 'uggedal/jinja-vim', {
+    \ 'autoload' : { 'filetypes' : ['twig', 'jinja'] }
+    \}
+NeoBundleLazy 'nono/jquery.vim', {
+    \ 'autoload' : { 'filetypes' : ['js'] }
+    \}
 
 
-filetype plugin indent on
 
-if neobundle#exists_not_installed_bundles()
-    echomsg 'Not installed bundles : ' .
-                \ string(neobundle#get_not_installed_bundle_names())
-    echomsg 'Please execute ":NeoBundleInstall" command.'
-    "finish
+" 保留
+" NeoBundle 'Shougo/vimfiler.vim'
+" http://www.karakaram.com/vimfiler
+" http://hrsh7th.hatenablog.com/entry/20120229/1330525683
+
+" NeoBundle 'gregsexton/gitv'
+" tpope/vim-fugitiveに依存してるぽい
+" airblade/vim-gitgutterもいいぽい
+
+NeoBundle 'tomasr/molokai'
+
+" colorscheme
+colorscheme molokai
+set background=dark
+if has('gui_running')
+else
+    " terminalでのvimで256色を使えるようにする設定
+    set term=xterm
+    set t_Co=256
+    let &t_AF="\e[38;5;%dm"
+    let &t_AB="\e[48;5;%dm"
+" let g:rehash256 = 1
 endif
+
+" NeoBundle 'Shougo/neosnippet'
+
+
+
+
+filetype plugin indent on " Required!
+
+" Installation check.
+NeoBundleCheck
+
 
 
 "-------------------------------------------------------------------------------
@@ -188,19 +247,12 @@ set laststatus=2 " 常にステータスラインを表示
 " カーソルが何行目の何列目に置かれているかを表示する。（有効:ruler/無効:noruler）
 set ruler
 
-let g:airline_theme='simple'
-let g:airline_powerline_fonts=1
-let g:airline_mode_map = {
-      \ 'n'  : 'N',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
-      \ 'v'  : 'V',
-      \ 'V'  : 'VL',
-      \ 'c'  : 'CMD',
-      \ '' : 'VB',
-      \ }
 
 
+autocmd BufRead,BufNewFile jquery.*.js set filetype=javascript syntax=jquery
+autocmd BufNewFile,BufRead *.twig set filetype=twig syntax=jinja
+autocmd BufNewFile,BufRead *.js set filetype=javascript
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
 "-------------------------------------------------------------------------------
 " インデント Indent
@@ -424,7 +476,7 @@ augroup END
 "------------------------------------------------
 " syntastic
 " Shift+Mで構文チェック
-nmap M :SyntasticCheck
+nmap M :SyntasticCheck<CR>
 " javascriptは保存時構文チェックしない、htmlはvim-html5validatorで行う
 " cssはエラーでたまままのファイルを保存するとvimが落ちる場合があるので除外
 " phpはphp5.2用コードをphp5.3以上の環境でチェックするとnamespace未使用エラーが出るので手動で行う
@@ -452,10 +504,10 @@ nnoremap <silent> tt :Unite tweetvim<CR>
 " 発言用バッファを表示する
 nnoremap <silent> ss :TweetVimSay<CR>
 " スクリーン名のキャッシュを利用して、neocomplcache で補完する
-if !exists('g:neocomplcache_dictionary_filetype_lists')
-    let g:neocomplcache_dictionary_filetype_lists = {}
+if !exists('g:neocomplete#sources#dictionary#dictionaries')
+    let g:neocomplete#sources#dictionary#dictionaries = {}
 endif
-let neco_dic = g:neocomplcache_dictionary_filetype_lists
+let neco_dic = g:neocomplete#sources#dictionary#dictionaries
 let neco_dic.tweetvim_say = $HOME . '/.tweetvim/screen_name'
 
 
@@ -497,7 +549,7 @@ endif
 " neocomplcache
 " code補完を表示する
 " https://github.com/Shougo/neocomplcache
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
 
 
 " taglist.vim
@@ -507,6 +559,12 @@ let Tlist_Exit_OnlyWindow = 1
 " F8にtaglistのtoggleを割り当て
 nnoremap <silent> <F8> :TlistToggle<CR>
 
+" 以下コマンドでプロジェクト毎のtagsファイルを生成、使用するものをコピーし対象とする
+" $ ctags -R --languages=php --langmap=PHP:.php.inc --php-types=c+f+d -f ~/.tags/{プロジェクト名}.tags `pwd` {プロジェクトファイルroot} `pwd`
+" $ cd ~/.tags/
+" $ cp -vi {プロジェクト名}.tags tags
+" 後はCtrl+]等でtag jump、Ctrl+tで元の位置に戻る、:tsで他の候補表示
+au BufNewFile,BufRead *.php set tags+=$HOME/.tags/tags
 
 " open-browser.vim
 " カーソル下のURLをブラウザで開く
@@ -576,34 +634,28 @@ map <Leader>ml  :MemoList<CR>
 map <Leader>mg  :MemoGrep<CR>
 
 " jinja
-autocmd BufNewFile,BufRead *.twig set filetype=jinja
+" autocmd BufNewFile,BufRead *.twig set filetype=jinja
 
 
-" neosnippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+" " neosnippet
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+" " SuperTab like snippets behavior.
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: pumvisible() ? "\<C-n>" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)"
+" \: "\<TAB>"
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
+" " For snippet_complete marker.
+" if has('conceal')
+"   set conceallevel=2 concealcursor=i
+" endif
 
-" taglist
-" 以下コマンドでプロジェクト毎のtagsファイルを生成、使用するものをコピーし対象とする
-" $ ctags -R --languages=php --langmap=PHP:.php.inc --php-types=c+f+d -f ~/.tags/{プロジェクト名}.tags `pwd` {プロジェクトファイルroot} `pwd`
-" $ cd ~/.tags/
-" $ cp -vi {プロジェクト名}.tags tags
-" 後はCtrl+]等でtag jump、Ctrl+tで元の位置に戻る、:tsで他の候補表示
-au BufNewFile,BufRead *.php set tags+=$HOME/.tags/tags
+
 
 " vim-indent-guides
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
@@ -647,6 +699,8 @@ let g:quickrun_config['php.phpunit']['command'] = 'phpunit'
 let g:quickrun_config['php.phpunit']['exec'] = '%c %o %s'
 
 
+
+
 " vim-ref
 "   localsettingに移動
 " let g:ref_phpmanual_path = $HOME . '/Documents/phpmanual'
@@ -658,4 +712,3 @@ let g:quickrun_config['php.phpunit']['exec'] = '%c %o %s'
 if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
   source $HOME/.localsetting/vimrc_local
 endif
-
