@@ -132,13 +132,16 @@ NeoBundleLazy 'glidenote/memolist.vim', {
     \ 'autoload' : { 'commands' : ['MemoNew', 'MemoGrep', 'MemoList'] }
     \}
 NeoBundleLazy 'kannokanno/previm', {
+    \ 'depends' : 'open-browser.vim',
     \ 'autoload' : { 'filetypes' : ['md', 'mdwn', 'mkd', 'mkdn', 'markdown'] }
     \}
 
 "   twitter
 "     Lazyすると :Unite tweetvim が効かなくなるので通常load
-NeoBundle 'basyura/TweetVim'
 NeoBundle 'basyura/twibill.vim'
+NeoBundle 'basyura/TweetVim', {
+    \ 'depends' : ['twibill.vim', 'open-browser.vim', 'webapi-vim', 'unite.vim'],
+    \}
 
 "   syntax
 NeoBundleLazy 'hail2u/vim-css-syntax', {
@@ -159,6 +162,14 @@ NeoBundleLazy 'uggedal/jinja-vim', {
 NeoBundleLazy 'nono/jquery.vim', {
     \ 'autoload' : { 'filetypes' : ['js'] }
     \}
+
+NeoBundle 'mattn/vimplenote-vim', {
+    \ 'depends' : 'webapi-vim',
+    \ 'autoload' : { 'commands' : 'Vimplenote' }
+    \}
+
+
+
 
 
 
@@ -633,9 +644,6 @@ map <Leader>mn  :MemoNew<CR>
 map <Leader>ml  :MemoList<CR>
 map <Leader>mg  :MemoGrep<CR>
 
-" jinja
-" autocmd BufNewFile,BufRead *.twig set filetype=jinja
-
 
 " " neosnippet
 " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -679,8 +687,8 @@ let g:indent_guides_guide_size = 1
 " see also http://www.karakaram.com/quickrun-phpunit
 "
 " 実行時は:cd で設定ファイルがあるdirへ移動し
-" :Quickrun -cmdopt '-c "phpunit.xml.dist"'とかするといいぽい
-" 場合によっては:Quickrunだけで行けるぽい(<Leader>rでいける)
+" :QuickRun -cmdopt '-c "phpunit.xml.dist"'とかするといいぽい
+" 場合によっては:QuickRunだけで行けるぽい(<Leader>rでいける)
 augroup QuickRunPHPUnit
     " *Test.phpをphpunitファイルとして定義する
     autocmd!
@@ -706,8 +714,8 @@ let g:quickrun_config['php.phpunit']['exec'] = '%c %o %s'
 " let g:ref_phpmanual_path = $HOME . '/Documents/phpmanual'
 
 " local設定(gitにpushしない)
-"  font設定や他アプリケーション連携等
-"   (browser別挙動は分岐かけるのでここには記載しない)
+"  font設定や他アプリケーション連携、I/P等
+"   (環境別挙動は分岐かけるのでここには記載しない)
 " via@http://auewe.hatenablog.com/entry/2013/05/14/003610
 if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
   source $HOME/.localsetting/vimrc_local
