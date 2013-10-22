@@ -119,9 +119,6 @@ NeoBundleLazy 'hokaccha/vim-html5validator', {
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
     \ 'autoload' : { 'filetypes' : ['js'] }
     \}
-NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
-    \ 'autoload' : { 'filetypes' : ['js'] }
-    \}
 NeoBundleLazy 'vim-scripts/taglist.vim', {
     \ 'autoload' : { 'commands' : 'TlistToggle' }
     \}
