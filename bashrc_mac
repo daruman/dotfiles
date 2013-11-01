@@ -4,6 +4,10 @@ export PATH=$PATH:/usr/local/share/npm/bin
 # コマンドエイリアス
 alias ll='ls -FlhG'
 alias la='ls -FlaG'
+# brewでいれた最新のvimを使用
+# via@http://supermomonga.com/2013/07/03/macvim-with-lua-features/
+alias vi='vim'
+alias vim='/usr/local/Cellar/macvim/HEAD/MacVim.app/Contents/MacOS/Vim'
 
 # ctrl+rでhistory検索した際、行き過ぎた時戻るのにctrl+s出来るようにする
 # via@http://d.hatena.ne.jp/poch-7003/20090927/1254034581
