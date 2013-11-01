@@ -160,11 +160,10 @@ NeoBundleLazy 'nono/jquery.vim', {
     \ 'autoload' : { 'filetypes' : ['js'] }
     \}
 
-NeoBundle 'mattn/vimplenote-vim', {
+NeoBundle 'mattn/gist-vim', {
     \ 'depends' : 'webapi-vim',
     \ 'autoload' : { 'commands' : 'Vimplenote' }
     \}
-
 
 
 
