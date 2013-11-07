@@ -13,7 +13,6 @@ alias la='ls -Fla --color=auto --show-control-chars | nkf -w'
 export TERM=xterm-256color
 
 # 言語設定
-# export LANG=japanese
 # export TYPE=utf-8
 export LANG='ja_JP.UTF-8' # 以下 3 つ文字コード
 export LC_ALL='ja_JP.UTF-8'
