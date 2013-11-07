@@ -5,8 +5,8 @@
 # コマンドエイリアス
 # alias ll='ls -Flh'
 # alias la='ls -Fla'
-alias ll='ls -Flh --color=auto --show-control-chars'
-alias la='ls -Fla --color=auto --show-control-chars'
+alias ll='ls -Flh --color=auto --show-control-chars | nkf -w'
+alias la='ls -Fla --color=auto --show-control-chars | nkf -w'
 
 # カラーリング
 # source ~/mintty_color_theme/terminal-color-theme/color-theme-molokai/molokai.sh
