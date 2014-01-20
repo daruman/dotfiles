@@ -165,7 +165,7 @@ NeoBundle 'mattn/gist-vim', {
     \ 'autoload' : { 'commands' : 'Vimplenote' }
     \}
 
-
+NeoBundle 'itchyny/calendar.vim'
 
 
 
@@ -676,7 +676,15 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgr
 let g:indent_guides_color_change_percent = 30
 " ガイドの幅
 let g:indent_guides_guide_size = 1
-
+" 除外するファイルタイプ
+let g:indent_guides_exclude_filetypes = [
+      \ 'help',
+      \ 'tweetvim',
+      \ 'unite',
+      \ 'vimfiler',
+      \ 'vimshell',
+      \ 'calendar',
+      \ ]
 
 " quickrun
 " <Leader>rでテスト実行
@@ -722,3 +730,7 @@ let g:gist_get_multiplefile = 1
 if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
   source $HOME/.localsetting/vimrc_local
 endif
+
+" vim-calendar
+let g:calendar_google_calendar = 1
+nnoremap <silent> <Leader>z :<C-u>Calendar -first_day=monday<CR>
