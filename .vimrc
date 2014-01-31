@@ -733,4 +733,5 @@ endif
 
 " vim-calendar
 let g:calendar_google_calendar = 1
+let g:calendar_updatetime = 50
 nnoremap <silent> <Leader>z :<C-u>Calendar -first_day=monday<CR>
