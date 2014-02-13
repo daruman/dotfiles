@@ -690,9 +690,9 @@ let g:indent_guides_exclude_filetypes = [
 " <Leader>rでテスト実行
 " see also http://www.karakaram.com/quickrun-phpunit
 "
-" 実行時は:cd で設定ファイルがあるdirへ移動し
+" 実行時は:cd でphpunit.xmlがあるdirへ移動してから実行
+" phpunit.xml以外の名前の設定ファイルの場合
 " :QuickRun -cmdopt '-c "phpunit.xml.dist"'とかするといいぽい
-" 場合によっては:QuickRunだけで行けるぽい(<Leader>rでいける)
 augroup QuickRunPHPUnit
     " *Test.phpをphpunitファイルとして定義する
     autocmd!
