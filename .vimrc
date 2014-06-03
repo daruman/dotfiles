@@ -16,7 +16,6 @@ endif
 
 
 
-
 " Ev/Rvでvimrcの編集と反映
 if has("gui_macvim")
     command! Ev edit $MYVIMRC
@@ -167,7 +166,11 @@ NeoBundle 'mattn/gist-vim', {
 
 NeoBundle 'itchyny/calendar.vim'
 
+NeoBundle 'Shougo/neomru.vim', {
+    \ 'depends' : 'Shougo/unite.vim'
+    \ }
 
+NeoBundle 'gcmt/wildfire.vim'
 
 " 保留
 " NeoBundle 'Shougo/vimfiler.vim'
@@ -179,6 +182,8 @@ NeoBundle 'itchyny/calendar.vim'
 " airblade/vim-gitgutterもいいぽい
 
 NeoBundle 'tomasr/molokai'
+
+
 
 " colorscheme
 colorscheme molokai
@@ -396,6 +401,17 @@ syntax on
 " 補完候補の色づけ for vim7
 hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
 
+" markdown内スクリプトのハイライト
+" via@http://mattn.kaoriya.net/software/vim/20140523124903.htm
+let g:markdown_fenced_languages = [
+\  'php',
+\  'css',
+\  'javascript',
+\  'js=javascript',
+\  'json=javascript',
+\  'sass',
+\  'xml',
+\]
 
 "-------------------------------------------------------------------------------
 " 編集関連 Edit
@@ -735,3 +751,13 @@ endif
 let g:calendar_google_calendar = 1
 let g:calendar_updatetime = 50
 nnoremap <silent> <Leader>z :<C-u>Calendar -first_day=monday<CR>
+
+
+" neomru.vim
+let g:neomru#file_mru_path=expand('~/.vim/etc/neomru/file')
+let g:neomru#directory_mru_path=expand('~/.vim/etc/neomru/direcroty')
+
+
+" wildfire.vim
+let g:wildfire_water_map = '<S-Enter>'
+let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'ip', 'it', 'i>']

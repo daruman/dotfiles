@@ -30,7 +30,7 @@ if [ -n "$BASH_VERSION" ]; then
     export LESS=-q
 
     # コマンドエイリアス
-    alias vi='vim'
+    # alias vi='vim'
 
 
     # include .bashrc if it exists

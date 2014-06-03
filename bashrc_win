@@ -1,12 +1,15 @@
 # export PATH=$PATH:/Users/daruman/bin
 # export PATH=$PATH:/usr/local/share/npm/bin
 
-
 # コマンドエイリアス
 # alias ll='ls -Flh'
 # alias la='ls -Fla'
-alias ll='ls -Flh --color=auto --show-control-chars | nkf -w'
-alias la='ls -Fla --color=auto --show-control-chars | nkf -w'
+# alias ll='ls -Flh --color=auto --show-control-chars | nkf -w'
+# alias la='ls -Fla --color=auto --show-control-chars | nkf -w'
+alias ls='ls --color=auto --show-control-chars'
+alias ll='ls -Flh'
+alias la='ls -Fla'
+
 
 # カラーリング
 # source ~/mintty_color_theme/terminal-color-theme/color-theme-molokai/molokai.sh
@@ -33,6 +36,7 @@ function settitle ()
     # "\007"が変更終了・・・らしい、です。
     echo -ne "\e]2;$t\007"
 }
+settitle $@
 function cd()
 {
     builtin cd $@ && settitle $@
@@ -52,7 +56,7 @@ function share_history {
 }
 PROMPT_COMMAND='share_history'
 shopt -u histappend
-export HISTSIZE=9999
+
 
 # ctrl+rでhistory検索した際、行き過ぎた時戻るのにctrl+s出来るようにする
 # via@http://d.hatena.ne.jp/poch-7003/20090927/1254034581
@@ -60,5 +64,10 @@ export HISTSIZE=9999
 #   winのgit bashで固まるので何か方法考え中
 # stty stop undef
 # stty start undef
+
+# cygwinのgitkがXWINサーバーに依存しているため予め起動
+startxwin >/dev/null 2>&1
+export DISPLAY=localhost:0.0
+
 
 echo '.bashrc loaded'
