@@ -160,8 +160,7 @@ NeoBundleLazy 'nono/jquery.vim', {
     \}
 
 NeoBundle 'mattn/gist-vim', {
-    \ 'depends' : 'webapi-vim',
-    \ 'autoload' : { 'commands' : 'Vimplenote' }
+    \ 'depends' : 'mattn/webapi-vim',
     \}
 
 NeoBundle 'itchyny/calendar.vim'
@@ -728,6 +727,7 @@ let g:quickrun_config['php.phpunit']['exec'] = '%c %o %s'
 
 
 " gist-vim
+" let g:gist_use_password_in_gitconfig = 1
 let g:gist_detect_filetype = 1
 " let g:gist_open_browser_after_post = 1
 let g:gist_post_private = 1
