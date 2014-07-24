@@ -91,6 +91,7 @@ install rmtrash || true
 #install boot2docker || true
 #install packer      || true
 #install dnsmasq     || true
+#install ansible     || true
 
 ## Dependent
 #   php
