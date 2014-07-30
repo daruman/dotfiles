@@ -14,7 +14,7 @@ cd "$DOTFILES_DIR"
 
 
 
-# submodule 更新
+# submodule
 # =============================================================================
 git submodule init
 git submodule update

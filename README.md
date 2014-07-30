@@ -1,10 +1,9 @@
 
 # SETUP
-$ git clone git@github.com:daruman/dotfiles.git ~/.dotfiles  
+$ git clone https://github.com/daruman/dotfiles.git ~/.dotfiles  
 $ cd ~/.dotfiles/  
 $ chmod +x setup.sh  
 $ setup.sh  
-$ git submodule update  
 
 
 # 環境メモ
