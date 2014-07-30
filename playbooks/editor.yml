@@ -1,0 +1,6 @@
+---
+
+# editor.yml
+
+- name: Install vim
+  yum: name=vim state=installed
