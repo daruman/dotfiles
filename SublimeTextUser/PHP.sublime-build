@@ -1,6 +1,0 @@
-{
-	"path": "/usr/local/bin:$PATH",
-	"cmd": ["php", "-f", "$file"],
-	"selector": "source.php",
-	"encoding": "cp932"
-}

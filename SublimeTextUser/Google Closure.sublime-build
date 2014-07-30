@@ -1,5 +1,0 @@
-{
-   "cmd": ["java", "-jar", "/Users/daruman/bin/compiler.jar", "--js", "$file", "--js_output_file", "$file_base_name.min.js"],
-   "file_regex": "^(.*):([0-9]+):() ERROR - (.*)",
-   "selector": "source.js"
-}
