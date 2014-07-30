@@ -9,6 +9,9 @@ update || true
 # homebrew-cask用Repository
 tap caskroom/homebrew-cask || true
 
+# homebrew-cask用Repository(version指定可能、ベータ版や日本語版が欲しい際に)
+tap caskroom/homebrew-versions || true
+
 # バイナリインストール対応Repository
 tap homebrew/binary || true
 
@@ -19,7 +22,6 @@ tap homebrew/versions || true
 # php用(dupesは依存用)
 tap homebrew/dupes || true
 tap josegonzalez/homebrew-php || true
-
 
 # Install Packages
 # =============================================================================
@@ -125,16 +127,17 @@ cask install iterm2
 cask install sequel-pro
 cask install sourcetree
 cask install vlc
-cask install Cyberduck
+cask install cyberduck
 cask install dash
 cask install alfred
+cask install coteditor
 #   alfredでhomebrew経由でインストールしたアプリも検索出来るようにする
 cask alfred link
 
 # Browser
 cask install google-chrome
-cask install Chromium
-cask install firefox
+cask install google-chrome-canary
+cask install firefox-ja
 cask install opera
 
 # DevEnv
@@ -146,7 +149,7 @@ cask install google-japanese-ime
 cask install caffeine
 cask install karabiner
 cask install appcleaner
-cask install Unarchiver
+cask install the-unarchiver
 
 # 検討中
 # cask install slate
