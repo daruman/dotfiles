@@ -21,7 +21,7 @@ brew tap homebrew/versions
 
 # php用(dupesは依存用)
 brew tap homebrew/dupes
-brew tap josegonzalez/homebrew-php
+brew tap homebrew/homebrew-php
 
 # Install Packages
 # =============================================================================
@@ -31,6 +31,54 @@ brew install brew-cask
 
 # Shell
 brew install zsh --disable-etcdir
+
+# Commands\Utils
+brew install tree
+# このcurlはシンボリックリンクを作らない（defaultとのコンフリクトをさけるため
+# ここで入れた新しいversionのcurlを使う場合、明示的に指定するか、参照パスを書き換える
+brew install curl
+brew install openssl
+brew link openssl --force
+brew install jq
+brew install wget
+brew install ctags
+brew install ag
+brew install tig
+brew install autoconf
+brew install automake
+brew install grc
+brew install source-highlight
+brew install rmtrash
+
+# tools
+brew install macvim --with-lua --with-luajit --HEAD
+brew install tmux
+
+# Dependent
+#   php
+brew install jpeg
+brew install re2c
+brew install libmcrypt
+brew install libpng
+
+# 必要かよくわからない
+brew install markdown
+brew install nkf
+brew install pcre
+brew install gcc
+brew install mcrypt
+brew install imagemagick
+brew install cmake
+# install libtool
+
+
+
+
+
+
+
+
+
 
 ## Languages/xxenv
 brew install rbenv
@@ -50,8 +98,9 @@ brew install josegonzalez/php/composer
 brew install php53-xdebug
 brew install php53-apc
 brew install go --cross-compile-common
-brew install lua
-brew install luajit
+# vimのInstall optionで一緒にinstallされる
+# brew install lua
+# brew install luajit
 
 # Middleware
 brew install httpd
@@ -72,41 +121,8 @@ brew install nodebrew
 # install node
 # install nvm
 
-# tools
-brew install macvim --with-lua --with-luajit --HEAD
-brew install tmux
 
-# Commands\Utils
-brew install curl
-brew install tree
-brew install openssl
-brew install jq
-brew install wget
-brew install ctags
-brew install ag
-brew install tig
-brew install autoconf
-brew install automake
-brew install grc
-brew install source-highlight
-brew install rmtrash
 
-# Dependent
-#   php
-brew install jpeg
-brew install re2c
-brew install libmcrypt
-brew install libpng
-
-# 必要かよくわからない
-brew install markdown
-brew install nkf
-brew install pcre
-brew install gcc
-brew install mcrypt
-brew install imagemagick
-brew install cmake
-# install libtool
 
 # 検討中
 # install jenkins
