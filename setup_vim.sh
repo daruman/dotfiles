@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo 'start setup vim'
-echo date '+%Y/%m/%d %T'
+echo "***** [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *****"
 
 # setup vim
 # =============================================================================
