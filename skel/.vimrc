@@ -734,18 +734,8 @@ let g:gist_post_private = 1
 let g:gist_browser_command = ":OpenBrowser %URL%"
 let g:gist_get_multiplefile = 1
 
-
 " vim-ref
-"   localsettingに移動
-" let g:ref_phpmanual_path = $HOME . '/Documents/phpmanual'
-
-" local設定(gitにpushしない)
-"  font設定や他アプリケーション連携、I/P等
-"   (環境別挙動は分岐かけるのでここには記載しない)
-" via@http://auewe.hatenablog.com/entry/2013/05/14/003610
-if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
-  source $HOME/.localsetting/vimrc_local
-endif
+let g:ref_phpmanual_path = expand('~/.vim/php_manual')
 
 " vim-calendar
 let g:calendar_google_calendar = 1
