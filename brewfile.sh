@@ -67,49 +67,40 @@ brew install nkf
 brew install pcre
 brew install gcc
 brew install mcrypt
+# imagemagickの依存パッケージとしてinstallされるlibtoolは
+# OSのdefaultのとのコンフリクトを避けるため、glibtoolとしてある
+# こちらを使用する場合は`alias libtool=glibtool`とでもする
 brew install imagemagick
 brew install cmake
-# install libtool
-
-
-
-
-
-
-
-
 
 
 ## Languages/xxenv
-brew install rbenv
-brew install ruby-build
-brew install rbenv-default-gems
-brew install pyenv
-brew install pyenv-virtualenv
-brew install python3
-brew install plenv
-brew install perl-build
-# --HEADつけないと怒られる
-brew install phpenv --HEAD
-# phpenvのpluginとして下記コマンドでInstallしたほういい？
-# $ git clone git@github.com:CHH/php-build.git ~/.phpenv/plugins/php-build
-# install php-build
-brew install josegonzalez/php/composer
-brew install php53-xdebug
-brew install php53-apc
-brew install go --cross-compile-common
-# vimのInstall optionで一緒にinstallされる
-# brew install lua
-# brew install luajit
+# brew install rbenv
+# brew install ruby-build
+# brew install rbenv-default-gems
+# brew install pyenv
+# brew install pyenv-virtualenv
+# brew install python3
+# brew install plenv
+# brew install perl-build
+# # --HEADつけないと怒られる
+# brew install phpenv --HEAD
+# # phpenvのpluginとして下記コマンドでInstallしたほういい？
+# # $ git clone git@github.com:CHH/php-build.git ~/.phpenv/plugins/php-build
+# # install php-build
+# brew install josegonzalez/php/composer
+# brew install php53-xdebug
+# brew install php53-apc
+# brew install go --cross-compile-common
 
 # Middleware
-brew install httpd
-brew install phantomjs
-brew install git
-brew install mysql
-brew install memcached
-brew install sqlite
-#install nginx
+# brew install httpd
+# brew install phantomjs
+# brew install git
+# brew install mysql
+# brew install memcached
+# brew install sqlite
+# #install nginx
 
 # DevEnv
 #install packer
@@ -117,12 +108,9 @@ brew install sqlite
 #install ansible
 
 # Node.js
-brew install nodebrew
-# install node
-# install nvm
-
-
-
+# brew install nodebrew
+# # install node
+# # install nvm
 
 # 検討中
 # install jenkins
@@ -147,8 +135,6 @@ brew cask install cyberduck
 brew cask install dash
 brew cask install alfred
 brew cask install coteditor
-#   alfredでhomebrew経由でインストールしたアプリも検索出来るようにする
-brew cask alfred link
 
 # Browser
 brew cask install google-chrome
@@ -185,6 +171,7 @@ brew upgrade
 brew cask update
 
 # ~/Applications/にシンボリックリンク作成
+# 通常のアプリケーションは/Applicationsにあり、ここでの~/Applicationsではない事に注意
 # =============================================================================
 brew linkapps
 
@@ -192,3 +179,7 @@ brew linkapps
 # =============================================================================
 brew cleanup
 brew cask cleanup
+
+# alfredでhomebrew経由でインストールしたアプリも検索出来るようにする
+# =============================================================================
+brew cask alfred link
