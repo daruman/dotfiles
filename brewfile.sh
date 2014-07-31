@@ -1,116 +1,116 @@
 # Homebrewを最新にする
 # =============================================================================
-brew update || true
+brew update
 
 
 # Repositoryを追加する
 # =============================================================================
 
 # homebrew-cask用Repository
-brew tap caskroom/homebrew-cask || true
+brew tap caskroom/homebrew-cask
 
 # homebrew-cask用Repository(version指定可能、ベータ版や日本語版が欲しい際に)
-brew tap caskroom/homebrew-versions || true
+brew tap caskroom/homebrew-versions
 
 # バイナリインストール対応Repository
-brew tap homebrew/binary || true
+brew tap homebrew/binary
 
 # バージョン指定で古いものに固定する場合に使用
-brew tap homebrew/versions || true
-# tap caskroom/versions || true
+brew tap homebrew/versions
+# tap caskroom/versions
 
 # php用(dupesは依存用)
-brew tap homebrew/dupes || true
-brew tap josegonzalez/homebrew-php || true
+brew tap homebrew/dupes
+brew tap josegonzalez/homebrew-php
 
 # Install Packages
 # =============================================================================
 
 # Packages for brew-cask
-brew install brew-cask || true
+brew install brew-cask
 
 # Shell
-brew install zsh --disable-etcdir || true
+brew install zsh --disable-etcdir
 
 ## Languages/xxenv
-brew install rbenv || true
-brew install ruby-build || true
-brew install rbenv-default-gems || true
-brew install pyenv || true
+brew install rbenv
+brew install ruby-build
+brew install rbenv-default-gems
+brew install pyenv
 brew install pyenv-virtualenv
-brew install python3 || true
-brew install plenv || true
-brew install perl-build || true
+brew install python3
+brew install plenv
+brew install perl-build
 # --HEADつけないと怒られる
-brew install phpenv --HEAD || true
+brew install phpenv --HEAD
 # phpenvのpluginとして下記コマンドでInstallしたほういい？
 # $ git clone git@github.com:CHH/php-build.git ~/.phpenv/plugins/php-build
-# install php-build || true
+# install php-build
 brew install josegonzalez/php/composer
-brew install php53-xdebug || true
-brew install php53-apc || true
-brew install go --cross-compile-common || true
+brew install php53-xdebug
+brew install php53-apc
+brew install go --cross-compile-common
 brew install lua
 brew install luajit
 
 # Middleware
-brew install httpd || true
-brew install phantomjs || true
-brew install git || true
-brew install mysql || true
-brew install memcached || true
-brew install sqlite || true
-#install nginx ||  true
+brew install httpd
+brew install phantomjs
+brew install git
+brew install mysql
+brew install memcached
+brew install sqlite
+#install nginx
 
 # DevEnv
-#install packer      || true
-#install dnsmasq     || true
-#install ansible     || true
+#install packer
+#install dnsmasq
+#install ansible
 
 # Node.js
-brew install nodebrew || true
-# install node || true
-# install nvm || true
+brew install nodebrew
+# install node
+# install nvm
 
 # tools
-brew install macvim --with-lua --with-luajit --HEAD || true
-brew install tmux || true
+brew install macvim --with-lua --with-luajit --HEAD
+brew install tmux
 
 # Commands\Utils
-brew install curl || true
-brew install tree || true
-brew install openssl || true
-brew install jq || true
-brew install wget || true
-brew install ctags || true
-brew install ag || true
-brew install tig || true
-brew install autoconf || true
-brew install automake || true
-brew install grc || true
-brew install source-highlight || true
-brew install rmtrash || true
+brew install curl
+brew install tree
+brew install openssl
+brew install jq
+brew install wget
+brew install ctags
+brew install ag
+brew install tig
+brew install autoconf
+brew install automake
+brew install grc
+brew install source-highlight
+brew install rmtrash
 
 # Dependent
 #   php
-brew install jpeg || true
-brew install re2c || true
-brew install libmcrypt || true
-brew install libpng || true
+brew install jpeg
+brew install re2c
+brew install libmcrypt
+brew install libpng
 
 # 必要かよくわからない
-brew install markdown || true
-brew install nkf || true
-brew install pcre || true
-brew install gcc || true
-brew install mcrypt || true
-brew install imagemagick || true
-brew install cmake || true
-# install libtool || true
+brew install markdown
+brew install nkf
+brew install pcre
+brew install gcc
+brew install mcrypt
+brew install imagemagick
+brew install cmake
+# install libtool
 
 # 検討中
-# install jenkins || true
-# install hub || true
+# install jenkins
+# install hub
 
 
 # Install .dmg
@@ -162,7 +162,7 @@ brew cask install the-unarchiver
 
 # 既にインストールされているFormulaを最新にする
 # =============================================================================
-brew upgrade || true
+brew upgrade
 
 # .dmg update
 # =============================================================================
