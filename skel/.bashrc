@@ -35,6 +35,18 @@ echo '.bashrc loaded'
 
 
 
+
+
+# Homebrewで入れたほうを優先するためPATH追加
+export PATH="/usr/local/bin:$PATH"
+if [! -d /usr/local/sbin ]; then
+    mkdir /usr/local/sbin
+fi
+export PATH="/usr/local/sbin:$PATH"
+
+# JAVA
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
 # rmのエイリアス(rmtrash前提)
 alias rm='rmtrash'
 
@@ -43,21 +55,23 @@ if [ -f "$(brew --prefix)/etc/grc.bashrc" ]; then
     source "$(brew --prefix)/etc/grc.bashrc"
 fi
 
-
-
-exit
-
-
-
-
-
-# Homebrewで入れたほうを優先するためPATH追加
-export PATH="/usr/local/bin:$PATH"
-if [! -d /usr/local/sbin ]; then
-    mkdir /usr/local/sbin
+# For MacVim
+if [ -d /Applications/MacVim.app/Contents/MacOS ]; then
+  export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
 fi
 
-export PATH="/usr/local/sbin:$PATH"
+
+
+
+
+
+exit;
+
+
+
+
+
+
 # phpenvはrbenvを流用するので最後に指定
 export RBENV_ROOT="$HOME/.rbenv"
 export PYENV_ROOT="$HOME/.pyenv"
@@ -74,13 +88,4 @@ if [ -f ~/.nodebrew/nodebrew ]; then
     export PATH=$HOME/.nodebrew/current/bin:$PATH
     # 特定バージョンが使いたい場合は以下
     # nodebrew use v0.11
-fi
-
-
-# JAVA
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-
-# For MacVim
-if [ -d /Applications/MacVim.app/Contents/MacOS ]; then
-  export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
 fi
