@@ -39,7 +39,7 @@ echo '.bashrc loaded'
 
 # Homebrewで入れたほうを優先するためPATH追加
 export PATH="/usr/local/bin:$PATH"
-if [! -d /usr/local/sbin ]; then
+if [ ! -d /usr/local/sbin ]; then
     mkdir /usr/local/sbin
 fi
 export PATH="/usr/local/sbin:$PATH"
