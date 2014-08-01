@@ -39,11 +39,10 @@ brew install zsh --disable-etcdir
 
 # Commands\Utils
 brew install tree
-# このcurlはシンボリックリンクを作らない（defaultとのコンフリクトをさけるため
-# ここで入れた新しいversionのcurlを使う場合、明示的に指定するか、参照パスを書き換える
+# このcurl/opensslはシンボリックリンクを作らない（defaultとのコンフリクトをさけるため
+# ここで入れた新しいversionを使う場合、明示的に指定するか、参照パスを書き換える
 brew install curl
 brew install openssl
-brew link openssl --force
 brew install jq
 brew install wget
 brew install ctags
