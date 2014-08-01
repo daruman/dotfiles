@@ -21,8 +21,8 @@ if has("gui_macvim")
     command! Ev edit $MYVIMRC
     command! Rv source $MYVIMRC
 else
-    command! Ev edit ~/dotfiles/.vimrc
-    command! Rv source ~/dotfiles/.vimrc
+    command! Ev edit ~/.dotfiles/.vimrc
+    command! Rv source ~/.dotfiles/.vimrc
 endif
 
 " fullscreen
@@ -74,12 +74,12 @@ if has('vim_starting')
     set nocompatible               " Be iMproved
     " set runtimepath+=~/.vim/bundle/neobundle.vim/
     if &runtimepath !~ '/neobundle.vim'
-        execute 'set runtimepath+=' . expand('~/dotfiles/.vim/bundle/neobundle.vim')
+        execute 'set runtimepath+=' . expand('~/.dotfiles/.vim/bundle/neobundle.vim')
     endif
 endif
 
 " call neobundle#rc(expand('~/.vim/bundle/'))
-call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
+call neobundle#rc(expand('~/.dotfiles/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -152,7 +152,7 @@ NeoBundleLazy 'hail2u/html5.vim', {
 NeoBundleLazy 'jelera/vim-javascript-syntax', {
     \ 'autoload' : { 'filetypes' : ['js'] }
     \}
-NeoBundleLazy 'uggedal/jinja-vim', {
+NeoBundleLazy 'lepture/vim-jinja', {
     \ 'autoload' : { 'filetypes' : ['twig', 'jinja'] }
     \}
 NeoBundleLazy 'nono/jquery.vim', {
@@ -460,7 +460,7 @@ nnoremap Q <Nop>
 " autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
 augroup SkeletonAu
     autocmd!
-    autocmd BufNewFile *.html 0r $HOME/dotfiles/.vim/templates/skel.html
+    autocmd BufNewFile *.html 0r $HOME/.dotfiles/.vim/templates/skel.html
 augroup END
 
 
