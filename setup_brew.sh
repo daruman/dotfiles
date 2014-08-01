@@ -32,6 +32,7 @@ brew tap homebrew/homebrew-php
 # Packages for brew-cask
 brew unlink brew-cask # versionによってはunlinkしておく必要があるので
 brew install brew-cask
+brew link brew-cask
 
 # Shell
 brew install zsh --disable-etcdir
