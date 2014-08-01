@@ -66,7 +66,6 @@ brew install libmcrypt
 brew install libpng
 
 # 必要かよくわからない
-brew install markdown
 brew install nkf
 brew install pcre
 brew install gcc

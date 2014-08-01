@@ -33,6 +33,8 @@ echo '.bashrc loaded'
 
 
 
+# Homebrew によるinstall前提設定
+# =============================================================================
 
 
 
@@ -51,9 +53,9 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 alias rm='rmtrash'
 
 # Generic Colouriser によるシンタックスハイライト
-if [ -f "$(brew --prefix)/etc/grc.bashrc" ]; then
-    source "$(brew --prefix)/etc/grc.bashrc"
-fi
+# if [ -f "$(brew --prefix)/etc/grc.bashrc" ]; then
+    # source "$(brew --prefix)/etc/grc.bashrc"
+# fi
 
 # For MacVim
 if [ -d /Applications/MacVim.app/Contents/MacOS ]; then
