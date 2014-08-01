@@ -65,7 +65,6 @@ fi
 
 
 
-exit;
 
 
 
@@ -73,19 +72,19 @@ exit;
 
 
 # phpenvはrbenvを流用するので最後に指定
-export RBENV_ROOT="$HOME/.rbenv"
-export PYENV_ROOT="$HOME/.pyenv"
-export PLENV_ROOT="$HOME/.plenv"
-export PHPENV_ROOT="$HOME/.phpenv"
-export PATH=$RBENV_ROOT/bin:$PYENV_ROOT/bin:$PLENV_ROOT/bin:$PATH:$PHPENV_ROOT/bin:$PATH
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
-eval "$(plenv init -)"
-eval "$(phpenv init -)"
+# export RBENV_ROOT="$HOME/.rbenv"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PLENV_ROOT="$HOME/.plenv"
+# export PHPENV_ROOT="$HOME/.phpenv"
+# export PATH=$RBENV_ROOT/bin:$PYENV_ROOT/bin:$PLENV_ROOT/bin:$PATH:$PHPENV_ROOT/bin:$PATH
+# eval "$(rbenv init -)"
+# eval "$(pyenv init -)"
+# eval "$(plenv init -)"
+# eval "$(phpenv init -)"
 
 # nodebrewのcurrentを使う
-if [ -f ~/.nodebrew/nodebrew ]; then
-    export PATH=$HOME/.nodebrew/current/bin:$PATH
-    # 特定バージョンが使いたい場合は以下
-    # nodebrew use v0.11
-fi
+# if [ -f ~/.nodebrew/nodebrew ]; then
+    # export PATH=$HOME/.nodebrew/current/bin:$PATH
+    # # 特定バージョンが使いたい場合は以下
+    # # nodebrew use v0.11
+# fi
