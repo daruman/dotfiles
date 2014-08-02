@@ -16,10 +16,10 @@ cd "$DOTFILES_DIR"
 
 
 
-# submodule
+# submodule update
 # =============================================================================
-git submodule init
-git submodule update
+git submodule foreach 'git checkout master; git pull'
+git submodule update --init
 
 
 # setup homebrew

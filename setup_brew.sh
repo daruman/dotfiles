@@ -26,6 +26,9 @@ brew tap homebrew/versions
 brew tap homebrew/dupes
 brew tap homebrew/homebrew-php
 
+# font用
+brew tap sanemat/font
+
 # Install Packages
 # =============================================================================
 
@@ -118,6 +121,12 @@ brew install cmake
 # 検討中
 # install jenkins
 # install hub
+
+
+# Ricty font
+brew install ricty
+cp -f /usr/local/Cellar/ricty/*/*/fonts/Ricty*.ttf ~/Library/Fonts/
+fc-cache -vf
 
 
 # Install .dmg
