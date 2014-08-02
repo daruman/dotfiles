@@ -68,6 +68,12 @@ endif
 
 "------------------------------------------------
 " NeoBundle
+"
+" update
+" cd ~/.dotfiles/.vim/bundle/neobundle.vim
+" git pull
+" cd ~/.dotfiles
+" git add -A && git commit -am 'update NeoBundle.'
 "------------------------------------------------
 filetype off
 if has('vim_starting')
