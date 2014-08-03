@@ -1,4 +1,4 @@
-#!/bin/bash
+
 
 echo "***** [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *****"
 
@@ -65,9 +65,26 @@ echo "[vim] Installing NeoBundles"
 vim -c NeoBundleInstall -c q
 
 # for ref.vim
-if [[ ! -d "$DOTFILES_VIM/php_manual/php-chunked-xhtml" ]]; then
+if [ ! -d "$DOTFILES_VIM/php_manual/php-chunked-xhtml" ]; then
     mkdir -p "$DOTFILES_VIM/php_manual"
     curl -L http://jp.php.net/get/php_manual_ja.tar.gz/from/this/mirror |
     tar xz -C "$DOTFILES_VIM/php_manual"
 fi
+
+
+# setup launch
+#     login時に起動
+# =============================================================================
+ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+
+# ln -sfv /usr/local/opt/httpd24/*.plist ~/Library/LaunchAgents
+
+# via@https://github.com/jaswsinc/homebrew-apache2
+if [ ! -d "/Library/LaunchDaemons" ]; then
+    mkdir -p "/Library/LaunchDaemons"
+fi
+sudo cp /usr/local/opt/httpd24/*.plist /Library/LaunchDaemons
+# sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+
 

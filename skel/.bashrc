@@ -84,6 +84,15 @@ fi
 # eval "$(plenv init -)"
 # eval "$(phpenv init -)"
 
+if [ -f $HOME/.phpenv/bin/phpenv ]; then
+    # phpenvはrbenvを自前で持っているため、rbenvのパスを優先すべくパスの最後に追加
+    export PATH=$PATH:$HOME/.phpenv/bin
+    eval "$(phpenv init -)"
+fi
+
+
+
+
 # nodebrewのcurrentを使う
 # if [ -f ~/.nodebrew/nodebrew ]; then
     # export PATH=$HOME/.nodebrew/current/bin:$PATH

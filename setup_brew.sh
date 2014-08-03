@@ -22,6 +22,9 @@ brew tap homebrew/binary
 brew tap homebrew/versions
 # tap caskroom/versions
 
+# apache用
+brew tap homebrew/apache
+
 # php用(dupesは依存用)
 brew tap homebrew/dupes
 brew tap homebrew/homebrew-php
@@ -100,10 +103,13 @@ brew install cmake
 # brew install go --cross-compile-common
 
 # Middleware
-# brew install httpd
+# apacheのinstall前に以下コマンドを実行
+# via@https://github.com/Homebrew/homebrew-apache
+sw_vers -productVersion | grep -E '^10\.[89]' > /dev/null && bash -c "[ -d /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain ] && sudo -u $(ls -ld /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain | awk '{print $3}') bash -c 'ln -vs XcodeDefault.xctoolchain /Applications/Xcode.app/Contents/Developer/Toolchains/OSX$(sw_vers -productVersion | cut -c-4).xctoolchain' || sudo bash -c 'mkdir -vp /Applications/Xcode.app/Contents/Developer/Toolchains/OSX$(sw_vers -productVersion | cut -c-4).xctoolchain/usr && ln -s /usr/bin /Applications/Xcode.app/Contents/Developer/Toolchains/OSX$(sw_vers -productVersion | cut -c-4).xctoolchain/usr/bin'"
+brew install httpd24
 # brew install phantomjs
 # brew install git
-# brew install mysql
+brew install mysql
 # brew install memcached
 # brew install sqlite
 # #install nginx
