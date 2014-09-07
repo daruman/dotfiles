@@ -10,26 +10,34 @@ brew update
 # =============================================================================
 
 # homebrew-cask用Repository
+brew untap caskroom/homebrew-cask
 brew tap caskroom/homebrew-cask
 
 # homebrew-cask用Repository(version指定可能、ベータ版や日本語版が欲しい際に)
+brew untap caskroom/homebrew-versions
 brew tap caskroom/homebrew-versions
 
 # バイナリインストール対応Repository
+brew untap homebrew/binary
 brew tap homebrew/binary
 
 # バージョン指定で古いものに固定する場合に使用
+brew untap homebrew/versions
 brew tap homebrew/versions
 # tap caskroom/versions
 
 # apache用
+brew untap homebrew/apache
 brew tap homebrew/apache
 
 # php用(dupesは依存用)
+brew untap homebrew/dupes
 brew tap homebrew/dupes
+brew untap homebrew/homebrew-php
 brew tap homebrew/homebrew-php
 
 # font用
+brew untap sanemat/font
 brew tap sanemat/font
 
 # Install Packages
@@ -92,11 +100,13 @@ brew install cmake
 # brew install python3
 # brew install plenv
 # brew install perl-build
-# # --HEADつけないと怒られる
-# brew install phpenv --HEAD
-# # phpenvのpluginとして下記コマンドでInstallしたほういい？
-# # $ git clone git@github.com:CHH/php-build.git ~/.phpenv/plugins/php-build
-# # install php-build
+# --HEADつけないと怒られる
+# php-buildはphpenvのpluginとしてinstallしたほうがよい
+brew install phpenv --HEAD
+# @todo pluginディレクトリがないなら作って、php-buildインストール
+if [ ! -d "$HOME/.phpenv/plugins/" ]; then
+    mkdir -p "$HOME/.phpenv/plugins/"
+fi
 # brew install josegonzalez/php/composer
 # brew install php53-xdebug
 # brew install php53-apc
@@ -105,8 +115,8 @@ brew install cmake
 # Middleware
 # apacheのinstall前に以下コマンドを実行
 # via@https://github.com/Homebrew/homebrew-apache
-sw_vers -productVersion | grep -E '^10\.[89]' > /dev/null && bash -c "[ -d /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain ] && sudo -u $(ls -ld /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain | awk '{print $3}') bash -c 'ln -vs XcodeDefault.xctoolchain /Applications/Xcode.app/Contents/Developer/Toolchains/OSX$(sw_vers -productVersion | cut -c-4).xctoolchain' || sudo bash -c 'mkdir -vp /Applications/Xcode.app/Contents/Developer/Toolchains/OSX$(sw_vers -productVersion | cut -c-4).xctoolchain/usr && ln -s /usr/bin /Applications/Xcode.app/Contents/Developer/Toolchains/OSX$(sw_vers -productVersion | cut -c-4).xctoolchain/usr/bin'"
-brew install httpd24
+# sw_vers -productVersion | grep -E '^10\.[89]' > /dev/null && bash -c "[ -d /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain ] && sudo -u $(ls -ld /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain | awk '{print $3}') bash -c 'ln -vs XcodeDefault.xctoolchain /Applications/Xcode.app/Contents/Developer/Toolchains/OSX$(sw_vers -productVersion | cut -c-4).xctoolchain' || sudo bash -c 'mkdir -vp /Applications/Xcode.app/Contents/Developer/Toolchains/OSX$(sw_vers -productVersion | cut -c-4).xctoolchain/usr && ln -s /usr/bin /Applications/Xcode.app/Contents/Developer/Toolchains/OSX$(sw_vers -productVersion | cut -c-4).xctoolchain/usr/bin'"
+brew install httpd22
 # brew install phantomjs
 # brew install git
 brew install mysql
@@ -192,6 +202,10 @@ brew cask update
 # 通常のアプリケーションは/Applicationsにあり、ここでの~/Applicationsではない事に注意
 # =============================================================================
 brew linkapps
+
+# tapのsymlinkで死んでいるものを修復
+# =============================================================================
+brew tap --repair
 
 # 不要ファイルの削除
 # =============================================================================

@@ -1,5 +1,3 @@
-
-
 echo "***** [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *****"
 
 # ベースディレクトリを取得
@@ -74,6 +72,7 @@ fi
 
 # setup launch
 #     login時に起動
+#     apache2.2想定
 # =============================================================================
 ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 
@@ -83,8 +82,8 @@ ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 if [ ! -d "/Library/LaunchDaemons" ]; then
     mkdir -p "/Library/LaunchDaemons"
 fi
-sudo cp /usr/local/opt/httpd24/*.plist /Library/LaunchDaemons
+sudo cp /usr/local/opt/httpd22/*.plist /Library/LaunchDaemons
 # sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
-sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd22.plist
 
 

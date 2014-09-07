@@ -1,7 +1,7 @@
 # PATH
 # =============================================================================
 # 手動追加したバイナリへのパス
-export PATH=$PATH:/Users/daruman/bin
+export PATH=$PATH:$HOME/bin
 
 # コマンドエイリアス
 # =============================================================================
@@ -66,9 +66,9 @@ fi
 
 
 
-
-
-
+# httpdで使用するphpモジュールの場所
+# [phpenvとphp-buildでPHPのバージョンを切り替えられるようにする - Qiita](http://qiita.com/ispern/items/97e3e6d910eb98b5de75#3-4)
+export PHPENV_APACHE_MODULE_PATH=$HOME/.phpenv/versions/
 
 
 
@@ -77,12 +77,10 @@ fi
 # export RBENV_ROOT="$HOME/.rbenv"
 # export PYENV_ROOT="$HOME/.pyenv"
 # export PLENV_ROOT="$HOME/.plenv"
-# export PHPENV_ROOT="$HOME/.phpenv"
 # export PATH=$RBENV_ROOT/bin:$PYENV_ROOT/bin:$PLENV_ROOT/bin:$PATH:$PHPENV_ROOT/bin:$PATH
 # eval "$(rbenv init -)"
 # eval "$(pyenv init -)"
 # eval "$(plenv init -)"
-# eval "$(phpenv init -)"
 
 if [ -f $HOME/.phpenv/bin/phpenv ]; then
     # phpenvはrbenvを自前で持っているため、rbenvのパスを優先すべくパスの最後に追加
