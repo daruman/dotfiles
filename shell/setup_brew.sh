@@ -1,5 +1,4 @@
-
-echo "***** [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *****"
+echo "******************* [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
 
 # Homebrewを最新にする
 # =============================================================================
@@ -107,7 +106,7 @@ brew install phpenv --HEAD
 if [ ! -d "$HOME/.phpenv/plugins/" ]; then
     mkdir -p "$HOME/.phpenv/plugins/"
 fi
-# brew install josegonzalez/php/composer
+brew install josegonzalez/php/composer
 # brew install php53-xdebug
 # brew install php53-apc
 # brew install go --cross-compile-common
