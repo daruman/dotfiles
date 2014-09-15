@@ -15,6 +15,5 @@ $ setup.sh
 nodebrewにて管理するので、node.jsはnodebrew経由でInstallする。
 
 
-test
 
 
