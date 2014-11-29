@@ -8,6 +8,9 @@ export PATH=$PATH:$HOME/bin
 alias ll='ls -FlhG'
 alias la='ls -FlaG'
 alias vi='vim'
+# [brew doctorのwarningを解決する](http://mrk1869.com/blog/brew_doctor/)
+alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
+
 
 # ctrl+rでhistory検索した際、行き過ぎた時戻るのにctrl+s出来るようにする
 # <C-s>がsttyのスクリーンロックに割り当てられているため、これを未定義にし誤動作を防ぐ
@@ -36,9 +39,6 @@ echo '.bashrc loaded'
 # Homebrew によるinstall前提設定
 # =============================================================================
 
-
-
-
 # Homebrewで入れたほうを優先するためPATH追加
 export PATH="/usr/local/bin:$PATH"
 if [ ! -d /usr/local/sbin ]; then
@@ -48,9 +48,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 # JAVA
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-
-# rmのエイリアス(rmtrash前提)
-alias rm='rmtrash'
 
 # Generic Colouriser によるシンタックスハイライト
 # if [ -f "$(brew --prefix)/etc/grc.bashrc" ]; then
@@ -62,13 +59,9 @@ if [ -d /Applications/MacVim.app/Contents/MacOS ]; then
   export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
 fi
 
-
-
-
-
 # httpdで使用するphpモジュールの場所
 # [phpenvとphp-buildでPHPのバージョンを切り替えられるようにする - Qiita](http://qiita.com/ispern/items/97e3e6d910eb98b5de75#3-4)
-export PHPENV_APACHE_MODULE_PATH=$HOME/.phpenv/versions/
+#export PHPENV_APACHE_MODULE_PATH=$HOME/.phpenv/versions/
 
 
 
@@ -82,11 +75,11 @@ export PHPENV_APACHE_MODULE_PATH=$HOME/.phpenv/versions/
 # eval "$(pyenv init -)"
 # eval "$(plenv init -)"
 
-if [ -f $HOME/.phpenv/bin/phpenv ]; then
+#if [ -f $HOME/.phpenv/bin/phpenv ]; then
     # phpenvはrbenvを自前で持っているため、rbenvのパスを優先すべくパスの最後に追加
-    export PATH=$PATH:$HOME/.phpenv/bin
-    eval "$(phpenv init -)"
-fi
+#    export PATH=$PATH:$HOME/.phpenv/bin
+#    eval "$(phpenv init -)"
+#fi
 
 
 
