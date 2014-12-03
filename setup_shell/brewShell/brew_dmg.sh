@@ -17,6 +17,7 @@ brew cask install vlc
 brew cask install dash
 brew cask install coteditor
 brew cask install filezilla
+brew cask install kobito
 
 # Browser
 brew cask install google-chrome
