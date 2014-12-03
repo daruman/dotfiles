@@ -89,4 +89,11 @@ fi
     # export PATH=$HOME/.nodebrew/current/bin:$PATH
     # # 特定バージョンが使いたい場合は以下
     # # nodebrew use v0.11
+    #
 # fi
+
+
+
+
+# gitのPAGERを指定(これをしないとdiffやlogで色指定コードが文字として出力されてしまう)
+export GIT_PAGER="less -R"
