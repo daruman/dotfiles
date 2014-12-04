@@ -1,5 +1,15 @@
 echo "******************* [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *****************"
 
+# 環境取得
+# =============================================================================
+CONFIG_ENV="./setup_env.conf"
+if [ ! -e "$CONFIG_ENV" ]; then
+    echo 'setup_env.confが無いです。setup_env.conf.distを元に作成し、設定を変更してください。'
+    exit
+fi
+. $CONFIG_ENV
+echo $ENV
+
 
 # ベースディレクトリを取得
 # =============================================================================
@@ -23,7 +33,7 @@ git submodule update --init
 
 # setup homebrew
 # =============================================================================
-# sh setup_shell/setup_brew.sh
+# sh setupShell/setup_brew.sh
 
 
 # シンボリックリンク
@@ -56,13 +66,13 @@ fi
 # setup vim
 # =============================================================================
 
-# sh setup_shell/setup_vim.sh
+# sh setupShell/setup_vim.sh
 
 
 # setup launch
 # =============================================================================
 
-# sh setup_shell/setup_launch.sh
+# sh setupShell/setup_launch.sh
 
 
 

@@ -36,6 +36,7 @@ brew cask install appcleaner
 brew cask install the-unarchiver
 
 # Google日本語入力はhomebrewではpkgを落とすが実行してないので、インストールする
+# password聞かれるので入力が間に合えばインストールしてるかも
 brew cask install google-japanese-ime
 sudo installer -pkg /opt/homebrew-cask/Caskroom/google-japanese-ime/latest/GoogleJapaneseInput.pkg -tgt /
 
