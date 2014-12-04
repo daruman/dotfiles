@@ -3,7 +3,6 @@ compinit
 
 alias ls='ls -G'
 
-
 case ${OSTYPE} in
     darwin*) # Mac OS X
       function macvim () {

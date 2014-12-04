@@ -20,17 +20,20 @@ if [ -n "$BASH_VERSION" ]; then
 
     # 重複するコマンドを保存しない、空白から始めたコマンドを無視
     export HISTCONTROL=ignoreboth
+
     # 以下のコマンドを履歴に保存しない
     export HISTIGNORE="fg*:bg*:history*:cd*:ls*:pwd*"
+
     # 履歴のサイズを増やす
     export HISTSIZE=10000
+
     # 履歴に日時を追加
     export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
+
     # ビープ音抑止
     export LESS=-q
 
     # include .bashrc if it exists
-    # dotfiles/bash_hogeにシンボリックリンクを貼る
     if [ -f "$HOME/.bashrc" ]; then
         . "$HOME/.bashrc"
     fi
