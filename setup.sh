@@ -28,8 +28,13 @@ cd "$DOTFILES_DIR"
 
 # submodule
 # =============================================================================
-# git submodule init
-# git submodule update
+
+# リモートに上がってるバージョンにupdateするので、最新になるわけではない
+# 最新にするには最新のバージョンをsubmoduleに登録し、そのバージョンを登録している事をpushする必要がある
+# `cd {submodule dir}` `git checkout master` `git pull -f` 'cd ~/Dotfiles' `git add -A`
+# もっとましな方法ないのかな
+git submodule init
+git submodule update
 
 
 
