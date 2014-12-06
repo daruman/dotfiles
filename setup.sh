@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# OS判別
+# =============================================================================
+if [ `uname` = "Darwin" ]; then
+    OS_NAME='mac'
+elif [ `uname` = "Linux" ]; then
+    OS_NAME='linux'
+else
+    OS_NAME='win'
+fi
+
+
+
 # ベースディレクトリを取得
 # =============================================================================
 if [ ! -d "$DOTFILES_DIR" ]; then
@@ -26,6 +38,10 @@ git submodule update
 # .vim
 ln -sfn "$DOTFILES_ENV/.vim" "$HOME/.vim"
 echo "create symbolic link "$DOTFILES_ENV/.vim" > "$HOME/.vim""
+
+# .bashrc
+ln -sfn "$DOTFILES_ENV/skel/bashrc_$OS_NAME" "$HOME/.bashrc"
+echo "create symbolic link "$DOTFILES_ENV/skel/bashrc_$OS_NAME" > "$HOME/.bashrc""
 
 # skel内のdotfilesへのシンボリックリンクを~に作成
 backupdir="$HOME/dotfiles-backup-`date +%Y%m%dT%H%M%S`"

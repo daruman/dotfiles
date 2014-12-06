@@ -152,9 +152,9 @@ NeoBundleLazy 'hail2u/html5.vim', {
 NeoBundleLazy 'jelera/vim-javascript-syntax', {
     \ 'autoload' : { 'filetypes' : ['js'] }
     \}
-NeoBundleLazy 'uggedal/jinja-vim', {
-    \ 'autoload' : { 'filetypes' : ['twig', 'jinja'] }
-    \}
+" NeoBundleLazy 'uggedal/jinja-vim', {
+    " \ 'autoload' : { 'filetypes' : ['twig', 'jinja'] }
+    " \}
 NeoBundleLazy 'nono/jquery.vim', {
     \ 'autoload' : { 'filetypes' : ['js'] }
     \}

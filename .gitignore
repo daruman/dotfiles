@@ -2,3 +2,4 @@
 !.vim/bundle/neobundle.vim
 /.vim/.netrwhist
 .*.un~
+.vim/php_manual/
