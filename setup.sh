@@ -29,13 +29,12 @@ cd "$DOTFILES_DIR"
 # submodule
 # =============================================================================
 
-# リモートに上がってるバージョンにupdateするので、最新になるわけではない(git addしたタイミングのバージョンの実体を取得している
-# 最新にするには最新のバージョンをsubmoduleに登録し、そのバージョンを登録している事をpushする必要がある
-# `cd {submodule dir}` `git checkout master` `git pull -f` 'cd ~/Dotfiles' `git add -A`
-# もっとましな方法ないのかな
+# gitmoduleにsubmodule登録
 git submodule init
+# 登録されたコミット番号のサブモジュールの実体ソースを持ってくる
 git submodule update
-
+# [更新作業]各サブモジュールディレクトリにてmasterブランチに切り替えpullする
+git submodule foreach 'git checkout master; git pull'
 
 
 # シンボリックリンク
