@@ -35,13 +35,14 @@ git submodule update
 
 # シンボリックリンク
 # =============================================================================
+
 # .vim
-ln -sfn "$DOTFILES_ENV/.vim" "$HOME/.vim"
-echo "create symbolic link "$DOTFILES_ENV/.vim" > "$HOME/.vim""
+ln -sfn "$DOTFILES_VIM" "$HOME/.vim"
+echo "create symbolic link "$DOTFILES_VIM" > "$HOME/.vim""
 
 # .bashrc
-ln -sfn "$DOTFILES_ENV/skel/bashrc_$OS_NAME" "$HOME/.bashrc"
-echo "create symbolic link "$DOTFILES_ENV/skel/bashrc_$OS_NAME" > "$HOME/.bashrc""
+ln -sfn "$DOTFILES_ENV/bashrc_$OS_NAME" "$HOME/.bashrc"
+echo "create symbolic link "$DOTFILES_ENV/bashrc_$OS_NAME" > "$HOME/.bashrc""
 
 # skel内のdotfilesへのシンボリックリンクを~に作成
 backupdir="$HOME/dotfiles-backup-`date +%Y%m%dT%H%M%S`"
