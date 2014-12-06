@@ -28,8 +28,8 @@ cd "$DOTFILES_DIR"
 
 # submodule
 # =============================================================================
-git submodule init
-git submodule update
+# git submodule init
+# git submodule update
 
 
 
