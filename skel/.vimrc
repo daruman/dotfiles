@@ -1,22 +1,54 @@
 " <Leader>はバックスラッシュ
 
+" [Vim の種類 (Vim family) - Qiita](http://qiita.com/b4b4r07/items/f7a4a0461e1fc6f436a4)
+if !1 | finish | endif
+
+
+" Variables
+" ================================================================================
+
+" OS判別
+" --------------------------------------------------------------------------------
 if has("mac")
-" mac用の設定
+    let OS_NAME='mac'
 elseif has("unix")
-" unix固有の設定
+    let OS_NAME='unix'
 elseif has("win64")
-" 64bit_windows固有の設定
+    let OS_NAME='win64'
 elseif has("win32unix")
-" minGW/Cygwin固有の設定
+    " minGW/Cygwin固有の設定
+    let OS_NAME='win32unix'
 elseif has("win32")
-" 32bit_windows固有の設定
+    let OS_NAME='win32'
 endif
 
 
 
 
 
-" Ev/Rvでvimrcの編集と反映
+" NeoBundle setting
+" ================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" Basic Setup
+" ================================================================================
+
+" :Ev/:Rvでvimrcの編集と反映
+" --------------------------------------------------------------------------------
 if has("gui_macvim")
     command! Ev edit $MYVIMRC
     command! Rv source $MYVIMRC
@@ -24,189 +56,6 @@ else
     command! Ev edit ~/dotfiles/.vimrc
     command! Rv source ~/dotfiles/.vimrc
 endif
-
-" fullscreen
-" via@http://nanabit.net/blog/2007/11/01/vim-fullscreen/
-"-----------------------------------------------------------
-if has("gui_macvim")
-    " Lion以前のフルスクリーンに戻す場合は以下のコマンドを実行
-    " defaUlts write org.vim.MacVim MMNativeFullScreen 0
-    set fuoptions=maxvert,maxhorz
-    au GUIEnter * set fullscreen
-elseif has("win32")
-    " windows用
-    nnoremap <F11> :call ToggleFullScreen()<CR>
-    function! ToggleFullScreen()
-        if &guioptions =~# 'C'
-            set guioptions-=C
-            if exists('s:go_temp')
-                if s:go_temp =~# 'm'
-                    set guioptions+=m
-                endif
-                if s:go_temp =~# 'T'
-                    set guioptions+=T
-                endif
-            endif
-            simalt ~r
-        else
-            let s:go_temp = &guioptions
-            set guioptions+=C
-            set guioptions-=m
-            set guioptions-=T
-            simalt ~x
-        endif
-    endfunction
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=r
-    set guioptions-=R
-    set guioptions-=l
-    set guioptions-=L
-    set guioptions-=b
-endif
-
-
-"------------------------------------------------
-" NeoBundle
-"------------------------------------------------
-filetype off
-if has('vim_starting')
-    set nocompatible               " Be iMproved
-    " set runtimepath+=~/.vim/bundle/neobundle.vim/
-    if &runtimepath !~ '/neobundle.vim'
-        execute 'set runtimepath+=' . expand('~/dotfiles/.vim/bundle/neobundle.vim')
-    endif
-endif
-
-" call neobundle#rc(expand('~/.vim/bundle/'))
-call neobundle#rc(expand('~/dotfiles/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc', {
-            \    'build' : {
-            \        'windows' : 'make -f make_mingw32.mak',
-            \        'cygwin'  : 'make -f make_cygwin.mak',
-            \        'mac'     : 'make -f make_mac.mak',
-            \        'unix'    : 'make -f make_unix.mak',
-            \    },
-            \}
-
-
-" My Bundles here:
-"   util
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'tyru/open-browser.vim'
-
-"   plugins
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundleLazy 'hokaccha/vim-html5validator', {
-    \ 'autoload' : { 'filetypes' : ['html'] }
-    \}
-NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
-    \ 'autoload' : { 'filetypes' : ['js'] }
-    \}
-NeoBundleLazy 'vim-scripts/taglist.vim', {
-    \ 'autoload' : { 'commands' : 'TlistToggle' }
-    \}
-NeoBundleLazy 'scrooloose/syntastic', {
-    \ 'autoload' : { 'commands' : 'SyntasticCheck' }
-    \}
-NeoBundleLazy 'glidenote/memolist.vim', {
-    \ 'autoload' : { 'commands' : ['MemoNew', 'MemoGrep', 'MemoList'] }
-    \}
-NeoBundleLazy 'kannokanno/previm', {
-    \ 'depends' : 'open-browser.vim',
-    \ 'autoload' : { 'filetypes' : ['md', 'mdwn', 'mkd', 'mkdn', 'markdown'] }
-    \}
-
-"   twitter
-"     Lazyすると :Unite tweetvim が効かなくなるので通常load
-NeoBundle 'basyura/twibill.vim'
-NeoBundle 'basyura/TweetVim', {
-    \ 'depends' : ['twibill.vim', 'open-browser.vim', 'webapi-vim', 'unite.vim'],
-    \}
-
-"   syntax
-NeoBundleLazy 'hail2u/vim-css-syntax', {
-    \ 'autoload' : { 'filetypes' : ['css'] }
-    \}
-NeoBundleLazy 'hail2u/vim-css3-syntax', {
-    \ 'autoload' : { 'filetypes' : ['css'] }
-    \}
-NeoBundleLazy 'hail2u/html5.vim', {
-    \ 'autoload' : { 'filetypes' : ['html', 'htm'] }
-    \}
-NeoBundleLazy 'jelera/vim-javascript-syntax', {
-    \ 'autoload' : { 'filetypes' : ['js'] }
-    \}
-" NeoBundleLazy 'uggedal/jinja-vim', {
-    " \ 'autoload' : { 'filetypes' : ['twig', 'jinja'] }
-    " \}
-NeoBundleLazy 'nono/jquery.vim', {
-    \ 'autoload' : { 'filetypes' : ['js'] }
-    \}
-
-NeoBundle 'mattn/gist-vim', {
-    \ 'depends' : 'mattn/webapi-vim',
-    \}
-
-NeoBundle 'itchyny/calendar.vim'
-
-NeoBundle 'Shougo/neomru.vim', {
-    \ 'depends' : 'Shougo/unite.vim'
-    \ }
-
-NeoBundle 'gcmt/wildfire.vim'
-
-" 保留
-" NeoBundle 'Shougo/vimfiler.vim'
-" http://www.karakaram.com/vimfiler
-" http://hrsh7th.hatenablog.com/entry/20120229/1330525683
-
-" NeoBundle 'gregsexton/gitv'
-" tpope/vim-fugitiveに依存してるぽい
-" airblade/vim-gitgutterもいいぽい
-
-NeoBundle 'tomasr/molokai'
-
-
-
-" colorscheme
-colorscheme molokai
-set background=dark
-if has('gui_running')
-else
-    " terminalでのvimで256色を使えるようにする設定
-    set term=xterm
-    set t_Co=256
-    let &t_AF="\e[38;5;%dm"
-    let &t_AB="\e[48;5;%dm"
-" let g:rehash256 = 1
-endif
-
-" NeoBundle 'Shougo/neosnippet'
-
-
-
-
-filetype plugin indent on " Required!
-
-" Installation check.
-NeoBundleCheck
-
 
 
 "-------------------------------------------------------------------------------
@@ -493,271 +342,103 @@ augroup JavascriptAutoCommands
 augroup END
 
 
-"------------------------------------------------
-" Plugin 設定
-"------------------------------------------------
-" syntastic
-" Shift+Mで構文チェック
-nmap M :SyntasticCheck<CR>
-" javascriptは保存時構文チェックしない、htmlはvim-html5validatorで行う
-" cssはエラーでたまままのファイルを保存するとvimが落ちる場合があるので除外
-" phpはphp5.2用コードをphp5.3以上の環境でチェックするとnamespace未使用エラーが出るので手動で行う
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': [],
-            \ 'passive_filetypes': ['javascript', 'html', 'css', 'php'] }
-" file open時にチェック
-let g:syntastic_check_on_open=1
-" error行表示部分にマウスオーバーでポップアップするのを非表示
-let g:syntastic_enable_balloons=0
-" errorを検知した際に自動でQuickfixを開く
-let g:syntastic_auto_loc_list=1
-" javascriptの構文チェックをclosure compilerに変更
-let g:syntastic_javascript_checker = "closurecompiler"
-let g:syntastic_javascript_closure_compiler_path = $HOME . "/bin/compiler.jar"
-" csslintで連続class指定、装飾無し属性指定のwarn出力を抑止
-let g:syntastic_csslint_options = "--ignore=adjoining-classes,unqualified-attributes,box-model"
-" phpcsでチェックするコーディング規約をdefaultのPEARからPSRに変更(PSR2を指定する事でPSR0、1も対応)、-nで警告表示無し
-let g:syntastic_php_phpcs_args = '--report=csv -n --standard=PSR2'
-
-" tweetvim
-" via@http://d.hatena.ne.jp/basyura/20111230/p1
-" タイムライン選択用の Unite を起動する
-nnoremap <silent> tt :Unite tweetvim<CR>
-" 発言用バッファを表示する
-nnoremap <silent> ss :TweetVimSay<CR>
-" スクリーン名のキャッシュを利用して、neocomplcache で補完する
-if !exists('g:neocomplete#sources#dictionary#dictionaries')
-    let g:neocomplete#sources#dictionary#dictionaries = {}
-endif
-let neco_dic = g:neocomplete#sources#dictionary#dictionaries
-let neco_dic.tweetvim_say = $HOME . '/.tweetvim/screen_name'
-
-
-""" unite.vim
-" バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-" レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-" 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
-" 常用セット
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
-" 全部乗せ
-nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
-
-""" unite.vimでのgrep(agを使用)
-" insert modeで開始
-let g:unite_enable_start_insert = 1
-
-" 大文字小文字を区別しない
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-
-" grep検索
-nnoremap <silent> ,gg  :<C-u>Unite grep: -buffer-name=search-buffer<CR>
-
-" grep検索結果の再呼出（ctrl+n|ctrl+pで候補移動）
-nnoremap <silent> ,gr  :<C-u>UniteResume search-buffer<CR>
-
-" unite grep に ag(The Silver Searcher) を使う
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
 
 
 
-" neocomplcache
-" code補完を表示する
-" https://github.com/Shougo/neocomplcache
-let g:neocomplete#enable_at_startup = 1
-
-
-" taglist.vim
-let Tlist_Show_One_File = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Exit_OnlyWindow = 1
-" F8にtaglistのtoggleを割り当て
-nnoremap <silent> <F8> :TlistToggle<CR>
-
-" 以下コマンドでプロジェクト毎のtagsファイルを生成、使用するものをコピーし対象とする
-" $ ctags -R --languages=php --langmap=PHP:.php.inc --php-types=c+f+d -f ~/.tags/{プロジェクト名}.tags `pwd` {プロジェクトファイルroot} `pwd`
-" $ cd ~/.tags/
-" $ cp -vi {プロジェクト名}.tags tags
-" 後はCtrl+]等でtag jump、Ctrl+tで元の位置に戻る、:tsで他の候補表示
-au BufNewFile,BufRead *.php set tags+=$HOME/.tags/tags
-
-" open-browser.vim
-" カーソル下のURLをブラウザで開く
-nmap <Leader>o <Plug>(openbrowser-open)
-vmap <Leader>o <Plug>(openbrowser-open)
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
 
 
 
-" NERD-Tree
-" 横幅
-let NERDTreeWinSize = 40
-" ntでトグル
-noremap nt :NERDTreeToggle<CR>
-" 引数無し起動時、自動的にNERDTreeを開く
-autocmd vimenter * if !argc() | NERDTree | endif
-" 最後のバッファを閉じた際、NERDTreeだけ残さずに終了させる
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" 起動時にブックマークを表示
-let NERDTreeShowBookmarks=1
-" vimでの位置を開いているrootと同期させる(:pwd)
-let NERDTreeChDirMode = 2
-" ブックマークファイルのパス(minttyの時のみブックマークファイルのパスを殺す)
-"  通常のブックマークファイルのパスはC:\hogeだが、minttyでは/c/hogeなのでエラーになる
-if has('win32unix')
-    let NERDTreeBookmarksFile = expand('$HOME')
-endif
-" 最小表示
-let NERDTreeMinimalUI = 1
 
 
 
-" vim-html5validator
-" open/close時にsyntax check
-" 能動的にやるには:HTML5Validate
-"
-" loadする前提でパーツ単位でhtmlが記述されているファイルを開くと
-" 大量にエラー出すので手動に
-" augroup HtmlAutoCommands
-" autocmd!
-" autocmd FileType html :HTML5Validate
-" autocmd FileType html autocmd BufWritePost <buffer> :silent make
-" augroup END
-
-
-" emmet-vim
-let g:user_emmet_settings  = {
-\  'lang' : 'ja',
-\  'html' : {
-\    'empty_element_suffix' : '>',
-\  }
-\}
-
-" nerdcommenter
-let g:NERDCreateDefaultMappings = 0
-let NERDSpaceDelims = 1
-nmap <Leader>/ <Plug>NERDCommenterToggle
-vmap <Leader>/ <Plug>NERDCommenterToggle
-vmap <Leader>/s <Plug>NERDCommenterSexy
-
-
-" memolist
-map <Leader>mn  :MemoNew<CR>
-map <Leader>ml  :MemoList<CR>
-map <Leader>mg  :MemoGrep<CR>
-
-
-" " neosnippet
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" " SuperTab like snippets behavior.
-" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-" \ "\<Plug>(neosnippet_expand_or_jump)"
-" \: pumvisible() ? "\<C-n>" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-" \ "\<Plug>(neosnippet_expand_or_jump)"
-" \: "\<TAB>"
-
-" " For snippet_complete marker.
-" if has('conceal')
-"   set conceallevel=2 concealcursor=i
-" endif
 
 
 
-" vim-indent-guides
-" vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup=1
-" ガイドをスタートするインデントの量
-let g:indent_guides_start_level=3
-" 自動カラーを無効にする
-let g:indent_guides_auto_colors=0
-" 奇数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#363636 ctermbg=gray
-" 偶数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray
-" ハイライト色の変化の幅
-let g:indent_guides_color_change_percent = 30
-" ガイドの幅
-let g:indent_guides_guide_size = 1
-" 除外するファイルタイプ
-let g:indent_guides_exclude_filetypes = [
-      \ 'help',
-      \ 'tweetvim',
-      \ 'unite',
-      \ 'vimfiler',
-      \ 'vimshell',
-      \ 'calendar',
-      \ ]
-
-" quickrun
-" <Leader>rでテスト実行
-" see also http://www.karakaram.com/quickrun-phpunit
-"
-" 実行時は:cd でphpunit.xmlがあるdirへ移動してから実行
-" phpunit.xml以外の名前の設定ファイルの場合
-" :QuickRun -cmdopt '-c "phpunit.xml.dist"'とかするといいぽい
-augroup QuickRunPHPUnit
-    " *Test.phpをphpunitファイルとして定義する
-    autocmd!
-    autocmd BufWinEnter,BufNewFile *Test.php set filetype=php.phpunit
-augroup END
-
-" init
-let g:quickrun_config = {}
-let g:quickrun_config['*'] = {'runmode': "async:remote:vimproc", 'split':'below'}
-" runnerにvimprocを設定、非同期処理させてvim自体の動作に影響を出さない
-let g:quickrun_config['_'] = {'runner': 'vimproc', 'runner/vimproc/updatetime': 100}
-
-let g:quickrun_config['php.phpunit'] = {}
-let g:quickrun_config['php.phpunit']['outputter/buffer/split'] = '10'
-let g:quickrun_config['php.phpunit']['command'] = 'phpunit'
-let g:quickrun_config['php.phpunit']['exec'] = '%c %o %s'
 
 
-" gist-vim
-" let g:gist_use_password_in_gitconfig = 1
-let g:gist_detect_filetype = 1
-" let g:gist_open_browser_after_post = 1
-let g:gist_post_private = 1
-let g:gist_browser_command = ":OpenBrowser %URL%"
-let g:gist_get_multiplefile = 1
 
 
-" vim-ref
-"   localsettingに移動
-" let g:ref_phpmanual_path = $HOME . '/Documents/phpmanual'
 
-" local設定(gitにpushしない)
-"  font設定や他アプリケーション連携、I/P等
-"   (環境別挙動は分岐かけるのでここには記載しない)
-" via@http://auewe.hatenablog.com/entry/2013/05/14/003610
-if filereadable(expand($HOME.'/.localsetting/vimrc_local'))
-  source $HOME/.localsetting/vimrc_local
+
+
+
+
+
+
+
+
+" Visual Settigns
+" ================================================================================
+
+" Mappings
+" ================================================================================
+
+
+" Functions
+" ================================================================================
+
+
+" fullscreen
+" --------------------------------------------------------------------------------
+" via@http://nanabit.net/blog/2007/11/01/vim-fullscreen/
+if has("gui_macvim")
+    " Lion以前のフルスクリーンに戻す場合は以下のコマンドを実行
+    " defaUlts write org.vim.MacVim MMNativeFullScreen 0
+    set fuoptions=maxvert,maxhorz
+    au GUIEnter * set fullscreen
+elseif has("win32")
+    " windows用
+    nnoremap <F11> :call ToggleFullScreen()<CR>
+    function! ToggleFullScreen()
+        if &guioptions =~# 'C'
+            set guioptions-=C
+            if exists('s:go_temp')
+                if s:go_temp =~# 'm'
+                    set guioptions+=m
+                endif
+                if s:go_temp =~# 'T'
+                    set guioptions+=T
+                endif
+            endif
+            simalt ~r
+        else
+            let s:go_temp = &guioptions
+            set guioptions+=C
+            set guioptions-=m
+            set guioptions-=T
+            simalt ~x
+        endif
+    endfunction
+    set guioptions-=T
+    set guioptions-=m
+    set guioptions-=r
+    set guioptions-=R
+    set guioptions-=l
+    set guioptions-=L
+    set guioptions-=b
 endif
 
-" vim-calendar
-let g:calendar_google_calendar = 1
-let g:calendar_updatetime = 50
-nnoremap <silent> <Leader>z :<C-u>Calendar -first_day=monday<CR>
 
 
-" neomru.vim
-let g:neomru#file_mru_path=expand('~/.vim/etc/neomru/file')
-let g:neomru#directory_mru_path=expand('~/.vim/etc/neomru/direcroty')
 
 
-" wildfire.vim
-let g:wildfire_water_map = '<S-Enter>'
-let g:wildfire_objects = ["i'", 'i"', 'i)', 'i]', 'i}', 'ip', 'it', 'i>']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
