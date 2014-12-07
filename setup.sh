@@ -73,6 +73,8 @@ fi
 
 # setup vim
 # =============================================================================
+# homebrewにてlua入りvimがインストール済み想定
+
 # installing NeoBundles
 echo "[vim] Installing NeoBundles"
 vim -c NeoBundleInstall -c q
