@@ -1,4 +1,4 @@
-" <Leader>はバックスラッシュ
+
 
 " [Vim の種類 (Vim family) - Qiita](http://qiita.com/b4b4r07/items/f7a4a0461e1fc6f436a4)
 if !1 | finish | endif
