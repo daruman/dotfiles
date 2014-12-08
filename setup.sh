@@ -37,12 +37,9 @@ git submodule update
 git submodule foreach 'git checkout master; git pull'
 
 
+
 # シンボリックリンク
 # =============================================================================
-
-# .vim
-ln -sfn "$DOTFILES_VIM" "$HOME/.vim"
-echo "create symbolic link "$DOTFILES_VIM" > "$HOME/.vim""
 
 # .bashrc
 ln -sfn "$DOTFILES_ENV/bashrc_$OS_NAME" "$HOME/.bashrc"
@@ -73,16 +70,6 @@ fi
 
 # setup vim
 # =============================================================================
-# homebrewにてlua入りvimがインストール済み想定
 
-# installing NeoBundles
-echo "[vim] Installing NeoBundles"
-vim -c NeoBundleInstall -c q
-
-# for ref.vim
-if [[ ! -d "$DOTFILES_VIM/php_manual/php-chunked-xhtml" ]]; then
-    mkdir -p "$DOTFILES_VIM/php_manual"
-    curl -L http://jp.php.net/get/php_manual_ja.tar.gz/from/this/mirror |
-    tar xz -C "$DOTFILES_VIM/php_manual"
-fi
+source $DOTFILES_DIR/setupShell/setup_vim.sh
 

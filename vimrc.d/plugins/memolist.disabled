@@ -1,0 +1,11 @@
+NeoBundleLazy 'glidenote/memolist.vim', {
+            \ 'autoload' : { 'commands' : ['MemoNew', 'MemoGrep', 'MemoList'] }
+            \}
+
+map <Leader>mn  :MemoNew<CR>
+map <Leader>ml  :MemoList<CR>
+map <Leader>mg  :MemoGrep<CR>
+
+
+" @todo リストを出す際、\mlを二回行う必要がある。NERDTreeとぶつかってるくさい
+

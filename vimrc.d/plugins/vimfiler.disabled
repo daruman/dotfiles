@@ -1,0 +1,5 @@
+NeoBundle 'Shougo/vimfiler.vim'
+" http://www.karakaram.com/vimfiler
+" http://hrsh7th.hatenablog.com/entry/20120229/1330525683
+
+" @todo ちょっとマイグレーションに掛かりそうなので一旦保留

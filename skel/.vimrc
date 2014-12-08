@@ -14,12 +14,12 @@ if has("mac")
 elseif has("unix")
     let OS_NAME='unix'
 elseif has("win64")
-    let OS_NAME='win64'
+    let OS_NAME='win'
 elseif has("win32unix")
     " minGW/Cygwin固有の設定
-    let OS_NAME='win32unix'
+    let OS_NAME='win'
 elseif has("win32")
-    let OS_NAME='win32'
+    let OS_NAME='win'
 endif
 
 
@@ -44,7 +44,7 @@ call neobundle#begin(expand('~/Dotfiles/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-
+" vimrm.d/plugins/以下の.vimを全てload
 set runtimepath+=~/Dotfiles/vimrc.d/
 runtime! plugins/*.vim
 
@@ -68,6 +68,12 @@ source ~/dotfiles/vimrc.d/basic.vim
 " ================================================================================
 source ~/dotfiles/vimrc.d/visual.vim
 
+" colorscheme ごとの カスタムhighlight 設定読み込み
+let highlight = expand("~/Dotfiles/vimrc.d/highlight/" . g:colors_name . '.vim')
+if filereadable(g:highlight)
+    execute 'source ' . g:highlight
+endif
+
 
 " Mappings
 " ================================================================================
@@ -83,3 +89,15 @@ source ~/dotfiles/vimrc.d/autocmd.vim
 " ================================================================================
 source ~/dotfiles/vimrc.d/function.vim
 
+
+
+" platform毎設定
+" ================================================================================
+if has('vim_starting')
+  for platform in ['win', 'mac', 'unix']
+    if g:OS_NAME == platform
+      execute 'source ~/Dotfiles/vimrc.d/platform/' . platform . '.vim'
+      break
+    endif
+  endfor
+endif

@@ -1,3 +1,12 @@
+if has('gui_running')
+else
+    " terminalでのvimで256色を使えるようにする設定
+    set term=xterm
+    set t_Co=256
+    let &t_AF="\e[38;5;%dm"
+    let &t_AB="\e[48;5;%dm"
+    " let g:rehash256 = 1
+endif
 
 " カーソル行を画面中央にする
 set scrolloff=999
@@ -117,6 +126,7 @@ set lazyredraw
 "-------------------------------------------------------------------------------
 "  gvimrcで指定しないとmacで効かない
 " :colorscheme h2u_dark
+colorscheme wombat
 
 " ハイライト on
 syntax on
@@ -145,3 +155,21 @@ if has('win32')
     set guioptions=indent,eol
 
 endif
+
+" 文字列中のSQLをハイライトする
+let php_sql_query = 1
+
+" baselibメソッドハイライト
+let php_baselib = 1
+
+" 文字列中のHTMLをハイライトする
+let php_htmlInStrings = 1
+
+" ショートタグ (<?を無効にする→ハイライト除外にする)
+let php_noShortTags = 1
+
+" }や]のエラーハイライト
+let php_parent_error_close = 1
+
+" DBの明示
+let g:sql_type_default='mysql'

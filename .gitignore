@@ -3,3 +3,4 @@
 /.vim/.netrwhist
 .*.un~
 .vim/php_manual/
+.vim/etc/neomru/file

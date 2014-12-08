@@ -1,19 +1,19 @@
 echo "******************* [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
 
-sh $DOTFILES_DIR/setupShell/brewShell/setup_brew_init.sh
+source $DOTFILES_DIR/setupShell/brewShell/setup_brew_init.sh
 
 # dmgを入れる事もあるため、リフレッシュをその後にさせるためbrew_dmg.shより先に実行
-sh $DOTFILES_DIR/setupShell/brewShell/brewEnv/$ENV.sh
+source $DOTFILES_DIR/setupShell/brewShell/brewEnv/$ENV.sh
 
-sh $DOTFILES_DIR/setupShell/brewShell/brew_shell.sh
+source $DOTFILES_DIR/setupShell/brewShell/brew_shell.sh
 
-sh $DOTFILES_DIR/setupShell/brewShell/brew_command.sh
+source $DOTFILES_DIR/setupShell/brewShell/brew_command.sh
 
-#sh $DOTFILES_DIR/setup_shell/brewShell/brew_middleware.sh
+#source $DOTFILES_DIR/setup_shell/brewShell/brew_middleware.sh
 
-sh $DOTFILES_DIR/setupShell/brewShell/brew_dmg.sh
+source $DOTFILES_DIR/setupShell/brewShell/brew_dmg.sh
 
-sh $DOTFILES_DIR/setupShell/brewShell/setup_brew_teardown.sh
+source $DOTFILES_DIR/setupShell/brewShell/setup_brew_teardown.sh
 
 
 

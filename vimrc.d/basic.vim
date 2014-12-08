@@ -92,3 +92,8 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " その他 Misc
 "-------------------------------------------------------------------------------
 
+" カレントディレクトリから親階層をtagsが見つかるまで探す
+" @link [VimをIDEっぽく(主にC++/Java用)整える - rcmdnk’s blog](http://rcmdnk.github.io/blog/2014/07/25/computer-vim/)
+if has("path_extra")
+  set tags+=tags;
+endif

@@ -1,0 +1,6 @@
+--append=yes
+--recurse=yes
+--langmap=PHP:+.inc
+--php-kinds=cfd
+--sort=yes
+--append=no

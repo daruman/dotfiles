@@ -1,0 +1,22 @@
+NeoBundleLazy 'hail2u/vim-css-syntax', {
+    \ 'autoload' : { 'filetypes' : ['css'] }
+    \}
+NeoBundleLazy 'hail2u/vim-css3-syntax', {
+    \ 'autoload' : { 'filetypes' : ['css'] }
+    \}
+NeoBundleLazy 'hail2u/html5.vim', {
+    \ 'autoload' : { 'filetypes' : ['html', 'htm'] }
+    \}
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
+    \ 'autoload' : { 'filetypes' : ['js'] }
+    \}
+" @todo なくなってる、代替探し
+" NeoBundleLazy 'uggedal/jinja-vim', {
+    " \ 'autoload' : { 'filetypes' : ['twig', 'jinja'] }
+    " \}
+NeoBundleLazy 'nono/jquery.vim', {
+    \ 'autoload' : { 'filetypes' : ['js'] }
+    \}
+
+" @todo 一つづづ、本当に効果があるか確認してからenableする
+" その際ファイル分割すべきかも考慮
