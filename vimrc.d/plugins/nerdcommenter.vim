@@ -4,7 +4,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 let g:NERDCreateDefaultMappings = 0
 
 " コメント記号の後ろに半角スペース一つ追加
-let NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 1
 
 nmap <Leader>/ <Plug>NERDCommenterToggle
 vmap <Leader>/ <Plug>NERDCommenterToggle

@@ -77,10 +77,7 @@ set undodir=$HOME/.vim/undodir
 " ================================================================================
 
 " 改行文字
-set ffs=unix,dos,mac  
-
-" デフォルトエンコーディング
-set encoding=utf-8
+set fileformats=unix,dos,mac  
 
 " 前から試してマッチした文字コードを使用
 set fileencodings=utf-8,cp932,euc-jp
@@ -103,10 +100,7 @@ set hidden
 set backspace=indent,eol,start
 
 " ビープをならさない
-set vb t_vb=
-
-" ビープ音の代わりに画面フラッシュ
-set visualbell
+set visualbell t_vb=
 
 " カーソルを行頭、行末で止まらないようにする
 " `:set [no]compatible`を設定する場合、これ以降に書く必要があるが

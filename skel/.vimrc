@@ -1,3 +1,7 @@
+" declaration character code
+set encoding=utf-8
+scriptencoding utf-8
+
 " 一旦ファイルタイプ関連を無効化する
 filetype off
 filetype plugin indent off
@@ -13,16 +17,16 @@ if !1 | finish | endif
 " OS判別
 " --------------------------------------------------------------------------------
 if has("mac")
-    let OS_NAME='mac'
+    let g:OS_NAME='mac'
 elseif has("unix")
-    let OS_NAME='unix'
+    let g:OS_NAME='unix'
 elseif has("win64")
-    let OS_NAME='win'
+    let g:OS_NAME='win'
 elseif has("win32unix")
     " minGW/Cygwin固有の設定
-    let OS_NAME='win'
+    let g:OS_NAME='win'
 elseif has("win32")
-    let OS_NAME='win'
+    let g:OS_NAME='win'
 endif
 
 

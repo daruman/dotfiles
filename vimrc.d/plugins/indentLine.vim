@@ -3,7 +3,7 @@ NeoBundle 'Yggdroot/indentLine'
 let g:indentLine_faster = 1
 
 " <Leader>iでtoggle
-nmap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
+nnoremap <silent><Leader>i :<C-u>IndentLinesToggle<CR>
 
 
 " 除外するファイルタイプ
