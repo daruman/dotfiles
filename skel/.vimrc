@@ -1,7 +1,10 @@
-
+" 一旦ファイルタイプ関連を無効化する
+filetype off
+filetype plugin indent off
 
 " [Vim の種類 (Vim family) - Qiita](http://qiita.com/b4b4r07/items/f7a4a0461e1fc6f436a4)
 if !1 | finish | endif
+
 
 
 " Variables
@@ -23,11 +26,14 @@ elseif has("win32")
 endif
 
 
+
 " plugin (NeoBundle is required)
 " ================================================================================
 
 if has('vim_starting')
-    set nocompatible               " Be iMproved
+    if &compatible
+        set nocompatible               " Be iMproved
+    endif
 
     " 普通に`set runtimepath+=~/.vim/bundle/neobundle.vim/`すると
     " windowsでうまくシンボリックリンク元を探ってくれなかったので
@@ -64,15 +70,19 @@ NeoBundleCheck
 source ~/dotfiles/vimrc.d/basic.vim
 
 
+
 " Visual Settigns
 " ================================================================================
 source ~/dotfiles/vimrc.d/visual.vim
 
 " colorscheme ごとの カスタムhighlight 設定読み込み
-let highlight = expand("~/Dotfiles/vimrc.d/highlight/" . g:colors_name . '.vim')
-if filereadable(g:highlight)
-    execute 'source ' . g:highlight
+if has('g:colors_name')
+    let highlight = expand("~/Dotfiles/vimrc.d/highlight/" . g:colors_name . '.vim')
+    if filereadable(g:highlight)
+        execute 'source ' . g:highlight
+    endif
 endif
+
 
 
 " Mappings
@@ -80,9 +90,11 @@ endif
 source ~/dotfiles/vimrc.d/mapping.vim
 
 
+
 " Autocmd Rules
 " ================================================================================
 source ~/dotfiles/vimrc.d/autocmd.vim
+
 
 
 " Functions
