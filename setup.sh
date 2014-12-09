@@ -78,7 +78,7 @@ git submodule foreach 'git checkout master; git pull'
 
 # setup homebrew
 # =============================================================================
-source $DOTFILES_DIR/setupShell/setup_brew.sh
+source $DOTFILES_DIR/setup/setup_brew.sh
 
 
 
@@ -115,7 +115,7 @@ fi
 # setup vim
 # =============================================================================
 
-source $DOTFILES_DIR/setupShell/setup_vim.sh
+source $DOTFILES_DIR/setup/setup_vim.sh
 
 
 

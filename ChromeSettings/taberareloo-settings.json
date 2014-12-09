@@ -1,0 +1,322 @@
+{
+  "options": {
+    "services": {
+      "Tumblr": {
+        "regular": "disabled",
+        "photo": "default",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "default",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": "default"
+      },
+      "4u": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": null,
+        "link": null,
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": "disabled"
+      },
+      "FFFFOUND": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": null,
+        "link": null,
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": "disabled"
+      },
+      "Local": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": null,
+        "link": null,
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "HatenaFotolife": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": null,
+        "link": null,
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "HatenaBookmark": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "default",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "Pinboard": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "Delicious": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "LivedoorClip": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "GoogleBookmarks": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "GoogleCalendar": {
+        "regular": "disabled",
+        "photo": null,
+        "quote": null,
+        "link": "disabled",
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "ChromeBookmark": {
+        "regular": null,
+        "photo": null,
+        "quote": null,
+        "link": "disabled",
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "Evernote": {
+        "regular": "enabled",
+        "photo": null,
+        "quote": "enabled",
+        "link": "enabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "FriendFeed": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "Twitter": {
+        "regular": "enabled",
+        "photo": "disabled",
+        "quote": "default",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": "disabled"
+      },
+      "Instapaper": {
+        "regular": null,
+        "photo": null,
+        "quote": "disabled",
+        "link": "enabled",
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "ReadItLater": {
+        "regular": null,
+        "photo": null,
+        "quote": "disabled",
+        "link": "disabled",
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "YahooBookmarks": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "Wassr": {
+        "regular": "disabled",
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "Clipp": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": null,
+        "favorite": "disabled"
+      },
+      "gist": {
+        "regular": "disabled",
+        "photo": null,
+        "quote": "disabled",
+        "link": null,
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "PickNaver": {
+        "regular": "disabled",
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "Diigo": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": "disabled",
+        "favorite": null
+      },
+      "Google+": {
+        "regular": "disabled",
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": null,
+        "favorite": "disabled"
+      },
+      "Gmail": {
+        "regular": "disabled",
+        "photo": "disabled",
+        "quote": "disabled",
+        "link": "disabled",
+        "video": "disabled",
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "Pinterest": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": null,
+        "link": null,
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      },
+      "Gyazo": {
+        "regular": null,
+        "photo": "disabled",
+        "quote": null,
+        "link": null,
+        "video": null,
+        "audio": null,
+        "conversation": null,
+        "favorite": null
+      }
+    },
+    "post": {
+      "tag_provider": "HatenaBookmark",
+      "tag_auto_complete": true,
+      "ldr_plus_taberareloo": true,
+      "disable_tumblr_default_keybind": false,
+      "dashboard_plus_taberareloo": false,
+      "dashboard_plus_taberareloo_manually": false,
+      "googlereader_plus_taberareloo": false,
+      "play_on_tumblr_play": false,
+      "play_on_tumblr_like": false,
+      "play_on_tumblr_count": false,
+      "shortcutkey_ldr_plus_taberareloo": "T",
+      "shortcutkey_dashboard_plus_taberareloo": "T",
+      "shortcutkey_dashboard_plus_taberareloo_manually": "SHIFT + T",
+      "shortcutkey_googlereader_plus_taberareloo": "SHIFT + T",
+      "shortcutkey_play_on_tumblr_play": "RETURN",
+      "shortcutkey_play_on_tumblr_like": "",
+      "shortcutkey_play_on_tumblr_count": "",
+      "keyconfig": true,
+      "evernote_clip_fullpage": true,
+      "remove_hatena_keyword": false,
+      "tumblr_default_quote": false,
+      "shortcutkey_linkquickpost": "",
+      "shortcutkey_quotequickpost": "",
+      "shortcutkey_quickpost": "ALT + R",
+      "always_shorten_url": false,
+      "multi_tumblelogs": false,
+      "post_with_queue": false,
+      "enable_google_plus_pages": false,
+      "taberareloo_on_google_plus": false,
+      "shortcutkey_taberareloo_on_google_plus": "",
+      "enable_webhook": false,
+      "webhook_url": ""
+    },
+    "entry": {
+      "amazon_affiliate_id": "",
+      "thumbnail_template": "",
+      "twitter_template": "見てる %title% %link%",
+      "trim_reblog_info": false,
+      "append_content_source": true,
+      "not_convert_text": true
+    }
+  },
+  "popup_position": {
+    "top": 50,
+    "left": 50
+  }
+}

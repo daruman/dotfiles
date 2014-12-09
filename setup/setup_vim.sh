@@ -8,10 +8,11 @@ echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'`
 ln -sfn "$DOTFILES_VIM/" "$HOME/.vim"
 echoLog "create symbolic link "$DOTFILES_VIM" > "$HOME/.vim""
 
+
+
 # setup vim
 # =============================================================================
 # homebrewにてlua入りvimがインストール済み想定
-
 
 # poworline fontインストール
 if [ $OS_NAME == 'mac' ]; then
@@ -19,7 +20,6 @@ if [ $OS_NAME == 'mac' ]; then
     cp "$DOTFILES_DIR/vim-powerline-fonts/$OS_NAME/Ricty-Regular-Powerline.ttf" ~/Library/Fonts/
     cp "$DOTFILES_DIR/vim-powerline-fonts/$OS_NAME/Ricty-Bold-Powerline.ttf" ~/Library/Fonts/
 fi
-
 
 # installing NeoBundles
 echoLog "Installing NeoBundles"
