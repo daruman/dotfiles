@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "******************* [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *****************"
+echo "******************* [${BASH_SOURCE:-$0}] start " `date +'%Y/%m/%d %H:%M:%S'` " *****************"
 
 # 環境取得
 # =============================================================================
@@ -9,7 +9,7 @@ if [ ! -e "$CONFIG_ENV" ]; then
     exit
 fi
 . $CONFIG_ENV
-echo $ENV
+echo "CONFIG_ENV=$ENV"
 
 
 
@@ -22,14 +22,14 @@ elif [ `uname` = "Linux" ]; then
 else
     OS_NAME='win'
 fi
+echo "OS_NAME=$OS_NAME"
 
 
 
 # ベースディレクトリを取得
 # =============================================================================
 if [ ! -d "$DOTFILES_DIR" ]; then
-    DOTFILES_DIR="$(cd $(dirname $0) && pwd)"
-    # DOTFILES_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.." && pwd)"
+    DOTFILES_DIR="$(cd $(dirname ${BASH_SOURCE:-$0}) && pwd)"
 fi
 DOTFILES_ENV="$DOTFILES_DIR/skel"
 DOTFILES_VIM="$DOTFILES_DIR/.vim"
@@ -42,14 +42,19 @@ cd "$DOTFILES_DIR"
 # submodule update
 # =============================================================================
 
+# gitmoduleにsubmodule登録
+git submodule init
+# 登録されたコミット番号のサブモジュールの実体ソースを持ってくる
+git submodule update
+# [更新作業]各サブモジュールディレクトリにてmasterブランチに切り替えpullする
 git submodule foreach 'git checkout master; git pull'
-git submodule update --init
+
 
 
 
 # setup homebrew
 # =============================================================================
-# source $DOTFILES_DIR/setupShell/setup_brew.sh
+source $DOTFILES_DIR/setupShell/setup_brew.sh
 
 
 

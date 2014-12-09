@@ -1,9 +1,13 @@
-echo "******************* [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
+THIS_PATH=${BASH_SOURCE:-$0}
+echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
 
 source $DOTFILES_DIR/setupShell/brewShell/setup_brew_init.sh
 
 # dmgを入れる事もあるため、リフレッシュをその後にさせるためbrew_dmg.shより先に実行
-source $DOTFILES_DIR/setupShell/brewShell/brewEnv/$ENV.sh
+$ENV_SHELL="$DOTFILES_DIR/setupShell/brewShell/brewEnv/$CONFIG_ENV.sh"
+if [ -f "$ENV_SHELL" ]; then
+    source $ENV_SHELL
+fi
 
 source $DOTFILES_DIR/setupShell/brewShell/brew_shell.sh
 

@@ -1,4 +1,5 @@
-echo "******************* [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
+THIS_PATH=${BASH_SOURCE:-$0}
+echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
 
 # Install .dmg
 # =============================================================================
@@ -47,7 +48,7 @@ sudo installer -pkg /opt/homebrew-cask/Caskroom/google-japanese-ime/latest/Googl
 brew linkapps
 
 
-brew cask install alfred
+brew cask install alfred --force
 # alfredでhomebrew経由でインストールしたアプリも検索出来るようにする
 # =============================================================================
 brew cask alfred link
