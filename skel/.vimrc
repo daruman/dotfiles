@@ -20,6 +20,11 @@ augroup END
 " Variables
 " ================================================================================
 
+" dotfiles dir path
+" --------------------------------------------------------------------------------
+let g:DOTFILES_DIR_PATH=expand('~/Dotfiles/')
+
+
 " OS判別
 " --------------------------------------------------------------------------------
 if has("mac")
@@ -49,19 +54,21 @@ if has('vim_starting')
     " windowsでうまくシンボリックリンク元を探ってくれなかったので
     " expandし実体へのフルパス指定
     if &runtimepath !~ '/neobundle.vim'
-        execute 'set runtimepath+=' . expand('~/Dotfiles/.vim/bundle/neobundle.vim/')
+        execute 'set runtimepath+=' . g:DOTFILES_DIR_PATH . '.vim/bundle/neobundle.vim/'
+
     endif
 endif
 
 " Required:
-call neobundle#begin(expand('~/Dotfiles/.vim/bundle/'))
+call neobundle#begin(g:DOTFILES_DIR_PATH . '/.vim/bundle/')
+
 
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" vimrm.d/plugins/以下の.vimを全てload
-set runtimepath+=~/Dotfiles/vimrc.d/
+" vimrc.d/plugins/以下の.vimを全てload
+execute 'set runtimepath+=' . g:DOTFILES_DIR_PATH . '/vimrc.d'
 runtime! plugins/*.vim
 
 
@@ -87,7 +94,8 @@ source ~/dotfiles/vimrc.d/visual.vim
 
 " colorscheme ごとの カスタムhighlight 設定読み込み
 if has('g:colors_name')
-    let highlight = expand("~/Dotfiles/vimrc.d/highlight/" . g:colors_name . '.vim')
+    let highlight = g:DOTFILES_DIR_PATH . "/vimrc.d/highlight/" . g:colors_name . '.vim'
+
     if filereadable(g:highlight)
         execute 'source ' . g:highlight
     endif
@@ -116,9 +124,9 @@ source ~/dotfiles/vimrc.d/function.vim
 " platform毎設定
 " ================================================================================
 if has('vim_starting')
-  for platform in ['win', 'mac', 'unix']
-    if g:OS_NAME == platform
-      execute 'source ~/Dotfiles/vimrc.d/platform/' . platform . '.vim'
+  for s:platform in ['win', 'mac', 'unix']
+    if g:OS_NAME == s:platform
+      execute 'source ' . g:DOTFILES_DIR_PATH . '/vimrc.d/platform/' . s:platform . '.vim'
       break
     endif
   endfor
