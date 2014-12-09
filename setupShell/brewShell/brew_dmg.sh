@@ -35,6 +35,7 @@ brew cask install caffeine
 brew cask install karabiner
 brew cask install appcleaner
 brew cask install the-unarchiver
+brew cask install alfred
 
 # Google日本語入力はhomebrewではpkgを落とすが実行してないので、インストールする
 # password聞かれるので入力が間に合えばインストールしてるかも
@@ -51,7 +52,6 @@ sudo installer -pkg /opt/homebrew-cask/Caskroom/google-japanese-ime/latest/Googl
 brew linkapps
 
 
-brew cask install alfred --force
 # alfredでhomebrew経由でインストールしたアプリも検索出来るようにする
 # =============================================================================
 brew cask alfred link
