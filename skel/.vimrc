@@ -93,11 +93,10 @@ source ~/dotfiles/vimrc.d/basic.vim
 source ~/dotfiles/vimrc.d/visual.vim
 
 " colorscheme ごとの カスタムhighlight 設定読み込み
-if has('g:colors_name')
-    let highlight = g:DOTFILES_DIR_PATH . "/vimrc.d/highlight/" . g:colors_name . '.vim'
-
-    if filereadable(g:highlight)
-        execute 'source ' . g:highlight
+if exists('g:colors_name')
+    let g:HIGHLIGHT_VIM = g:DOTFILES_DIR_PATH . "/vimrc.d/highlight/" . g:colors_name . '.vim'
+    if filereadable(g:HIGHLIGHT_VIM)
+        execute 'source ' . g:HIGHLIGHT_VIM
     endif
 endif
 

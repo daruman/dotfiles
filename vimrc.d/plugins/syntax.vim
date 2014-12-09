@@ -10,6 +10,17 @@ NeoBundleLazy 'jelera/vim-javascript-syntax', {
             \ 'autoload' : { 'filetypes' : ['javascript'] }
             \}
 
+NeoBundleLazy 'elzr/vim-json', {
+            \ 'autoload' : { 'filetypes' : ['json'] }
+            \}
+
+
+NeoBundleLazy 'chase/vim-ansible-yaml', {
+            \ 'autoload' : { 'filetypes' : ['yaml'] }
+            \}
+
+
+
 " twigファイルを開いた際エラーが出る
 " NeoBundleLazy 'evidens/vim-twig', {
             " \ 'autoload' : { 'filetypes' : ['twig', 'jinja'] }
