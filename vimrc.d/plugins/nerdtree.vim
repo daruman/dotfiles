@@ -6,11 +6,15 @@ let g:NERDTreeWinSize = 40
 " ntでトグル
 nnoremap nt :NERDTreeToggle<CR>
 
-" 引数無し起動時、自動的にNERDTreeを開く
-autocmd vimenter * if !argc() | NERDTree | endif
+augroup nerdtree
+  autocmd!
 
-" 最後のバッファを閉じた際、NERDTreeだけ残さずに終了させる
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  " 引数無し起動時、自動的にNERDTreeを開く
+  autocmd vimenter * if !argc() | NERDTree | endif
+
+  " 最後のバッファを閉じた際、NERDTreeだけ残さずに終了させる
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
 
 " 起動時にブックマークを表示
 let g:NERDTreeShowBookmarks=1

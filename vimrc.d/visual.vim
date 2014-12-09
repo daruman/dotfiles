@@ -112,12 +112,15 @@ set wrap
 set tabstop=4 shiftwidth=4 softtabstop=4
 
 " 以下のファイルタイプではタブ幅は2スペにする
-autocmd FileType html       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType twig       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType css        setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType scss       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType sass       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+augroup tabspace
+    autocmd!
+    autocmd FileType html       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType twig       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType css        setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType scss       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType sass       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+augroup END
 
 
 
@@ -138,8 +141,10 @@ endfunction
 if has('syntax')
     augroup ZenkakuSpace
         autocmd!
+
         " ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
         autocmd ColorScheme       * call ZenkakuSpace()
+
         " 全角スペースのハイライト指定
         autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
     augroup END
@@ -156,7 +161,7 @@ set scrolloff=999
 
 " 80、120文字目で縦罫線を出す
 if has("autocmd")
-    autocmd FileType php     setlocal colorcolumn=80,120
+    autocmd vimrc FileType php     setlocal colorcolumn=80,120
 endif
 
 " 行番号表示

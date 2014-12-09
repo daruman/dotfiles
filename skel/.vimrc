@@ -2,12 +2,18 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+" [Vim の種類 (Vim family) - Qiita](http://qiita.com/b4b4r07/items/f7a4a0461e1fc6f436a4)
+if !1 | finish | endif
+
 " 一旦ファイルタイプ関連を無効化する
 filetype off
 filetype plugin indent off
 
-" [Vim の種類 (Vim family) - Qiita](http://qiita.com/b4b4r07/items/f7a4a0461e1fc6f436a4)
-if !1 | finish | endif
+" group`vimrc`に属するautocmdの多重登録を防ぐ
+" @link [vimrcアンチパターン - rbtnn雑記](http://rbtnn.hateblo.jp/entry/2014/11/30/174749)
+augroup vimrc
+  autocmd!
+augroup END
 
 
 
