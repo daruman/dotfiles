@@ -1,6 +1,6 @@
 NeoBundle 'thinca/vim-quickrun', {
-    \ 'depends' : 'Shougo/vimproc.vim',
-\}
+            \ 'depends' : 'Shougo/vimproc.vim',
+            \}
 
 " <Leader>rでテスト実行
 " see also http://www.karakaram.com/quickrun-phpunit

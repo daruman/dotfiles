@@ -1,10 +1,10 @@
-"     Lazyすると :Unite tweetvim が効かなくなるので通常load
+" Lazyすると :Unite tweetvim が効かなくなるので通常load
 NeoBundle 'basyura/TweetVim', {
             \ 'depends' : ['basyura/twibill.vim', 'open-browser.vim', 'webapi-vim', 'unite.vim'],
             \}
 
 
-" via@http://d.hatena.ne.jp/basyura/20111230/p1
+" @link [TweetVim 1.0 をリリースします！！！ - basyura's blog](http://blog.basyura.org/entry/20111230/p1)
 " タイムライン選択用の Unite を起動する
 nnoremap <silent> tt :Unite tweetvim<CR>
 

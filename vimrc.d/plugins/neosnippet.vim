@@ -3,8 +3,6 @@ NeoBundle 'Shougo/neosnippet.vim', {
             \}
 NeoBundle 'Shougo/neosnippet-snippets'
 
-" @todo この設定よく読む
-" @todo snippetを自前で作る方法
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
