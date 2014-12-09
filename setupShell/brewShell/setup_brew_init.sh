@@ -1,9 +1,10 @@
 THIS_PATH=${BASH_SOURCE:-$0}
 echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
 
+
 # Homebrewを最新にする
 # =============================================================================
-echo 'start brew update'
+echoLog 'start brew update'
 brew update
 
 

@@ -1,15 +1,39 @@
 #!/bin/bash
-echo "******************* [${BASH_SOURCE:-$0}] start " `date +'%Y/%m/%d %H:%M:%S'` " *****************"
+THIS_PATH=${BASH_SOURCE:-$0}
+echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
+
+
+# 共通関数
+# =============================================================================
+
+# ログ出力
+#
+# @param $1 出力メッセージ
+# @param $3 logモード(DEBUG|INFO|WARN|ERR)
+function echoLog() {
+    local date=`date +'%Y/%m/%d %H:%M:%S'`
+    local file=${THIS_PATH##*/}
+
+    if [ -n "$2" ]; then
+        local mode=$2
+    else
+        local mode="INFO"
+    fi
+
+    echo "[$mode][$date::$file] $1"
+}
+
+
 
 # 環境取得
 # =============================================================================
 CONFIG_ENV="./setup_env.conf"
 if [ ! -e "$CONFIG_ENV" ]; then
-    echo 'setup_env.confが無いです。setup_env.conf.distを元に作成し、設定を変更してください。'
+    echoLog 'setup_env.confが無いです。setup_env.conf.distを元に作成し、設定を変更してください。' 'ERROR'
     exit
 fi
 . $CONFIG_ENV
-echo "CONFIG_ENV=$ENV"
+echoLog "CONFIG_ENV=$ENV"
 
 
 
@@ -22,7 +46,7 @@ elif [ `uname` = "Linux" ]; then
 else
     OS_NAME='win'
 fi
-echo "OS_NAME=$OS_NAME"
+echoLog "OS_NAME=$OS_NAME"
 
 
 
@@ -63,7 +87,7 @@ source $DOTFILES_DIR/setupShell/setup_brew.sh
 
 # .bashrc
 ln -sfn "$DOTFILES_ENV/bashrc_$OS_NAME" "$HOME/.bashrc"
-echo "create symbolic link "$DOTFILES_ENV/bashrc_$OS_NAME" > "$HOME/.bashrc""
+echoLog "create symbolic link "$DOTFILES_ENV/bashrc_$OS_NAME" > "$HOME/.bashrc""
 
 # skel内のdotfilesへのシンボリックリンクを~に作成
 backupdir="$HOME/dotfiles-backup-`date +%Y%m%dT%H%M%S`"
@@ -92,4 +116,7 @@ fi
 # =============================================================================
 
 source $DOTFILES_DIR/setupShell/setup_vim.sh
+
+
+
 
