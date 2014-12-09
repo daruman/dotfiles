@@ -1,4 +1,17 @@
 #!/bin/bash
+echo "******************* [$0] start " `date +'%Y/%m/%d %H:%M:%S'` " *****************"
+
+# 環境取得
+# =============================================================================
+CONFIG_ENV="./setup_env.conf"
+if [ ! -e "$CONFIG_ENV" ]; then
+    echo 'setup_env.confが無いです。setup_env.conf.distを元に作成し、設定を変更してください。'
+    exit
+fi
+. $CONFIG_ENV
+echo $ENV
+
+
 
 # OS判別
 # =============================================================================
@@ -26,15 +39,17 @@ cd "$DOTFILES_DIR"
 
 
 
-# submodule
+# submodule update
 # =============================================================================
 
-# gitmoduleにsubmodule登録
-git submodule init
-# 登録されたコミット番号のサブモジュールの実体ソースを持ってくる
-git submodule update
-# [更新作業]各サブモジュールディレクトリにてmasterブランチに切り替えpullする
 git submodule foreach 'git checkout master; git pull'
+git submodule update --init
+
+
+
+# setup homebrew
+# =============================================================================
+# source $DOTFILES_DIR/setupShell/setup_brew.sh
 
 
 
