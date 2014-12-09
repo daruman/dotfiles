@@ -1,6 +1,7 @@
 .vim/bundle/*
 !.vim/bundle/neobundle.vim
 /.vim/.netrwhist
+setup_env.conf
 .*.un~
 .vim/php_manual/
 .vim/etc/neomru/*

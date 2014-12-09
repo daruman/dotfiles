@@ -1,7 +1,7 @@
 
 # SETUP
-$ git clone https://github.com/daruman/dotfiles.git ~/Dotfiles  
-$ cd ~/.dotfiles/  
+$ git clone git@github.com/daruman/dotfiles.git ~/Dotfiles  
+$ cd ~/Dotfiles/  
 $ chmod +x setup.sh  
 $ setup.sh  
 
