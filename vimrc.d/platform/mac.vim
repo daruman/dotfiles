@@ -1,4 +1,6 @@
 " 挿入モードでカーソル形状を変更する
+" --------------------------------------------------------------------------------
+" @link [【vim】インサートモードでカーソルを目立たせる | blog.remora.cx](http://blog.remora.cx/2012/10/spotlight-cursor-line.html)
 if &term =~ "screen"
     " screen使用時
     let &t_SI = "\eP\e]50;CursorShape=1\x7\e\\"
@@ -12,9 +14,10 @@ endif
 " [VimでESCの反応を素早くする，再び ~timeoutlenとttimeoutlen~ | PCと遊ぶ日々の記録](http://calcurio.com/wordpress/?p=1101)
 set timeout timeoutlen=1000 ttimeoutlen=75
 
+
 " fullscreen
 " --------------------------------------------------------------------------------
-" via@https://gist.github.com/acotie/279298#file-vimrc
+" @link https://gist.github.com/acotie/279298#file-vimrc
 
 if has("gui_running")
     set fuoptions=maxvert,maxhorz
