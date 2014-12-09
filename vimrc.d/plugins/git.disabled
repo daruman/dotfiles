@@ -1,5 +1,0 @@
-" NeoBundle 'gregsexton/gitv'
-" tpope/vim-fugitiveに依存してるぽい
-" airblade/vim-gitgutterもいいぽい
-
-" @todo git関連はいろいろあるぽいんで要調査
