@@ -27,3 +27,9 @@ augroup JavascriptAutoCommands
     autocmd FileType javascript compiler closurecompiler
 augroup END
 
+" 前回のカーソル位置を再現
+" @link [Keep cursor's column position after buffer switch : サイト更新停滞ちうっ [ 名無しのVIM使い ]](http://advweb.seesaa.net/article/13443981.html)
+augroup vimrcEx
+    autocmd!
+    autocmd BufRead * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+augroup END
