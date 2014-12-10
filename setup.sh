@@ -78,7 +78,7 @@ git submodule foreach 'git checkout master; git pull'
 
 # setup homebrew
 # =============================================================================
-#source $DOTFILES_DIR/setup/setup_brew.sh
+# source $DOTFILES_DIR/setup/setup_brew.sh
 
 
 

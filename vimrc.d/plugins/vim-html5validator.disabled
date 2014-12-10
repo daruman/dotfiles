@@ -13,4 +13,7 @@ NeoBundleLazy 'hokaccha/vim-html5validator', {
 " autocmd FileType html autocmd BufWritePost <buffer> :silent make
 " augroup END
 
-" @todo syntasticじゃだめなんだっけ？もうそろそろ対応してるんじゃないかね
+
+
+" nuをcurlで使っているのでtidyより良さそう
+" なんだけどどうなんだろ

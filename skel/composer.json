@@ -1,5 +1,6 @@
 {
     "require": {
+        "fabpot/php-cs-fixer": "*",
         "phpmd/phpmd": "*",
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "*"

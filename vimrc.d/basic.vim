@@ -125,3 +125,6 @@ set ttyfast
 if has("path_extra")
   set tags+=tags;
 endif
+
+" 長い文章を自動改行しない
+set textwidth=0
