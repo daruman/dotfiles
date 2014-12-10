@@ -1,8 +1,9 @@
 " 特定フォーマットのファイル作成または読み込み時
 " 指定ファイルタイプとみなし指定シンタックスを使用出来るようにする
-augroup syntax
+augroup fileTypeSetting
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+    autocmd BufNewFile,BufRead \.jshintrc set filetype=json
 augroup END
 
 " 保存時に行末の空白を除去する("文字列の後にspaceが2個"時はmarkdown記法の改行なので削除しない)

@@ -39,7 +39,6 @@ function! s:hooks.on_source(bundle)
     " php
     " --------------------------------------------------------------------------------
     " phpcsでチェックするコーディング規約をdefaultのPEARからPSRに変更(PSR2を指定する事でPSR0、1も対応)、-nで警告表示無し
-    " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
     let g:syntastic_php_phpcs_args = '--report=csv -n --standard=PSR2'
 
     " html
@@ -48,9 +47,8 @@ function! s:hooks.on_source(bundle)
 
     " javascript
     " --------------------------------------------------------------------------------
-    " let g:syntastic_javascript_checkers = [‘jshint’]
-    " let g:syntastic_javascript_checker = "closurecompiler"
-    " let g:syntastic_javascript_closure_compiler_path = $HOME . "/bin/compiler.jar"
+    let g:syntastic_javascript_checkers = ['jshint']
+    let g:syntastic_javascript_jshint_args = "--config ~/.jshintrc"
 
     " css
     " --------------------------------------------------------------------------------

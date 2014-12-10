@@ -10,6 +10,11 @@ brew install php56 --with-fpm
 brew install composer
 
 
+# node
+# =============================================================================
+brew install node
+
+
 
 # この状態だと`mysql -u root -p`でlogin
 #brew install mysql
