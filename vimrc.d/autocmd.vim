@@ -2,9 +2,6 @@
 " 指定ファイルタイプとみなし指定シンタックスを使用出来るようにする
 augroup syntax
     autocmd!
-    "autocmd BufNewFile,BufRead *.twig set filetype=twig syntax=jinja
-    "autocmd BufNewFile,BufRead jquery.*.js set filetype=javascript syntax=jquery
-    "autocmd BufNewFile,BufRead *.js set filetype=javascript
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
 
