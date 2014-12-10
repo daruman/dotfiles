@@ -78,7 +78,7 @@ git submodule foreach 'git checkout master; git pull'
 
 # setup homebrew
 # =============================================================================
-source $DOTFILES_DIR/setup/setup_brew.sh
+#source $DOTFILES_DIR/setup/setup_brew.sh
 
 
 
@@ -86,10 +86,12 @@ source $DOTFILES_DIR/setup/setup_brew.sh
 # =============================================================================
 
 # .bashrc
+# --------------------------------------------------------------------------------
 ln -sfn "$DOTFILES_ENV/bashrc_$OS_NAME" "$HOME/.bashrc"
-echoLog "create symbolic link "$DOTFILES_ENV/bashrc_$OS_NAME" > "$HOME/.bashrc""
+echoLog "create symbolic link $DOTFILES_ENV/bashrc_$OS_NAME > $HOME/.bashrc"
 
 # skel内のdotfilesへのシンボリックリンクを~に作成
+# --------------------------------------------------------------------------------
 backupdir="$HOME/dotfiles-backup-`date +%Y%m%dT%H%M%S`"
 (
     find "$DOTFILES_ENV" -mindepth 1 -maxdepth 1 -name .\* ! -name .\*.swp
@@ -105,18 +107,38 @@ while read src; do
 
     # シンボリックリンクを作る
     ln -sfn "$src" "$dest"
-    echo "create symbolic link "$src" > "$dest" "
+    echoLog "create symbolic link $src > $dest"
 done
 if [ -d "$backupdir" ]; then
-    echo -e "既存のドットファイルは \x1b[36m${backupdir}\x1b[0m に移動されました"
+    echoLog "既存のドットファイルは $backupdir に移動されました"
 fi
+
+# composer
+# --------------------------------------------------------------------------------
+if [ `which composer` ]; then
+    # create ~/.composer dir
+    COMPOSER_HOME="$HOME/.composer"
+    if [ ! -e $COMPOSER_HOME ]; then
+        mkdir $COMPOSER_HOME
+        echoLog "create $COMPOSER_HOME directory"
+    fi
+    chmod 757 $COMPOSER_HOME
+
+    # ln composer.json
+    ln -sfn "$DOTFILES_ENV/composer.json" "$COMPOSER_HOME/composer.json"
+    echoLog "create symbolic link $DOTFILES_ENV/composer.json > $COMPOSER_HOME/composer.json"
+
+    # update & install
+    echoLog "composer update"
+    composer global update
+    echoLog "composer install"
+    composer global install
+fi
+
 
 
 # setup vim
 # =============================================================================
 
 source $DOTFILES_DIR/setup/setup_vim.sh
-
-
-
 

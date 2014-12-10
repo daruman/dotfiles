@@ -35,8 +35,8 @@ brew tap homebrew/apache
 # php用(dupesは依存用)
 brew untap homebrew/dupes
 brew tap homebrew/dupes
-#brew untap homebrew/homebrew-php
-#brew tap homebrew/homebrew-php
+brew untap homebrew/homebrew-php
+brew tap homebrew/homebrew-php
 
 # font用
 brew untap sanemat/font

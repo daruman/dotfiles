@@ -13,7 +13,7 @@ source $DOTFILES_DIR/setup/brewShell/brew_shell.sh
 
 source $DOTFILES_DIR/setup/brewShell/brew_command.sh
 
-#source $DOTFILES_DIR/setup_shell/brewShell/brew_middleware.sh
+source $DOTFILES_DIR/setup/brewShell/brew_middleware.sh
 
 source $DOTFILES_DIR/setup/brewShell/brew_dmg.sh
 

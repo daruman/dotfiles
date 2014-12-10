@@ -1,6 +1,16 @@
 THIS_PATH=${BASH_SOURCE:-$0}
 echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
 
+
+# php
+# =============================================================================
+# with-fpmする必要がある
+# @link [brew install php56 error · Issue #1148 · Homebrew/homebrew-php](https://github.com/Homebrew/homebrew-php/issues/1148)
+brew install php56 --with-fpm
+brew install composer
+
+
+
 # この状態だと`mysql -u root -p`でlogin
 #brew install mysql
 
