@@ -53,7 +53,8 @@ function! s:hooks.on_source(bundle)
     " css
     " --------------------------------------------------------------------------------
     " csslintで連続class指定、装飾無し属性指定のwarn出力を抑止
-    " let g:syntastic_csslint_options = "--ignore=adjoining-classes,unqualified-attributes,box-model"
+    " @link [CSSLintのRulesの超訳](https://gist.github.com/hail2u/1303613)
+    let g:syntastic_csslint_options = "--ignore=adjoining-classes,unqualified-attributes,box-model"
 
 endfunction
 

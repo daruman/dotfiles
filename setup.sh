@@ -140,6 +140,7 @@ fi
 # npm
 # =============================================================================
 npm install -g jshint
+npm install -g csslint
 
 
 # setup vim
