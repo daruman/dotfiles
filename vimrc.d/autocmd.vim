@@ -15,8 +15,21 @@ autocmd vimrc BufWritePre * :%s/[^[:blank:]]\zs\s\{1\}$\|^\s\+$\|[ ]\{3,\}$\|\t\
 " phpを保存する際にphp -l
 augroup php
     autocmd!
-    autocmd FileType php set makeprg=php\ -l\ %
-    autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+
+    " 失敗した時だけechoする
+    " @link [dotfiles/.vimrc at master · ksss/dotfiles](https://github.com/ksss/dotfiles/blob/master/.vimrc#L105)
+    function! s:phplint()
+        if &filetype == 'php'
+            let l:ret = system(printf("php -l %s", expand('%')))
+            if l:ret !~ '^No.*'
+                echo l:ret
+            endif
+        endif
+    endfunction
+
+    " PHP保存した時にlint
+    autocmd BufWritePost * call s:phplint()
+
 augroup END
 
 " scssファイルを:makeでcssにコンパイル
