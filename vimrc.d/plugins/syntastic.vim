@@ -56,6 +56,12 @@ function! s:hooks.on_source(bundle)
     " --------------------------------------------------------------------------------
     let g:syntastic_json_checkers = ['jsonlint']
 
+    " markdown
+    " --------------------------------------------------------------------------------
+    "  除外ルール 03, 09, 12, 13, 14, 24, 25, 26, 30
+    "  @link [markdownlint/RULES.md at master · mivok/markdownlint](https://github.com/mivok/markdownlint/blob/master/docs/RULES.md)
+    let g:syntastic_markdown_mdl_args = "-r MD001,MD002,MD004,MD005,MD006,MD007,MD008,MD010,MD011,MD015,MD016,MD017,MD018,MD019,MD020,MD021,MD022,MD023,MD027,MD028,MD029"
+
 endfunction
 
 " toggle error quickfix

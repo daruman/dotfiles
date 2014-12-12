@@ -1,5 +1,4 @@
-" 特定フォーマットのファイル作成または読み込み時
-" 指定ファイルタイプとみなし指定シンタックスを使用出来るようにする
+" ファイルタイプ拡張
 augroup fileTypeSetting
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
@@ -30,20 +29,8 @@ augroup php
 
     " PHP保存した時にlint
     autocmd BufWritePost * call s:phplint()
-
 augroup END
 
-" scssファイルを:makeでcssにコンパイル
-augroup SassAutoCommands
-    autocmd!
-    autocmd FileType sass,scss compiler scss
-augroup END
-
-" jsファイルを:makeで圧縮
-augroup JavascriptAutoCommands
-    autocmd!
-    autocmd FileType javascript compiler closurecompiler
-augroup END
 
 " 前回のカーソル位置を再現
 " @link [Keep cursor's column position after buffer switch : サイト更新停滞ちうっ [ 名無しのVIM使い ]](http://advweb.seesaa.net/article/13443981.html)

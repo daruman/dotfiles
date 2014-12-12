@@ -121,6 +121,7 @@ augroup tabspace
     autocmd FileType sass       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
     autocmd FileType json       setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+    autocmd FileType markdown   setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 augroup END
 
 
