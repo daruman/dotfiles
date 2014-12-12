@@ -1,11 +1,15 @@
 SETUP
 ================================================================================
 
+setup.shを間違ってもsudoで実行してはいけない  
+生成されたファイルが軒並みrootユーザーになって  
+以後エラー出た箇所をいちいちchownで治す羽目になる。  
+
 ```bash
 $ git clone git@github.com/daruman/dotfiles.git ~/Dotfiles
 $ cd ~/Dotfiles/
 $ chmod +x setup.sh
-$ setup.sh
+$ sh setup.sh
 ```
 
 設定ファイルの修正

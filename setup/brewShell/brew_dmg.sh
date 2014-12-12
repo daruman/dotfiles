@@ -43,7 +43,7 @@ brew cask install alfred
 # [環境設定] → [一般] → [キー設定] → [キー設定の選択 > 編集]にて以下キー追加
 # 入力文字なし	Escape	キャンセル後 IME を無効化
 brew cask install google-japanese-ime
-sudo installer -pkg /opt/homebrew-cask/Caskroom/google-japanese-ime/latest/GoogleJapaneseInput.pkg -tgt /
+# sudo installer -pkg /opt/homebrew-cask/Caskroom/google-japanese-ime/latest/GoogleJapaneseInput.pkg -tgt /
 
 
 # ~/Applications/にシンボリックリンク作成

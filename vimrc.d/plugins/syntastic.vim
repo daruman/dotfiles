@@ -41,10 +41,6 @@ function! s:hooks.on_source(bundle)
     " phpcsでチェックするコーディング規約をdefaultのPEARからPSRに変更(PSR2を指定する事でPSR0、1も対応)、-nで警告表示無し
     let g:syntastic_php_phpcs_args = '--report=csv -n --standard=PSR2'
 
-    " html
-    " --------------------------------------------------------------------------------
-    " g:syntastic_html_tidy_exec=
-
     " javascript
     " --------------------------------------------------------------------------------
     let g:syntastic_javascript_checkers = ['jshint']
@@ -55,6 +51,10 @@ function! s:hooks.on_source(bundle)
     " csslintで連続class指定、装飾無し属性指定のwarn出力を抑止
     " @link [CSSLintのRulesの超訳](https://gist.github.com/hail2u/1303613)
     let g:syntastic_csslint_options = "--ignore=adjoining-classes,unqualified-attributes,box-model"
+
+    " json
+    " --------------------------------------------------------------------------------
+    let g:syntastic_json_checkers = ['jsonlint']
 
 endfunction
 

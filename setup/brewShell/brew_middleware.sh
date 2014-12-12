@@ -7,7 +7,22 @@ echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'`
 # with-fpmする必要がある
 # @link [brew install php56 error · Issue #1148 · Homebrew/homebrew-php](https://github.com/Homebrew/homebrew-php/issues/1148)
 brew install php56 --with-fpm
+
 brew install composer
+# create ~/.composer dir
+COMPOSER_HOME="$HOME/.composer"
+if [ ! -e $COMPOSER_HOME ]; then
+    mkdir $COMPOSER_HOME
+    echoLog "create $COMPOSER_HOME directory"
+fi
+chmod 757 $COMPOSER_HOME
+
+# composer update & install
+echoLog "composer update"
+composer global update
+echoLog "composer install"
+composer global install
+
 
 
 # node

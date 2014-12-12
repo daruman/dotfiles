@@ -65,14 +65,20 @@ cd "$DOTFILES_DIR"
 
 # submodule update
 # =============================================================================
-
 # gitmoduleにsubmodule登録
 git submodule init
+
 # 登録されたコミット番号のサブモジュールの実体ソースを持ってくる
 git submodule update
+
 # [更新作業]各サブモジュールディレクトリにてmasterブランチに切り替えpullする
 git submodule foreach 'git checkout master; git pull'
 
+
+
+# Symbolic Link
+# =============================================================================
+source $DOTFILES_DIR/setup/setup_symlink.sh
 
 
 
@@ -82,69 +88,21 @@ source $DOTFILES_DIR/setup/setup_brew.sh
 
 
 
-# シンボリックリンク
+# gem
 # =============================================================================
-
-# .bashrc
-# --------------------------------------------------------------------------------
-ln -sfn "$DOTFILES_ENV/bashrc_$OS_NAME" "$HOME/.bashrc"
-echoLog "create symbolic link $DOTFILES_ENV/bashrc_$OS_NAME > $HOME/.bashrc"
-
-# skel内のdotfilesへのシンボリックリンクを~に作成
-# --------------------------------------------------------------------------------
-backupdir="$HOME/dotfiles-backup-`date +%Y%m%dT%H%M%S`"
-(
-    find "$DOTFILES_ENV" -mindepth 1 -maxdepth 1 -name .\* ! -name .\*.swp
-) |
-while read src; do
-    dest="$HOME/${src##*/}"
-
-    # 既存の実ファイルが存在したらリネームしてとっておく(srcとdestの実体が同じ場合はスキップ)
-    if [ -e "$dest" -a ! "$src" -ef "$dest" ]; then
-        mkdir -p "$backupdir"
-        mv "$dest" "$backupdir/${src##*/}"
-    fi
-
-    # シンボリックリンクを作る
-    ln -sfn "$src" "$dest"
-    echoLog "create symbolic link $src > $dest"
-done
-if [ -d "$backupdir" ]; then
-    echoLog "既存のドットファイルは $backupdir に移動されました"
-fi
-
-# composer
-# --------------------------------------------------------------------------------
-if [ `which composer` ]; then
-    # create ~/.composer dir
-    COMPOSER_HOME="$HOME/.composer"
-    if [ ! -e $COMPOSER_HOME ]; then
-        mkdir $COMPOSER_HOME
-        echoLog "create $COMPOSER_HOME directory"
-    fi
-    chmod 757 $COMPOSER_HOME
-
-    # ln composer.json
-    ln -sfn "$DOTFILES_ENV/composer.json" "$COMPOSER_HOME/composer.json"
-    echoLog "create symbolic link $DOTFILES_ENV/composer.json > $COMPOSER_HOME/composer.json"
-
-    # update & install
-    echoLog "composer update"
-    composer global update
-    echoLog "composer install"
-    composer global install
-fi
+source $DOTFILES_DIR/setup/setup_gem.sh
 
 
 
 # npm
 # =============================================================================
-npm install -g jshint
-npm install -g csslint
+source $DOTFILES_DIR/setup/setup_npm.sh
+
 
 
 # setup vim
 # =============================================================================
-
 source $DOTFILES_DIR/setup/setup_vim.sh
+
+
 
