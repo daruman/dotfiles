@@ -6,7 +6,7 @@
 " colorscheme 'colorscheme名'を設定すること
 
 
-NeoBundle 'tomasr/molokai'
+" NeoBundle 'tomasr/molokai'
+" NeoBundle 'yuroyoro/yuroyoro256.vim'
 NeoBundle 'mrkn256.vim'
-NeoBundle 'yuroyoro/yuroyoro256.vim'
 

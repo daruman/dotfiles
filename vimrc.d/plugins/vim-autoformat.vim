@@ -1,6 +1,6 @@
 NeoBundleLazy 'Chiel92/vim-autoformat', {
-            \    'autoload': {
-            \        'commands' : 'Autoformat',},}
+            \ 'autoload': {
+            \ 'commands' : 'Autoformat',},}
 
 noremap <F3> :Autoformat<CR><CR>
 

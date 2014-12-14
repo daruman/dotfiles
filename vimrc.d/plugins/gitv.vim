@@ -1,3 +1,4 @@
+" vim-fugitiveに依存しているのでvim-fugitiveの機能も使えるように
 NeoBundle 'gregsexton/gitv', {
             \ 'depends' : 'tpope/vim-fugitive',
             \}

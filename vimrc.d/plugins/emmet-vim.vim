@@ -1,4 +1,4 @@
-" NeoBundle 'mattn/emmet-vim'
+" <C-y>, で変換
 NeoBundleLazy 'mattn/emmet-vim', {
             \ 'autoload': {'filetypes': ['html','ruby','php','css'] }
             \}
@@ -22,11 +22,11 @@ function! s:hooks.on_source(bundle)
                 \  },
                 \}
 
-    " let g:user_emmet_settings  = {
-    " \  'lang' : 'ja',
-    " \  'html' : {
-    " \    'empty_element_suffix' : '>',
-    " \  }
-    " \}
+    let g:user_emmet_settings  = {
+                \  'lang' : 'ja',
+                \  'html' : {
+                \    'empty_element_suffix' : '>',
+                \  }
+                \}
 endfunction
 

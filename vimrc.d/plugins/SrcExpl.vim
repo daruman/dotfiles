@@ -1,5 +1,6 @@
 NeoBundleLazy "wesleyche/SrcExpl", {
-            \ "autoload" : { "commands": ["SrcExplToggle"]}}
+            \ 'autoload' : { 'filetypes' : ['php', 'javascript'] }
+            \ }
 
 " Mappings
 " トグル用のショートカットは<Leader>E<CR>に。

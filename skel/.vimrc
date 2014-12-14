@@ -10,9 +10,10 @@ filetype off
 filetype plugin indent off
 
 " group`vimrc`に属するautocmdの多重登録を防ぐ
+" どのgroupにも属さないautocmdはvimrcに属させる
 " @link [vimrcアンチパターン - rbtnn雑記](http://rbtnn.hateblo.jp/entry/2014/11/30/174749)
 augroup vimrc
-  autocmd!
+    autocmd!
 augroup END
 
 
@@ -55,7 +56,6 @@ if has('vim_starting')
     " expandし実体へのフルパス指定
     if &runtimepath !~ '/neobundle.vim'
         execute 'set runtimepath+=' . g:DOTFILES_DIR_PATH . '.vim/bundle/neobundle.vim/'
-
     endif
 endif
 
@@ -84,13 +84,11 @@ NeoBundleCheck
 
 " Basic Setup
 " ================================================================================
-source ~/dotfiles/vimrc.d/basic.vim
-
-
+execute 'source ' . g:DOTFILES_DIR_PATH . 'vimrc.d/basic.vim'
 
 " Visual Settigns
 " ================================================================================
-source ~/dotfiles/vimrc.d/visual.vim
+execute 'source ' . g:DOTFILES_DIR_PATH . 'vimrc.d/visual.vim'
 
 " colorscheme ごとの カスタムhighlight 設定読み込み
 if exists('g:colors_name')
@@ -104,29 +102,29 @@ endif
 
 " Mappings
 " ================================================================================
-source ~/dotfiles/vimrc.d/mapping.vim
+execute 'source ' . g:DOTFILES_DIR_PATH . 'vimrc.d/mapping.vim'
 
 
 
 " Autocmd Rules
 " ================================================================================
-source ~/dotfiles/vimrc.d/autocmd.vim
+execute 'source ' . g:DOTFILES_DIR_PATH . 'vimrc.d/autocmd.vim'
 
 
 
 " Functions
 " ================================================================================
-source ~/dotfiles/vimrc.d/function.vim
+execute 'source ' . g:DOTFILES_DIR_PATH . 'vimrc.d/function.vim'
 
 
 
 " platform毎設定
 " ================================================================================
 if has('vim_starting')
-  for s:platform in ['win', 'mac', 'unix']
-    if g:OS_NAME == s:platform
-      execute 'source ' . g:DOTFILES_DIR_PATH . '/vimrc.d/platform/' . s:platform . '.vim'
-      break
-    endif
-  endfor
+    for s:platform in ['win', 'mac', 'unix']
+        if g:OS_NAME == s:platform
+            execute 'source ' . g:DOTFILES_DIR_PATH . '/vimrc.d/platform/' . s:platform . '.vim'
+            break
+        endif
+    endfor
 endif

@@ -136,7 +136,7 @@ set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 " 印字不可能文字を16進数で表示
 set display=uhex
 
-" 全角スペースの表示　
+" 全角スペースの表示(　)
 function! ZenkakuSpace()
     highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
 endfunction
@@ -163,7 +163,7 @@ set scrolloff=999
 
 " 80、120文字目で縦罫線を出す
 if has("autocmd")
-    autocmd vimrc FileType php     setlocal colorcolumn=80,120
+    autocmd vimrc FileType php setlocal colorcolumn=80,120
 endif
 
 " 行番号表示

@@ -1,6 +1,7 @@
 
 " :Ev/:Rvでvimrcの編集と反映
 " ================================================================================
+
 if has("gui_macvim")
     command! Ev edit $MYVIMRC
     command! Rv source $MYVIMRC
@@ -77,7 +78,7 @@ set undodir=$HOME/.vim/undodir
 " ================================================================================
 
 " 改行文字
-set fileformats=unix,dos,mac  
+set fileformats=unix,dos,mac
 
 " 前から試してマッチした文字コードを使用
 set fileencodings=utf-8,cp932,euc-jp
