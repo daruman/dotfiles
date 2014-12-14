@@ -1,6 +1,9 @@
 SETUP
 ================================================================================
 
+まずHomebrewを入れておく。  
+
+
 setup.shを間違ってもsudoで実行してはいけない  
 生成されたファイルが軒並みrootユーザーになって  
 以後エラー出た箇所をいちいちchownで治す羽目になる。  
@@ -26,12 +29,4 @@ mbstring.language = Japanese
 mbstring.internal_encoding = UTF-8
 mbstring.detect_order = UTF-8,SJIS,EUC-JP,JIS,ASCII
 ```
-
-
-
-## Node.js
-nodebrewにて管理するので、node.jsはnodebrew経由でInstallする。
-
-
-
 
