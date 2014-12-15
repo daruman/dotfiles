@@ -24,7 +24,6 @@ brew install libpng
 brew install nkf
 brew install pcre
 brew install gcc
-brew install mcrypt
 brew install cmake
 
 # このcurl/opensslはシンボリックリンクを作らない（defaultとのコンフリクトをさけるため

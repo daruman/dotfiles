@@ -8,6 +8,7 @@ echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'`
 # @link [brew install php56 error · Issue #1148 · Homebrew/homebrew-php](https://github.com/Homebrew/homebrew-php/issues/1148)
 brew install php56 --with-fpm
 brew install php56-xdebug
+brew install php56-mcrypt
 
 # composer update & install
 brew install composer
