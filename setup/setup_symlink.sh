@@ -12,6 +12,15 @@ echoLog "create symbolic link and loaded $DOTFILES_ENV/bashrc_$OS_NAME > $HOME/.
 # --------------------------------------------------------------------------------
 # brewでcomposerを入れる前に行う
 # @see ~/Dotfiles/setup.sh
+
+# create ~/.composer dir
+COMPOSER_HOME="$HOME/.composer"
+if [ ! -e $COMPOSER_HOME ]; then
+    mkdir $COMPOSER_HOME
+    echoLog "create $COMPOSER_HOME directory"
+fi
+
+# chmod 757 $COMPOSER_HOME
 COMPOSER_GLOBAL_JSON="$DOTFILES_ENV/skel/composer.json"
 ln -sfn "$COMPOSER_GLOBAL_JSON" "$COMPOSER_HOME/composer.json"
 echoLog "create symbolic link $COMPOSER_GLOBAL_JSON > $COMPOSER_HOME/composer.json"

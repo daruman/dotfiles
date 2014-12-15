@@ -9,16 +9,8 @@ echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'`
 brew install php56 --with-fpm
 brew install php56-xdebug
 
-brew install composer
-# create ~/.composer dir
-COMPOSER_HOME="$HOME/.composer"
-if [ ! -e $COMPOSER_HOME ]; then
-    mkdir $COMPOSER_HOME
-    echoLog "create $COMPOSER_HOME directory"
-fi
-chmod 757 $COMPOSER_HOME
-
 # composer update & install
+brew install composer
 echoLog "composer update"
 composer global update
 echoLog "composer install"
