@@ -7,11 +7,15 @@
 ##################################################
 echo '.profile loaded'
 
+if [ ! -d /usr/local/sbin ]; then
+    mkdir /usr/local/sbin
+fi
+export PATH="/usr/local/sbin:$PATH"
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then

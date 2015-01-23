@@ -6,6 +6,7 @@ echo '.bashrc loaded'
 alias ll='ls -FlhG'
 alias la='ls -FlaG'
 alias vi='vim'
+alias tree='tree -NC'
 # [brew doctorのwarningを解決する](http://mrk1869.com/blog/brew_doctor/)
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 
@@ -43,10 +44,6 @@ export GIT_PAGER="less -R"
 # =============================================================================
 # Homebrewで入れたほうを優先するためPATH追加
 export PATH="/usr/local/bin:$PATH"
-if [ ! -d /usr/local/sbin ]; then
-    mkdir /usr/local/sbin
-fi
-export PATH="/usr/local/sbin:$PATH"
 
 # JAVA
 # --------------------------------------------------------------------------------
