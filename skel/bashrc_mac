@@ -45,9 +45,11 @@ export GIT_PAGER="less -R"
 # Homebrewで入れたほうを優先するためPATH追加
 export PATH="/usr/local/bin:$PATH"
 
+
 # JAVA
 # --------------------------------------------------------------------------------
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
 
 # For MacVim
 # --------------------------------------------------------------------------------
@@ -55,14 +57,12 @@ if [ -d /Applications/MacVim.app/Contents/MacOS ]; then
   export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
 fi
 
+
 # php
 # --------------------------------------------------------------------------------
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 export PATH=$HOME/.composer/vendor/bin:$PATH
 
-# cowsay
-# --------------------------------------------------------------------------------
-export ANSIBLE_COW_SELECTION=random
 
 # Generic Colouriser によるシンタックスハイライト
 # --------------------------------------------------------------------------------
