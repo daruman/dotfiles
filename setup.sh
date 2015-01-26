@@ -9,7 +9,7 @@ echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'`
 # ログ出力
 #
 # @param $1 出力メッセージ
-# @param $3 logモード(DEBUG|INFO|WARN|ERR)
+# @param $2 logモード(DEBUG|INFO|WARN|ERR)
 function echoLog() {
     local date=`date +'%Y/%m/%d %H:%M:%S'`
     local file=${THIS_PATH##*/}
@@ -23,6 +23,13 @@ function echoLog() {
     echo "[$mode][$date::$file] $1"
 }
 
+
+# 実行ユーザーチェック (sudoで実行すると様々なファイル権限等が予期しない形になるため)
+# =============================================================================
+if [ `whoami` = "root" ]; then
+    echoLog 'sudoで実行しないでください。' 'ERROR'
+    exit
+fi
 
 
 # 環境取得
