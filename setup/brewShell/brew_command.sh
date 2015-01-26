@@ -1,6 +1,9 @@
 THIS_PATH=${BASH_SOURCE:-$0}
 echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'` " *******************"
 
+# cowsay
+brew install cowsay
+
 # Commands\Utils
 brew install tree
 brew install openssl
