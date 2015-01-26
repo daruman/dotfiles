@@ -60,6 +60,10 @@ fi
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 export PATH=$HOME/.composer/vendor/bin:$PATH
 
+# cowsay
+# --------------------------------------------------------------------------------
+export ANSIBLE_COW_SELECTION=random
+
 # Generic Colouriser によるシンタックスハイライト
 # --------------------------------------------------------------------------------
 # if [ -f "$(brew --prefix)/etc/grc.bashrc" ]; then
