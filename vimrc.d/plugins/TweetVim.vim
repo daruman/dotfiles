@@ -20,5 +20,6 @@ function! s:hooks.on_source(bundle)
 
     let g:neco_dic = g:neocomplete#sources#dictionary#dictionaries
     let g:neco_dic.tweetvim_say = $HOME . '/.tweetvim/screen_name'
+    let g:tweetvim_tweet_per_page = 65
 endfunction
 
