@@ -4,6 +4,7 @@ echo "******************* [${THIS_PATH##*/}] start " `date +'%Y/%m/%d %H:%M:%S'`
 
 brew install macvim --with-lua --with-luajit --HEAD
 brew install tmux
+brew unlink ansible
 brew install ansible
 # HEADにすることでtidy-html5になる
 brew install tidy --HEAD
