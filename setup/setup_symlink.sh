@@ -21,7 +21,7 @@ if [ ! -e $COMPOSER_HOME ]; then
 fi
 
 # chmod 757 $COMPOSER_HOME
-COMPOSER_GLOBAL_JSON="$DOTFILES_ENV/skel/composer.json"
+COMPOSER_GLOBAL_JSON="$DOTFILES_ENV/composer.json"
 ln -sfn "$COMPOSER_GLOBAL_JSON" "$COMPOSER_HOME/composer.json"
 echoLog "create symbolic link $COMPOSER_GLOBAL_JSON > $COMPOSER_HOME/composer.json"
 
