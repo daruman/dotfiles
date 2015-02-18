@@ -10,10 +10,6 @@ if ! empty(neobundle#get("vim-rooter"))
     " (左優先なので.hgがあってもその親階層に.gitがあればそこがルートになる)
     let g:rooter_patterns = ['.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
 
-    " 常に手動で移動する、自動移動はしない
-    let g:rooter_manual_only = 1
-
     " 指定拡張子のファイルを開いたら自動でルートへ移動
-    " autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
-    " let g:rooter_autocmd_patterns = '*.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js'
+    let g:rooter_autocmd_patterns = '*.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js'
 endif
