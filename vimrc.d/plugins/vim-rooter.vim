@@ -11,5 +11,5 @@ if ! empty(neobundle#get("vim-rooter"))
     let g:rooter_patterns = ['.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
 
     " 指定拡張子のファイルを開いたら自動でルートへ移動
-    let g:rooter_autocmd_patterns = '*.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js'
+    let g:rooter_autocmd_patterns = '*.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js,*.php'
 endif
