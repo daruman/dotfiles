@@ -19,6 +19,7 @@ brew cask install dash
 brew cask install coteditor
 brew cask install filezilla
 brew cask install kobito
+brew cask install macwinzipper
 
 # Browser
 brew cask install google-chrome
