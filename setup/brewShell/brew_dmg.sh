@@ -20,6 +20,7 @@ brew cask install coteditor
 brew cask install filezilla
 brew cask install kobito
 brew cask install macwinzipper
+brew cask install cyberduck
 
 # Browser
 brew cask install google-chrome
