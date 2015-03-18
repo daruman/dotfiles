@@ -21,6 +21,7 @@ brew cask install filezilla
 brew cask install kobito
 brew cask install macwinzipper
 brew cask install cyberduck
+brew cask install slack
 
 # Browser
 brew cask install google-chrome
