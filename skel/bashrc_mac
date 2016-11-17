@@ -39,6 +39,14 @@ export HISTSIZE=9999
 # gitのPAGERを指定(これをしないとdiffやlogで色指定コードが文字として出力されてしまう)
 export GIT_PAGER="less -R"
 
+# gitのコマンド補完を有効に
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
+
+# ブランチ名をTerminalに表示
+GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='\h\[\033[00m\]:\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
+
 
 # Homebrew によるinstall前提設定
 # =============================================================================

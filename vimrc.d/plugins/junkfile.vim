@@ -3,7 +3,7 @@ NeoBundle 'Shougo/junkfile.vim', {
             \}
 
 
-let g:junkfile#directory=expand('$HOME/memo/junkfile')
+let g:junkfile#directory=expand('$HOME/Google\ Drive/junkfile')
 
 command! -nargs=0 JunkfileDay call junkfile#open_immediately(strftime('%Y-%m-%d.md'))
 

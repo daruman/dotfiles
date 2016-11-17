@@ -16,6 +16,7 @@ brew install autoconf
 brew install automake
 brew install grc
 brew install source-highlight
+brew install git
 
 # 依存
 brew install jpeg
