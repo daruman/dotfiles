@@ -39,10 +39,10 @@ export HISTSIZE=9999
 # gitのPAGERを指定(これをしないとdiffやlogで色指定コードが文字として出力されてしまう)
 export GIT_PAGER="less -R"
 
-# gitのコマンド補完を有効に
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/git-completion.bash
+# 入力補完を有効に
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+# source /usr/local/etc/bash_completion.d/git-prompt.sh
 # ブランチ名をTerminalに表示
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\h\[\033[00m\]:\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
@@ -68,7 +68,8 @@ fi
 
 # php
 # --------------------------------------------------------------------------------
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+# export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
 export PATH=$HOME/.composer/vendor/bin:$PATH
 
 
